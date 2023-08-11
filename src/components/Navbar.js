@@ -4,6 +4,8 @@ import { Link, useHistory } from 'react-router-dom';
 import { auth } from '../firebase';
 import {onAuthStateChanged} from "firebase/auth/dist/index.mjs";
 import { signOut } from 'firebase/auth';
+import './Navbar.css';
+import register from "./Register";
 
 const Navbar = () => {
     const [user, setUser] = useState(null);
@@ -41,6 +43,18 @@ const Navbar = () => {
         }
     };
 
+    const login = async () => {
+        history.push('/login');
+        await wait(100);
+        window.location.reload();
+    }
+
+    const register = async () => {
+        history.push('/register');
+        await wait(100);
+        window.location.reload();
+    }
+
     function wait(milliseconds) {
         return new Promise((resolve) => setTimeout(resolve, milliseconds));
     }
@@ -51,38 +65,52 @@ const Navbar = () => {
     }
 
     console.log(auth);
-    if (auth.currentUser != null) {
-        return (
-            <nav className="bg-blue-500 p-4">
-                <div className="max-w-6xl mx-auto">
-                    <Link to="/" onClick={() => reload()} className="text-white text-xl font-bold">
-                        Library
-                    </Link>
-                    <Link to="/reservations" onClick={() => reload()} className="text-white text-xl font-bold">
-                        Reservations
-                    </Link>
-                    <a className="text-white text-xl font-bold">{auth.currentUser.displayName}</a>
-                    <button onClick={() => handleLogout()} className="text-white">
-                        Logout
-                    </button>
-                    {/* Add more navigation links here */}
-                </div>
-            </nav>
-        );
-    } else {
-        return (
-            <nav className="bg-blue-500 p-4">
-                <div className="max-w-6xl mx-auto">
-                    <Link to="/" onClick={() => reload()} className="text-white text-xl font-bold">
+    return (
+        <nav className="nav-container">
+            <div className="nav-container">
+                <div className="nav-logo">
+                    <Link to="/" onClick={() => reload()} className="nav-logo-text">
                         Library App
                     </Link>
-                    <Link to="/login" onClick={() => reload()} className="text-white text-xl font-bold"> Login</Link>
-                    <Link to="/register" onClick={() => reload()} className="text-white text-xl font-bold"> Register</Link>
-                    {/* Add more navigation links here */}
                 </div>
-            </nav>
-        );
-    };
+                <ul className="nav-links">
+                    <li>
+                        <Link to="/" onClick={() => reload()} className="nav-link">
+                            Home
+                        </Link>
+                    </li>
+                    {user && (
+                        <li>
+                            <Link to="/reservations" onClick={() => reload()} className="nav-link">
+                                Reservations
+                            </Link>
+                        </li>
+                    )}
+                </ul>
+                {user ? (
+                    <div className="user-container">
+                        <p className="user-info">{auth.currentUser.displayName}</p>
+                        <button onClick={() => handleLogout()} className="logout-button">
+                            Logout
+                        </button>
+                    </div>
+                ) : (
+                    <ul className="nav-links">
+                        <li>
+                            <button onClick={() => login()} className="login-button">
+                                Login
+                            </button>
+                        </li>
+                        <li>
+                            <button to="/register" onClick={() => register()} className="register-button">
+                                Register
+                            </button>
+                        </li>
+                    </ul>
+                )}
+            </div>
+        </nav>
+    );
 };
 
 export default Navbar;

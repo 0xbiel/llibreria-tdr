@@ -1,0 +1,62 @@
+/* src/components/Homepage.css */
+
+/* Base styling for the homepage container */
+.max-w-6xl {
+    margin: 0 auto;
+}
+
+.p-8 {
+    padding: 2rem;
+}
+
+.text-2xl {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+/* src/components/Homepage.css */
+
+/* Rest of your styles ... */
+
+/* Styling for the book grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 3rem;
+}
+
+.grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.gap-4 {
+    gap: 1rem;
+}
+
+/* Limit image size */
+.book-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Rest of your CSS ... */

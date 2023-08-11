@@ -1,13 +1,18 @@
-// tailwind.config.js
+/** @type {import('tailwindcss').Config} */
+
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
-    -   purge: [],
-    +   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-    darkMode: false, // or 'media' or 'class'
-    theme: {
-  extend: {},
-},
-variants: {
-  extend: {},
-},
-plugins: [],
+  content: [
+    './src/**/*.{js,jsx,ts,tsx}',
+    './src/**/**/*.{js,jsx,ts,tsx}',
+    'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [
+    require('flowbite/plugin')
+  ],
 }
+

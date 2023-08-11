@@ -5,6 +5,7 @@ import {app, auth } from '../firebase';
 import {onAuthStateChanged} from "firebase/auth/dist/index.mjs";
 import { getFirestore, collection, getDocs, query, where, doc, getDoc } from "firebase/firestore";
 
+import './Reservations.css';
 
 const Reservation = () => {
     const [user, setUser] = useState(null);
@@ -36,9 +37,19 @@ const Reservation = () => {
         const fetchReservs = async () => {
             const q = query(collection(db, 'reservations'), where('userId', '==', auth.currentUser.uid));
             const snapshot = await getDocs(q);
-            const fetchedReservs = snapshot.docs.map(
-                (doc) => ({ id: doc.id, ...doc.data()})
-            );
+
+            const fetchedReservs = await Promise.all(snapshot.docs.map(async (doc) => {
+                const reservationData = doc.data();
+
+                // Fetch the referenced book's data
+                const bookRef = reservationData.bookId; // Adjust the field name as per your database structure
+                const bookDoc = await getDoc(bookRef);
+                const bookData = bookDoc.data();
+                console.log(bookData);
+
+                return { id: doc.id, ...reservationData, book: bookData };
+            }));
+
             setReservations(fetchedReservs);
         };
 
@@ -50,18 +61,18 @@ const Reservation = () => {
 
 
     return (
-        <div className="max-w-3xl mx-auto p-8">
-            <h2 className="text-3xl font-semibold mb-6">Your Reservations</h2>
-            <ul className="space-y-4">
+        <div className="reservation-container">
+            <h2 className="reservation-title">Your Reservations</h2>
+            <ul className="reservation-list">
                 {reservations.map((reservation) => (
-                    <li key={reservation.id} className="bg-white p-6 rounded-lg shadow-md">
-                        <p className="text-lg">Book: {reservation.bookName}</p>
-                        <p className="text-lg">Date: {reservation.date}</p>
-                        <p className="text-gray-600">Status: {reservation.status}</p>
+                    <li key={reservation.id} className="reservation-item">
+                        <p className="book-title">Book: {reservation.book.title}</p>
+                        <p className="book-date">Date: {reservation.date}</p>
+                        <p className="book-status">Status: {reservation.status}</p>
                         {reservation.status === 'active' && (
                             <button
                                 // Implement the cancellation logic here
-                                className="mt-2 text-red-600 hover:text-red-800 focus:outline-none"
+                                className="cancel-button"
                             >
                                 Cancel Reservation
                             </button>
@@ -72,5 +83,6 @@ const Reservation = () => {
         </div>
     );
 };
+
 
 export default Reservation;

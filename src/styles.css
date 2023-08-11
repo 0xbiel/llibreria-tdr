@@ -3,7 +3,7 @@
 /* Set global font and background */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f7fafc;
+
 }
 
 /* Header styles */
@@ -12,12 +12,7 @@ body {
     color: white;
 }
 
-/* Page container styles */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
+
 
 /* Button styles */
 .btn {
@@ -35,14 +30,6 @@ body {
     background-color: #357ac9;
 }
 
-/* Reservation card styles */
-.reservation-card {
-    background-color: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
-}
 
 /* Form styles */
 .form-group {
@@ -60,3 +47,88 @@ body {
     border: 1px solid #cbd5e0;
     border-radius: 5px;
 }
+
+/* src/components/Homepage.css */
+
+/* Base styling for the homepage */
+.max-w-6xl {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.p-8 {
+    padding: 2rem;
+}
+
+.text-2xl {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+/* Styling for the book grid */
+.grid {
+    display: grid;
+}
+
+.grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.gap-4 {
+    gap: 1rem;
+}
+
+/* Limit image size */
+.book-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Rest of your CSS ... */
+
+/* src/styles.css */
+
+/* Reset some default styles */
+body, h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set font and background color for the entire app */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+/* Apply some global styling to elements */
+a {
+    text-decoration: none;
+    color: #333; /* Change link color to match your design */
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #555; /* Change link color on hover */
+}
+
+/* Rest of your global styles ... */
