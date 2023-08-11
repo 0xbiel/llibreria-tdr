@@ -1,0 +1,62 @@
+/* src/styles.css */
+
+/* Set global font and background */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7fafc;
+}
+
+/* Header styles */
+.header {
+    background-color: #374151;
+    color: white;
+}
+
+/* Page container styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Button styles */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #357ac9;
+}
+
+/* Reservation card styles */
+.reservation-card {
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Form styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-weight: bold;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd5e0;
+    border-radius: 5px;
+}
