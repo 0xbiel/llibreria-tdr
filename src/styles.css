@@ -2,106 +2,102 @@
 
 /* Set global font and background */
 body {
-    font-family: 'Roboto', sans-serif;
-
+  font-family: "Roboto", sans-serif;
 }
 
 /* Header styles */
 .header {
-    background-color: #374151;
-    color: white;
+  background-color: #374151;
+  color: white;
 }
-
-
 
 /* Button styles */
 .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #4a90e2;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #357ac9;
+  background-color: #357ac9;
 }
-
 
 /* Form styles */
 .form-group {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .form-label {
-    display: block;
-    font-weight: bold;
+  display: block;
+  font-weight: bold;
 }
 
 .form-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #cbd5e0;
-    border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cbd5e0;
+  border-radius: 5px;
 }
 
 /* src/components/Homepage.css */
 
 /* Base styling for the homepage */
 .max-w-6xl {
-    max-width: 1200px;
-    margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .p-8 {
-    padding: 2rem;
+  padding: 2rem;
 }
 
 .text-2xl {
-    font-size: 1.5rem;
-    font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .font-semibold {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .mb-4 {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 /* Styling for the book grid */
 .grid {
-    display: grid;
+  display: grid;
 }
 
 .grid-cols-1 {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
 .grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .gap-4 {
-    gap: 1rem;
+  gap: 1rem;
 }
 
 /* Limit image size */
 .book-card img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 /* Rest of your CSS ... */
@@ -109,26 +105,33 @@ body {
 /* src/styles.css */
 
 /* Reset some default styles */
-body, h1, h2, h3, h4, h5, h6, p {
-    margin: 0;
-    padding: 0;
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
 }
 
 /* Set font and background color for the entire app */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
 }
 
 /* Apply some global styling to elements */
 a {
-    text-decoration: none;
-    color: #333; /* Change link color to match your design */
-    transition: color 0.3s ease;
+  text-decoration: none;
+  color: #333; /* Change link color to match your design */
+  transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #555; /* Change link color on hover */
+  color: #555; /* Change link color on hover */
 }
 
 /* Rest of your global styles ... */

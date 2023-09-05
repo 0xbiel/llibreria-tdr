@@ -2,53 +2,53 @@
 
 /* Base styling for the navbar */
 nav {
-    background-color: #fff;
-    color: #000;
-    padding: 10px 0;
-    margin: 0;
+  background-color: #fff;
+  color: #000;
+  padding: 10px 0;
+  margin: 0;
 }
 
 .nav-container {
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 }
 
 .user-container {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 /* Styling for links */
 .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links a {
-    color: #000;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: normal; /* Use normal weight for non-bold text */
-    transition: color 0.3s ease;
+  color: #000;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: normal; /* Use normal weight for non-bold text */
+  transition: color 0.3s ease;
 }
 
 .user-info {
-    color: #000;
-    font-size: 18px;
-    font-weight: bold;
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .nav-links a:hover {
-    color: #ecf0f1;
+  color: #ecf0f1;
 }
 
 /* Styling for user info and buttons */
@@ -56,42 +56,41 @@ nav {
 .login-button,
 .register-button,
 .logout-button {
-    background-color: transparent;
-    border: 2px solid #000;
-    color: #000;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 4px;
-    text-align: center;
-    transition: color 0.3s ease;
-    text-decoration: none;
+  background-color: transparent;
+  border: 2px solid #000;
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-align: center;
+  transition: color 0.3s ease;
+  text-decoration: none;
 }
-
 
 .login-button:hover,
 .register-button:hover,
 .logout-button:hover {
-    color: #ecf0f1;
-    background-color: #000;
+  color: #ecf0f1;
+  background-color: #000;
 }
 
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    .nav-links {
-        margin-top: 10px;
-        gap: 10px;
-    }
+  .nav-links {
+    margin-top: 10px;
+    gap: 10px;
+  }
 
-    .login-button,
-    .register-button,
-    .logout-button {
-        margin-top: 10px;
-    }
+  .login-button,
+  .register-button,
+  .logout-button {
+    margin-top: 10px;
+  }
 }

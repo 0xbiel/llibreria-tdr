@@ -1,38 +1,37 @@
-
-    /* Base styling for the container */
+/* Base styling for the container */
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Styling for the book image */
 .container img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 1rem;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Styling for headings */
 .container h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
 
 /* Styling for text */
 .container p {
-    font-size: 1.1rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
 }
 
 /* Additional styling for specific elements if needed */
 .container p.author {
-    font-weight: bold;
+  font-weight: bold;
 }
