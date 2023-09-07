@@ -11,12 +11,15 @@ import {
   getDocs,
   addDoc,
   getDoc,
+  doc,
+  updateDoc,
 } from "firebase/firestore";
 
 const AdminDashboard = () => {
   const [user, setUser] = useState(null);
-  const [email, setEmail] = useState("");
+  const [Email, setEmail] = useState("");
   const [books, setBooks] = useState([]);
+  const [reservRef, setReservRef] = useState([]); // eslint-disable-next-line no-unused-vars
   const db = getFirestore(app);
   const history = useHistory();
 
@@ -51,16 +54,12 @@ const AdminDashboard = () => {
       if (user) {
         setUser(user);
         try {
-          console.log(user);
           checkAdmin(user);
           fetchBooks();
         } catch (e) {}
       } else {
         setUser(null);
       }
-      try {
-        console.log(user.uid);
-      } catch (e) {}
     });
 
     return () => {
@@ -83,19 +82,60 @@ const AdminDashboard = () => {
 
   const handleAddAdmin = async (e) => {
     console.log("handleAddAdmin");
+
+    const dbRef = collection(db, "admins");
+    addDoc(dbRef, { email: Email })
+      .then((dbRef) => {
+        console.log("Document written with ID: ", dbRef.id);
+      })
+      .catch((error) => {
+        console.error("Error adding document: ", error);
+      });
+  };
+
+  const handleSetAsReturned = async (e) => {
+    e.preventDefault();
     try {
-      const adminData = {
-        email: e,
-      };
-      await addDoc(collection(db, "admins"), adminData);
+      const reservationRef = doc(db, "reservations", reservRef);
+      await updateDoc(reservationRef, { status: "returned" });
     } catch (error) {
-      console.error("Error adding document: ", error);
+      console.error("Error updating document: ", error);
     }
   };
 
   return (
     <div>
       <h2>Admin Dashboard</h2>
+      <section className="mark-as-returned-section">
+        <h2>Mark as returned</h2>
+        <form className="return-form" onSubmit={handleSetAsReturned}>
+          <input
+            id="reservationRef"
+            name="reservationRef"
+            type="text"
+            required
+            className="reservationRef-input"
+            value={reservRef}
+            onChange={(e) => setReservRef(e.target.value)}
+          />
+          <button type="submit">Mark as returned</button>
+        </form>
+      </section>
+      <section className="add-admin-section">
+        <h2>Add admin</h2>
+        <form className="add-admin-form" onSubmit={handleAddAdmin}>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            className="email-input"
+            value={Email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <button type="submit">Add admin</button>
+        </form>
+      </section>
       <section className="admin-section">
         <h2>Books</h2>
         <table>
@@ -112,7 +152,7 @@ const AdminDashboard = () => {
               <tr key={book.id}>
                 <td>{book.id}</td>
                 <td>{book.title}</td>
-                <td>{book.author}</td>
+                <td>{book.author.name}</td>
                 <td>
                   {/* Add buttons for book actions */}
                   <button>Edit</button>

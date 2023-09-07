@@ -37,9 +37,6 @@ function BookDetails() {
       } else {
         setUser(null);
       }
-      try {
-        console.log(user.uid);
-      } catch (e) {}
     });
     const fetchBook = async () => {
       try {

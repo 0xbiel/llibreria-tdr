@@ -40,9 +40,6 @@ const Navbar = () => {
       } else {
         setUser(null);
       }
-      try {
-        console.log(user);
-      } catch (e) {}
     });
 
     return () => {
@@ -83,7 +80,6 @@ const Navbar = () => {
     window.location.reload();
   };
 
-  console.log(auth);
   return (
     <nav className="nav-container">
       <div className="nav-container">

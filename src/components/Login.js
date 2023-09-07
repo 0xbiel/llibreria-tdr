@@ -37,7 +37,6 @@ const Login = ({ setUser }) => {
       history.push("/"); // Redirect to the homepage
       await wait(100);
       window.location.reload();
-      console.log(auth);
     } catch (error) {
       console.error("Login error:", error);
     }

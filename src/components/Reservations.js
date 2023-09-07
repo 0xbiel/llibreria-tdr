@@ -116,16 +116,17 @@ const Reservation = () => {
                 : reservation.status}
             </p>
             <p className="reservation-id">ID: {reservation.id}</p>
-            {reservation.status === "active" && (
-              <button
-                onClick={() =>
-                  handleCancelReservation(reservation.id, reservation.bookId)
-                }
-                className="cancel-button"
-              >
-                Cancel Reservation
-              </button>
-            )}
+            {reservation.status === "active" &&
+              !isDelayed(reservation.endDate) && (
+                <button
+                  onClick={() =>
+                    handleCancelReservation(reservation.id, reservation.bookId)
+                  }
+                  className="cancel-button"
+                >
+                  Cancel Reservation
+                </button>
+              )}
           </li>
         ))}
       </ul>

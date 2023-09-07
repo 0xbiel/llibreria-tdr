@@ -34,10 +34,6 @@ const App = () => {
     };
   }, []);
 
-  try {
-    console.log(user);
-  } catch (e) {}
-
   return (
     <Router>
       <Navbar />
