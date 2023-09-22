@@ -22,6 +22,9 @@ const BookCard = ({ book }) => {
       <h4 className="text-lg font-semibold mb-2 text-black">
         {book.author.name}
       </h4>
+      <h4 className="text-lg-font-semibold mb-2 text-black hover:gray-700">
+        {book.category.name}
+      </h4>
       <div className="flex justify-center">
         <img
           src={book.imageUrl}

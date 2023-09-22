@@ -1,0 +1,121 @@
+/* src/components/AdminDashboard.css */
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0; /* Background color for the entire page */
+  margin: 0;
+  padding: 0;
+}
+
+.admin-dashboard {
+  background-color: #fff; /* Background color for the admin dashboard */
+  margin: 20px;
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners for the admin dashboard */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Drop shadow for the admin dashboard */
+}
+
+/* Section headers */
+h2 {
+  font-size: 24px;
+  margin-top: 0;
+  color: #333; /* Text color for section headers */
+}
+
+/* Forms */
+form {
+  margin-top: 10px;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+  width: auto;
+  max-width: 100%; /* Ensure the textarea doesn't exceed its parent's width */
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: vertical; /* Allow vertical resizing */
+  overflow: auto; /* Add a scrollbar when content exceeds the height */
+}
+
+/* Buttons */
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+}
+
+/* Links */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Edit and delete buttons */
+.edit-button,
+.delete-button {
+  padding: 6px 12px;
+  margin-right: 5px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button {
+  background-color: #dc3545;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  background-color: #218838;
+}
+
+/* Media queries for larger screens */
+@media screen and (min-width: 768px) {
+  .admin-dashboard {
+    width: 80%; /* Limit the admin dashboard width for larger screens */
+    margin: 20px auto; /* Center the admin dashboard horizontally */
+  }
+}

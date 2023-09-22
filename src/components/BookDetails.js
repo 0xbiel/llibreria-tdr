@@ -45,15 +45,30 @@ function BookDetails() {
         if (bookDoc.exists) {
           const bookData = bookDoc.data();
           const authorRef = bookData.authorRef;
+          const categoryRef = bookData.categoryRef;
 
           if (authorRef) {
             const authorDoc = await getDoc(authorRef);
             const authorData = authorDoc.data();
             // Add author information to the bookData object
-            setBook({ ...bookData, author: authorData });
-            setBookRef(bookDoc.id);
+
+            if (categoryRef) {
+              const categoryDoc = await getDoc(categoryRef);
+              const categoryData = categoryDoc.data();
+
+              setBook({
+                ...bookData,
+                author: authorData,
+                category: categoryData,
+              });
+              setBookRef(bookDoc.id);
+            } else {
+              setBook({ ...bookData, author: authorData });
+              setBookRef(bookDoc.id);
+            }
           } else {
-            setBook(bookData);
+            setBook({ ...bookData, author: null, category: null });
+            setBookRef(bookDoc.id);
           }
         } else {
           console.log("Book not found");
@@ -73,8 +88,42 @@ function BookDetails() {
 
   // Function to handle reservation creation
   const handleReservation = async () => {
+    const selectedStartDate_Date = new Date(selectedStartDate);
+    const today = new Date();
+
+    if (selectedStartDate_Date < today) {
+      alert("Please select a start date in the future.");
+      return;
+    }
+
     if (!selectedStartDate) {
-      console.log("Please select a start date for the reservation.");
+      alert("Please select a start date for the reservation.");
+      return;
+    }
+
+    // Check if the user has an active reservation
+    const activeReservationsQuery = query(
+      collection(db, "reservations"),
+      where("userId", "==", auth.currentUser.uid),
+      where("status", "==", "active")
+    );
+
+    const activeBooksQuery = query(
+      collection(db, "reservations"),
+      where("bookId", "==", bookRef),
+      where("status", "==", "active")
+    );
+
+    const activeBooksSnapshot = await getDocs(activeBooksQuery);
+
+    const bookSize = activeBooksSnapshot.size;
+
+    const activeReservationsSnapshot = await getDocs(activeReservationsQuery);
+
+    console.log(activeReservationsSnapshot);
+
+    if (!activeReservationsSnapshot.empty) {
+      alert("You already have an active reservation.");
       return;
     }
 
@@ -93,8 +142,8 @@ function BookDetails() {
     const bookData = bookDoc.data();
     const availableCopies = bookData.availableCopies;
 
-    if (availableCopies <= 0) {
-      console.log("No available copies for the selected period.");
+    if (bookSize >= availableCopies) {
+      alert("No available copies for the selected period.");
       return;
     }
 
@@ -110,12 +159,7 @@ function BookDetails() {
 
       await addDoc(collection(db, "reservations"), reservationData);
 
-      // Decrement available copies count
-      await updateDoc(bookDocRef, {
-        availableCopies: availableCopies - 1,
-      });
-
-      console.log("Reservation created successfully");
+      alert("Reservation created successfully");
     } catch (error) {
       console.error("Error creating reservation:", error);
     }
@@ -141,7 +185,7 @@ function BookDetails() {
         Make Reservation
       </button>
       <p>Author: {book.author.name}</p>
-      <p>Genre: {book.genre}</p>
+      <p>Genre: {book.category.name}</p>
       <p>Description: {book.description}</p>
     </div>
   );

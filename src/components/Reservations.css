@@ -52,6 +52,8 @@
 }
 .cancel-button:hover {
   text-decoration: underline;
+  color: #bba5a5;
+  opacity: 0.7;
 }
 
 .delayed-reservation {

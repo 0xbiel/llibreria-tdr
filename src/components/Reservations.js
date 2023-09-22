@@ -14,6 +14,8 @@ import {
 
 import "./Reservations.css";
 
+import QRCode from "react-qr-code";
+
 const Reservation = () => {
   const [user, setUser] = useState(null);
   const [reservations, setReservations] = useState([]);
@@ -35,9 +37,24 @@ const Reservation = () => {
         const bookDoc = await getDoc(reservationData.bookId);
         const bookData = bookDoc.data();
 
-        return { id: doc1.id, ...reservationData, book: bookData };
+        return {
+          id: doc1.id,
+          ...reservationData,
+          book: bookData ?? { title: "Book doesn't exist" },
+        };
       })
     );
+
+    // Sort reservations by startDate in "dd/mm/yyyy" format
+    fetchedReservs.sort((a, b) => {
+      const dateA = new Date(
+        a.startDate.split("/").reverse().join("/") // Convert "dd/mm/yyyy" to "yyyy/mm/dd"
+      );
+      const dateB = new Date(
+        b.startDate.split("/").reverse().join("/") // Convert "dd/mm/yyyy" to "yyyy/mm/dd"
+      );
+      return dateB - dateA; // Sort in descending order (latest date first)
+    });
 
     setReservations(fetchedReservs);
   };
@@ -84,8 +101,12 @@ const Reservation = () => {
 
   // Function to check if a reservation is delayed
   const isDelayed = (endDate) => {
-    const maxReturnDate = new Date(endDate); // Convert max return date to a Date object
+    const maxReturnDate = new Date(
+      endDate.split("/").reverse().join("/") // Convert "dd/mm/yyyy" to "yyyy/mm/dd"
+    );
     const currentDate = new Date(); // Get the current date
+
+    console.log(currentDate, maxReturnDate);
 
     // Compare max return date with the current date
     return currentDate > maxReturnDate;
@@ -115,7 +136,7 @@ const Reservation = () => {
                 ? "Delayed" // Set the status to "Delayed" if the reservation is active and delayed
                 : reservation.status}
             </p>
-            <p className="reservation-id">ID: {reservation.id}</p>
+            <QRCode size={100} fgColor="black" value={reservation.id} />
             {reservation.status === "active" &&
               !isDelayed(reservation.endDate) && (
                 <button
