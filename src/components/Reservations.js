@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { app, auth } from "../firebase";
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, reload } from "firebase/auth";
 import {
   getFirestore,
   collection,
@@ -15,6 +15,8 @@ import {
 import "./Reservations.css";
 
 import QRCode from "react-qr-code";
+
+import { Link } from "react-router-dom";
 
 const Reservation = () => {
   const [user, setUser] = useState(null);
@@ -33,27 +35,24 @@ const Reservation = () => {
         const reservationData = doc1.data();
         console.log(doc1.id);
 
-        // Fetch the referenced book's data
         const bookDoc = await getDoc(reservationData.bookId);
         const bookData = bookDoc.data();
+        console.log(bookData);
+        console.log(bookDoc.id);
 
         return {
           id: doc1.id,
           ...reservationData,
           book: bookData ?? { title: "Book doesn't exist" },
+          bookId: { id: bookDoc.id } ?? { title: "Book doesn't exist" },
         };
       })
     );
 
-    // Sort reservations by startDate in "dd/mm/yyyy" format
     fetchedReservs.sort((a, b) => {
-      const dateA = new Date(
-        a.startDate.split("/").reverse().join("/") // Convert "dd/mm/yyyy" to "yyyy/mm/dd"
-      );
-      const dateB = new Date(
-        b.startDate.split("/").reverse().join("/") // Convert "dd/mm/yyyy" to "yyyy/mm/dd"
-      );
-      return dateB - dateA; // Sort in descending order (latest date first)
+      const dateA = new Date(a.startDate.split("/").reverse().join("/"));
+      const dateB = new Date(b.startDate.split("/").reverse().join("/"));
+      return dateB - dateA;
     });
 
     setReservations(fetchedReservs);
@@ -81,36 +80,33 @@ const Reservation = () => {
   }, []);
 
   const handleCancelReservation = async (reservationId, bookRef) => {
-    console.log(reservationId);
+    const confirmation = window.confirm(
+      "Are you sure you want to delete this book?"
+    );
+    if (!confirmation) return;
     try {
       const reservationRef = doc(db, "reservations", reservationId);
       await updateDoc(reservationRef, { status: "cancelled" });
-
-      const bookDocRef = getDoc(bookRef);
-      const availableCopies = bookDocRef.availableCopies;
-
-      await updateDoc(bookDocRef, {
-        availableCopies: availableCopies + 1,
-      });
-
       fetchReservs();
     } catch (e) {
       console.error("Error cancelling reservation:", e);
     }
+    await wait(50);
+    window.location.reload();
   };
 
-  // Function to check if a reservation is delayed
   const isDelayed = (endDate) => {
-    const maxReturnDate = new Date(
-      endDate.split("/").reverse().join("/") // Convert "dd/mm/yyyy" to "yyyy/mm/dd"
-    );
-    const currentDate = new Date(); // Get the current date
+    const maxReturnDate = new Date(endDate.split("/").reverse().join("/"));
+    const currentDate = new Date();
 
     console.log(currentDate, maxReturnDate);
 
-    // Compare max return date with the current date
     return currentDate > maxReturnDate;
   };
+
+  function wait(milliseconds) {
+    return new Promise((resolve) => setTimeout(resolve, milliseconds));
+  }
 
   return (
     <div className="reservation-container">
@@ -120,34 +116,77 @@ const Reservation = () => {
           <li
             key={reservation.id}
             className={`reservation-item ${
-              reservation.status === "active" && isDelayed(reservation.endDate)
-                ? "delayed-reservation" // Apply the delayed CSS class if the reservation is active and delayed
+              reservation.status === "delivered" &&
+              isDelayed(reservation.endDate)
+                ? "delayed-reservation"
+                : reservation.status === "delivered"
+                ? "delivered-reservation"
                 : ""
             }`}
           >
-            <p className="book-title">Book: {reservation.book.title}</p>
+            <Link
+              to={`/books/${reservation.bookId.id}`}
+              onClick={async () => {
+                await wait(100);
+                window.location.reload();
+              }}
+              className="book-title"
+            >
+              Book: {reservation.book.title}
+            </Link>
             <p className="book-date">Date: {reservation.startDate}</p>
             <p className="max-return-date">
               Max return date: {reservation.endDate}
             </p>
             <p className="book-status">
               Status:{" "}
-              {reservation.status === "active" && isDelayed(reservation.endDate)
-                ? "Delayed" // Set the status to "Delayed" if the reservation is active and delayed
+              {reservation.status === "delivered" &&
+              isDelayed(reservation.endDate)
+                ? "Delayed"
+                : reservation.status === "delivered"
+                ? "Delivered"
                 : reservation.status}
             </p>
-            <QRCode size={100} fgColor="black" value={reservation.id} />
-            {reservation.status === "active" &&
-              !isDelayed(reservation.endDate) && (
-                <button
-                  onClick={() =>
-                    handleCancelReservation(reservation.id, reservation.bookId)
-                  }
-                  className="cancel-button"
-                >
-                  Cancel Reservation
-                </button>
-              )}
+            <table className="table">
+              <thead></thead>
+              <tbody>
+                <tr className="table">
+                  <td className="table">
+                    <QRCode
+                      size={125}
+                      fgColor="black"
+                      bgColor="#eeeeee"
+                      className="qr-code"
+                      value={reservation.id}
+                    />
+                  </td>
+                  <td className="table">
+                    <div className="flex justify-center">
+                      <img
+                        className="image"
+                        src={reservation.book.imageUrl}
+                        alt={reservation.book.imageUrl}
+                      />
+                    </div>
+                  </td>
+                  <td className="table">
+                    {reservation.status === "active" && (
+                      <button
+                        onClick={() =>
+                          handleCancelReservation(
+                            reservation.id,
+                            reservation.bookId
+                          )
+                        }
+                        className="cancel-button"
+                      >
+                        Cancel Reservation
+                      </button>
+                    )}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </li>
         ))}
       </ul>

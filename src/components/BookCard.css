@@ -1,0 +1,55 @@
+/* src/components/BookCard.css */
+
+/* Book card container */
+.book-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: left;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  align-items: auto;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Book title link */
+.book-title-link {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.book-title-link:hover {
+  color: #007bff;
+}
+
+/* Author name */
+.author-name {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 0.5rem;
+}
+
+/* Category name */
+.category-name {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 0.5rem;
+}
+
+/* Book image */
+.book-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 0.5rem;
+  border-radius: 10px;
+}

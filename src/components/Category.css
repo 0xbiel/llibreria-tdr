@@ -1,7 +1,13 @@
 /* Homepage.css */
 
+html,
 body {
-  background: linear-gradient(135deg, #ffffff, #e7e7e7);
+  min-height: 100%;
+  min-width: 100%;
+}
+
+body {
+  background: linear-gradient(135deg, #ffffff, #dfdfdf);
 }
 
 .homepage-container {
@@ -14,13 +20,13 @@ body {
 .homepage-title {
   font-size: 3rem;
   font-weight: bold;
-  color: #333; /* Change the color to your preference */
+  color: #333;
   margin-bottom: 10px;
 }
 
 .homepage-subtitle {
   font-size: 1.2rem;
-  color: #666; /* Change the color to your preference */
+  color: #666;
   margin-bottom: 30px;
 }
 
@@ -32,14 +38,14 @@ input[type="text"] {
   width: 100%;
   padding: 10px;
   font-size: 1rem;
-  border: 2px solid #ddd; /* Change the border color to your preference */
+  border: 2px solid #ddd;
   border-radius: 5px;
   outline: none;
   transition: border-color 0.3s ease;
 }
 
 input[type="text"]:focus {
-  border-color: #007bff; /* Change the focus border color to your preference */
+  border-color: #007bff;
 }
 
 .book-grid {
@@ -48,14 +54,13 @@ input[type="text"]:focus {
   gap: 20px;
 }
 
-/* Style for BookCard component (you can adapt it to your BookCard component) */
 .book-card {
   background-color: #fff;
-  border: 1px solid #e0e0e0; /* Change the border color to your preference */
+  border: 1px solid #e0e0e0;
   border-radius: 5px;
   padding: 20px;
   text-align: left;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -63,17 +68,17 @@ input[type="text"]:focus {
   font-size: 1.5rem;
   font-weight: bold;
   margin: 0;
-  color: #333; /* Change the color to your preference */
+  color: #333;
 }
 
 .book-card p {
   font-size: 1rem;
-  color: #777; /* Change the color to your preference */
+  color: #777;
   margin: 10px 0;
 }
 
 /* Hover effect for BookCard */
 .book-card:hover {
-  transform: translateY(-5px); /* Add a slight lift on hover */
-  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.1); /* Add a shadow on hover */
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.1);
 }

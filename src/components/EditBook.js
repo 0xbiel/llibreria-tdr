@@ -10,6 +10,7 @@ const EditBook = ({ book, onSave, onCancel, authors, categories }) => {
     description: book.description,
     authorRef: book.authorRef,
     categoryRef: book.categoryRef,
+    isbn: book.isbn,
   });
   const db = getFirestore(app);
 
@@ -59,6 +60,15 @@ const EditBook = ({ book, onSave, onCancel, authors, categories }) => {
             type="text"
             name="title"
             value={editedBook.title}
+            onChange={handleInputChange}
+          />
+        </label>
+        <label>
+          ISBN:
+          <input
+            type="text"
+            name="isbn"
+            value={editedBook.isbn}
             onChange={handleInputChange}
           />
         </label>

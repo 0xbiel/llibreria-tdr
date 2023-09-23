@@ -15,7 +15,12 @@ import Homepage from "./components/Homepage";
 import Navbar from "./components/Navbar";
 import BookDetails from "./components/BookDetails";
 import "./styles.css";
-import AdminDashboard from "./components/AdminDashboard"; // Import the new component
+import AdminDashboard from "./components/AdminDashboard";
+import Category from "./components/Category";
+import Books from "./components/Books";
+import Categories from "./components/Categories";
+import Authors from "./components/Authors";
+import AdminUsers from "./components/AdminUsers";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -38,7 +43,6 @@ const App = () => {
     <Router>
       <Navbar />
       <Switch>
-        <Route path="/admin/dashboard" component={AdminDashboard} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route
@@ -46,6 +50,20 @@ const App = () => {
           render={() => <Reservations user={user} />}
         />
         <Route path="/books/:id" component={BookDetails} />
+        <Route path="/category/:categoryId" component={Category} />
+        <Route path="/admin/dashboard" component={AdminDashboard} />
+        <Route path="/admin/admin_users">
+          <AdminUsers />
+        </Route>
+        <Route path="/admin/books">
+          <Books />
+        </Route>
+        <Route path="/admin/categories">
+          <Categories />
+        </Route>
+        <Route path="/admin/authors">
+          <Authors />
+        </Route>
         <Route path="/" component={Homepage}></Route>
       </Switch>
     </Router>

@@ -18,7 +18,7 @@
 }
 
 .reservation-item {
-  background-color: #f9fafb;
+  background-color: #000000;
   border-radius: 8px;
   padding: 15px;
   margin-bottom: 15px;
@@ -26,6 +26,7 @@
 }
 
 .book-title {
+  color: #e2e2e2;
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 5px;
@@ -33,24 +34,31 @@
 
 .book-date {
   font-size: 16px;
-  color: #6b7280;
+  color: #e2e2e2;
+}
+
+.max-return-date {
+  font-size: 16px;
+  color: #e2e2e2;
 }
 
 .book-status {
   font-size: 16px;
-  color: #6b7280;
+  color: #e2e2e2;
 }
 
 .cancel-button {
   display: inline-block;
+  background-color: #cf0000;
+  padding: 10px;
   margin-top: 10px;
   font-size: 14px;
-  color: #dc2626;
+  color: #e2e2e2;
   cursor: pointer;
   border: none;
-  background: none;
 }
 .cancel-button:hover {
+  background-color: #da0000;
   text-decoration: underline;
   color: #bba5a5;
   opacity: 0.7;
@@ -59,4 +67,32 @@
 .delayed-reservation {
   color: #da0000; /* Set the text color to red for delayed reservations */
   /* Add any other styles you want for delayed reservations */
+}
+
+.delivered-reservation {
+  /* Change the background color to green or your preference */
+  color: #19e007;
+}
+
+.qr-code {
+  background-color: #eeeeee;
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.table {
+  width: 100%;
+  border: none;
+  margin-top: 20px;
+  align-self: auto;
+  background-color: #eeeeee;
+  border-radius: 10px;
+}
+
+.image {
+  max-width: 150px;
+  max-height: 150px;
+  border-radius: 20px;
+  padding: 10px;
 }

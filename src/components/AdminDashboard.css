@@ -33,9 +33,10 @@ input[type="email"],
 textarea,
 select {
   width: auto;
-  max-width: 100%; /* Ensure the textarea doesn't exceed its parent's width */
-  padding: 10px;
-  margin: 5px 0;
+  align-self: center;
+  max-width: 90%; /* Ensure the textarea doesn't exceed its parent's width */
+  padding: 20px;
+  margin: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
@@ -118,4 +119,34 @@ a:hover {
     width: 80%; /* Limit the admin dashboard width for larger screens */
     margin: 20px auto; /* Center the admin dashboard horizontally */
   }
+}
+
+.AdminNav {
+  background-color: #eeeeee00;
+  color: none;
+  text-align: center;
+}
+
+.AdminUl {
+  list-style-type: none;
+  margin: 10px 0px;
+  padding: 10px;
+  overflow: hidden;
+  background-color: #007bff;
+}
+
+.AdminLi {
+  float: down;
+}
+
+.AdminLi a {
+  display: block;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.AdminLi a:hover {
+  background-color: #0056b3;
 }

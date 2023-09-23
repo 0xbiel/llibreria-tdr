@@ -111,7 +111,7 @@ function BookDetails() {
     const activeBooksQuery = query(
       collection(db, "reservations"),
       where("bookId", "==", bookRef),
-      where("status", "==", "active")
+      where("status", "in", ["active", "delivered"])
     );
 
     const activeBooksSnapshot = await getDocs(activeBooksQuery);
@@ -119,8 +119,6 @@ function BookDetails() {
     const bookSize = activeBooksSnapshot.size;
 
     const activeReservationsSnapshot = await getDocs(activeReservationsQuery);
-
-    console.log(activeReservationsSnapshot);
 
     if (!activeReservationsSnapshot.empty) {
       alert("You already have an active reservation.");
@@ -186,6 +184,7 @@ function BookDetails() {
       </button>
       <p>Author: {book.author.name}</p>
       <p>Genre: {book.category.name}</p>
+      <p>ISBN: {book.isbn}</p>
       <p>Description: {book.description}</p>
     </div>
   );

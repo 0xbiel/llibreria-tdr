@@ -16,6 +16,7 @@ import "./Navbar.css";
 const Navbar = () => {
   const [user, setUser] = useState(null);
   const [admin, setAdmin] = useState(null);
+  const [categories, setCategories] = useState([]);
   const db = getFirestore(app);
   const history = useHistory();
 
@@ -37,6 +38,8 @@ const Navbar = () => {
       if (user) {
         setUser(user);
         checkAdmin(user);
+        fetchCategories();
+        console.log(user);
       } else {
         setUser(null);
       }
@@ -55,7 +58,7 @@ const Navbar = () => {
       window.location.reload();
       history.push("/login");
     } catch (error) {
-      console.error("Logout error:", error);
+      alert("Logout error:", error);
     }
   };
 
@@ -80,6 +83,16 @@ const Navbar = () => {
     window.location.reload();
   };
 
+  const fetchCategories = async () => {
+    const categoriesRef = collection(db, "categories");
+    const snapshot = await getDocs(categoriesRef);
+    const categoryList = snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    setCategories(categoryList);
+  };
+
   return (
     <nav className="nav-container">
       <div className="nav-container">
@@ -94,6 +107,22 @@ const Navbar = () => {
               Home
             </Link>
           </li>
+          <div className="dropdown">
+            <button className="dropbtn">Categories</button>
+            <div className="dropdown-content">
+              {categories.map((category) => (
+                <a key={category.id}>
+                  <Link
+                    to={`/category/${category.id}`}
+                    onClick={() => reload()}
+                    className="nav-link" // Add nav-link class
+                  >
+                    {category.name}
+                  </Link>
+                </a>
+              ))}
+            </div>
+          </div>
           {user && (
             <li>
               <Link
@@ -120,7 +149,7 @@ const Navbar = () => {
         {user ? (
           <div className="user-container">
             {user.displayName ? (
-              <p className="user-info">{auth.displayName}</p>
+              <p className="user-info">{user.displayName}</p>
             ) : (
               <p className="user-info">Null</p>
             )}

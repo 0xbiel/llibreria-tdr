@@ -1,6 +1,7 @@
 // src/components/BookCard.js
 import React from "react";
 import { Link } from "react-router-dom";
+import "./BookCard.css";
 
 const BookCard = ({ book }) => {
   function wait(milliseconds) {
@@ -8,29 +9,21 @@ const BookCard = ({ book }) => {
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-4">
+    <div className="book-card">
       <Link
         to={`/books/${book.id}`}
         onClick={async () => {
           await wait(100);
           window.location.reload();
         }}
-        className="text-lg font-semibold mb-2 text-black hover:text-gray-700"
+        className="book-title-link"
       >
         {book.title}
       </Link>
-      <h4 className="text-lg font-semibold mb-2 text-black">
-        {book.author.name}
-      </h4>
-      <h4 className="text-lg-font-semibold mb-2 text-black hover:gray-700">
-        {book.category.name}
-      </h4>
+      <h4 className="author-name">{book.author.name}</h4>
+      <h4 className="category-name">{book.category.name}</h4>
       <div className="flex justify-center">
-        <img
-          src={book.imageUrl}
-          alt={book.title}
-          className="max-w-full h-auto mb-2"
-        />
+        <img src={book.imageUrl} alt={book.title} className="book-image" />
       </div>
     </div>
   );

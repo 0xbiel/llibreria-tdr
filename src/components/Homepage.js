@@ -1,4 +1,3 @@
-// src/components/Homepage.js
 import React, { useState, useEffect } from "react";
 import { app } from "../firebase";
 import { getFirestore, collection, getDocs, getDoc } from "firebase/firestore";
@@ -9,7 +8,8 @@ import "./Homepage.css";
 const Homepage = () => {
   const db = getFirestore(app);
   const [books, setBooks] = useState([]);
-  const author = useState();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredBooks, setFilteredBooks] = useState([]);
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -56,16 +56,40 @@ const Homepage = () => {
         })
       );
       setBooks(fetchedBooks);
+      setFilteredBooks(fetchedBooks);
     };
 
     fetchBooks();
   }, []);
 
+  useEffect(() => {
+    // Filter books based on searchQuery
+    const filtered = books.filter(
+      (book) =>
+        book.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        book.author.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        book.category.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        book.isbn.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setFilteredBooks(filtered);
+  }, [searchQuery, books]);
+
   return (
-    <div className="max-w-6xl mx-auto p-8">
-      <h2 className="text-2xl font-semibold mb-4">Welcome to the Library</h2>
-      <div className="grid">
-        {books.map((book) => (
+    <div className="homepage-container">
+      <header className="homepage-header">
+        <h1 className="homepage-title">Welcome to the Library</h1>
+        <p className="homepage-subtitle">Explore a world of books</p>
+      </header>
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="Search by title, author, or category"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+      </div>
+      <div className="book-grid">
+        {filteredBooks.map((book) => (
           <BookCard key={book.id} book={book} />
         ))}
       </div>
