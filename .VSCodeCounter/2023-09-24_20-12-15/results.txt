@@ -1,0 +1,80 @@
+Date : 2023-09-24 20:12:15
+Directory : c:\Users\anxoa\WebstormProjects\library-app-alpha
+Total : 45 files,  39955 codes, 141 comments, 514 blanks, all 40610 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JSON       |          3 |     36,293 |          0 |          3 |     36,296 |
+| JavaScript |         24 |      2,736 |         61 |        315 |      3,112 |
+| CSS        |         12 |        840 |         57 |        162 |      1,059 |
+| Markdown   |          1 |         38 |          0 |         33 |         71 |
+| XML        |          4 |         28 |          0 |          0 |         28 |
+| HTML       |          1 |         20 |         23 |          1 |         44 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                  | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                     |         45 |     39,955 |        141 |        514 |     40,610 |
+| . (Files)                                                                             |          5 |     36,326 |          1 |         40 |     36,367 |
+| .idea                                                                                 |          3 |         27 |          0 |          0 |         27 |
+| public                                                                                |          2 |         45 |         23 |          2 |         70 |
+| src                                                                                   |         35 |      3,557 |        117 |        472 |      4,146 |
+| src (Files)                                                                           |         10 |        273 |         24 |         56 |        353 |
+| src\components                                                                        |         25 |      3,284 |         93 |        416 |      3,793 |
++---------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                              | language   | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\.idea\library-app-alpha.iml         | XML        |         13 |          0 |          0 |         13 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\.idea\modules.xml                   | XML        |          8 |          0 |          0 |          8 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\.idea\vcs.xml                       | XML        |          6 |          0 |          0 |          6 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\README.md                           | Markdown   |         38 |          0 |         33 |         71 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\package-lock.json                   | JSON       |     36,220 |          0 |          1 |     36,221 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\package.json                        | JSON       |         48 |          0 |          1 |         49 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\postcss.config.js                   | JavaScript |          6 |          0 |          1 |          7 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\public\index.html                   | HTML       |         20 |         23 |          1 |         44 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\public\manifest.json                | JSON       |         25 |          0 |          1 |         26 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\App.css                         | CSS        |         37 |          0 |          7 |         44 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\App.js                          | JavaScript |         73 |          1 |          6 |         80 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\App.test.js                     | JavaScript |          7 |          0 |          2 |          9 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\AdminDashboard.css   | CSS        |        122 |         10 |         21 |        153 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\AdminDashboard.js    | JavaScript |        339 |          4 |         28 |        371 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\AdminReservations.js | JavaScript |        168 |          3 |         25 |        196 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\AdminUsers.js        | JavaScript |        188 |          3 |         21 |        212 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Authors.js           | JavaScript |        226 |          8 |         23 |        257 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\BookCard.css         | CSS        |         42 |          6 |          8 |         56 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\BookCard.js          | JavaScript |         28 |          1 |          4 |         33 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\BookDetails.css      | CSS        |         38 |          5 |          6 |         49 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\BookDetails.js       | JavaScript |        159 |          7 |         29 |        195 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Books.js             | JavaScript |        364 |          8 |         33 |        405 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Categories.js        | JavaScript |        204 |          8 |         24 |        236 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Category.css         | CSS        |         69 |          2 |         14 |         85 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Category.js          | JavaScript |         84 |          0 |         13 |         97 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\DelayedBooks.js      | JavaScript |        124 |          0 |         19 |        143 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\EditBook.js          | JavaScript |        121 |          1 |          9 |        131 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Homepage.css         | CSS        |         64 |          3 |         13 |         80 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Homepage.js          | JavaScript |         86 |          3 |         12 |        101 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Login.css            | CSS        |         50 |          1 |          9 |         60 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Login.js             | JavaScript |         74 |          3 |         11 |         88 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Navbar.css           | CSS        |        175 |         13 |         30 |        218 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Navbar.js            | JavaScript |        170 |          1 |         13 |        184 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Register.css         | CSS        |         45 |          1 |          8 |         54 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Register.js          | JavaScript |         66 |          1 |          8 |         75 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Reservations.css     | CSS        |         87 |          1 |         15 |        103 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Reservations.js      | JavaScript |        191 |          0 |         20 |        211 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\firebase.js                     | JavaScript |         18 |          1 |          4 |         23 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\index.css                       | CSS        |         16 |          0 |          3 |         19 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\index.js                        | JavaScript |         13 |          3 |          3 |         19 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\logo.svg                        | XML        |          1 |          0 |          0 |          1 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\reportWebVitals.js              | JavaScript |         12 |          0 |          2 |         14 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\setupTests.js                   | JavaScript |          1 |          4 |          1 |          6 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\styles.css                      | CSS        |         95 |         15 |         28 |        138 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\tailwind.config.js                  | JavaScript |         14 |          1 |          4 |         19 |
+| Total                                                                                 |            |     39,955 |        141 |        514 |     40,610 |
++---------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

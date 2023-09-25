@@ -1,33 +1,38 @@
 /* src/components/Navbar.css */
 
 /* Base styling for the navbar */
-nav {
+.nav-container {
   background-color: #d6d6d6a2;
   color: #000;
-  padding: 10px 0;
   margin: 0;
   max-width: 100%;
-  overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
-.nav-container {
-  max-width: 100%; /* Set the maximum width */
+/* Container for the navigation elements */
+.nav-container > div {
+  max-width: 100%;
   width: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  box-sizing: border-box; /* Add this to account for padding and borders */
 }
 
-.user-container {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+/* Styling for the logo */
+.nav-logo-text {
+  color: #000;
+  text-decoration: none;
+  font-size: 24px; /* Adjust font size as needed */
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-/* Styling for links */
+.nav-logo-text:hover {
+  color: #007bff; /* Change the hover color to your preference */
+}
+
+/* Styling for navigation links */
 .nav-links {
   display: flex;
   align-items: center;
@@ -41,66 +46,17 @@ nav {
   color: #000;
   text-decoration: none;
   font-size: 18px;
-  font-weight: normal; /* Use normal weight for non-bold text */
+  font-weight: normal;
   transition: color 0.3s ease;
-}
-
-.user-info {
-  color: #000;
-  font-size: 18px;
-  font-weight: bold;
 }
 
 .nav-links a:hover {
-  color: #ecf0f1;
+  color: #007bff; /* Change the hover color to your preference */
 }
 
-/* Styling for user info and buttons */
-
-.login-button,
-.register-button,
-.logout-button {
-  background-color: transparent;
-  border: 2px solid #000;
-  color: #000;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 10px 20px;
-  border-radius: 4px;
-  text-align: center;
-  transition: color 0.3s ease;
-  text-decoration: none;
-}
-
-.login-button:hover,
-.register-button:hover,
-.logout-button:hover {
-  color: #ecf0f1;
-  background-color: #000;
-}
-
-/* Responsive adjustments */
-@media screen and (max-width: 768px) {
-  .nav-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .nav-links {
-    margin-top: 10px;
-    gap: 10px;
-  }
-
-  .login-button,
-  .register-button,
-  .logout-button {
-    margin-top: 10px;
-  }
-}
-
+/* Styling for the dropdown button */
 .dropbtn {
-  background-color: #d6d6d600;
+  background-color: transparent;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -110,10 +66,11 @@ nav {
   color: #000;
   text-decoration: none;
   font-size: 18px;
-  font-weight: normal; /* Use normal weight for non-bold text */
+  font-weight: normal;
   transition: color 0.3s ease;
 }
 
+/* Styling for the dropdown menu */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -150,62 +107,111 @@ nav {
   background-color: #cecece;
 }
 
-/* Add a CSS class for mobile navigation */
-.nav-mobile {
-  display: none; /* Hide it by default on larger screens */
+/* Styling for user info and buttons */
+.user-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-/* Media query for screens smaller than 768px (adjust as needed) */
-@media (max-width: 768px) {
-  .nav-container {
-    flex-direction: column; /* Stack elements vertically on smaller screens */
-    align-items: center; /* Center items horizontally */
+.user-info {
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.login-button,
+.register-button,
+.logout-button {
+  background-color: transparent;
+  border: 2px solid #000;
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-align: center;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.login-button:hover,
+.register-button:hover,
+.logout-button:hover {
+  color: #007bff; /* Change the hover color to your preference */
+  background-color: #000;
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+  .nav-container > div {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .nav-links {
-    margin-top: 20px; /* Add some space between links */
+    margin-top: 10px;
+    gap: 10px;
   }
 
-  /* Show the mobile navigation on smaller screens */
+  .login-button,
+  .register-button,
+  .logout-button {
+    margin-top: 10px;
+  }
+}
+
+.nav-mobile {
+  display: none;
+}
+
+/* Media query for screens smaller than 768px */
+@media (max-width: 768px) {
+  .nav-container > div {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links {
+    margin-top: 20px;
+  }
+
   .nav-mobile {
     display: block;
     text-align: center;
   }
 
-  /* Style mobile navigation links */
   .nav-mobile a {
     display: block;
     padding: 10px 0;
-    font-size: 1.2rem; /* Adjust font size as needed */
-    color: #333; /* Change the color to your preference */
+    font-size: 1.2rem;
+    color: #333;
     text-decoration: none;
     transition: color 0.3s ease;
   }
 
-  /* Add a hover effect for mobile navigation links */
   .nav-mobile a:hover {
-    color: #007bff; /* Change the hover color to your preference */
+    color: #007bff;
   }
 
-  /* Style mobile navigation buttons */
   .login-button,
   .register-button {
     display: block;
-    width: 80%; /* Adjust button width as needed */
-    margin: 10px auto; /* Center buttons horizontally and add spacing */
+    width: 80%;
+    margin: 10px auto;
     padding: 10px;
-    background-color: #007bff; /* Change the button background color to your preference */
-    color: #fff; /* Change the button text color to your preference */
+    background-color: #007bff;
+    color: #fff;
     border: none;
     border-radius: 5px;
-    font-size: 1.2rem; /* Adjust font size as needed */
+    font-size: 1.2rem;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  /* Add a hover effect for mobile navigation buttons */
   .login-button:hover,
   .register-button:hover {
-    background-color: #0056b3; /* Change the hover background color to your preference */
+    background-color: #0056b3;
   }
 }

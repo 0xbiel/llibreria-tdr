@@ -21,6 +21,9 @@ import Books from "./Books";
 import Categories from "./Categories";
 import Authors from "./Authors";
 import AdminUsers from "./AdminUsers";
+import DelayedBooks from "./DelayedBooks";
+import AdminReservations from "./AdminReservations";
+import Languages from "./Languages";
 
 const AdminDashboard = () => {
   const [user, setUser] = useState(null);
@@ -143,23 +146,6 @@ const AdminDashboard = () => {
     }
   };
 
-  const handleDeleteBook = async (bookId) => {
-    const confirmation = window.confirm(
-      "Are you sure you want to delete this book?"
-    );
-
-    if (confirmation) {
-      try {
-        await deleteDoc(doc(db, "books", bookId));
-
-        // After successful deletion, update the state to reflect the change
-        setBooks((prevBooks) => prevBooks.filter((book) => book.id !== bookId));
-      } catch (error) {
-        console.error("Error deleting book:", error);
-      }
-    }
-  };
-
   const fetchAuthors = async () => {
     const authorsRef = collection(db, "authors");
     console.log(authorsRef);
@@ -207,11 +193,11 @@ const AdminDashboard = () => {
         });
       } else {
         setSelectedReservationDetails(null);
-        alert("Reservation not found.");
+        alert("Reserva no trobada.");
       }
     } catch (error) {
       console.error("Error fetching reservation:", error);
-      alert("Error fetching reservation.");
+      alert("Error cercant reserva.");
     }
   };
 
@@ -222,9 +208,9 @@ const AdminDashboard = () => {
 
   return (
     <div>
-      <h1>Admin Dashboard</h1>
+      <h1>Pàgina d'administrador</h1>
       <section className="mark-as-delivered-section">
-        <h2>Mark as Delivered</h2>
+        <h2>Marcat com entregat</h2>
         <form className="return-form" onSubmit={handleSetAsDelivered}>
           <input
             id="reservationRef"
@@ -235,11 +221,11 @@ const AdminDashboard = () => {
             value={reservRefDelivered}
             onChange={(e) => setReservRefDelivered(e.target.value)}
           />
-          <button type="submit">Mark as returned</button>
+          <button type="submit">Marcat com entregat</button>
         </form>
       </section>
       <section className="mark-as-returned-section">
-        <h2>Mark as returned</h2>
+        <h2>Marcar com a tornat</h2>
         <form className="return-form" onSubmit={handleSetAsReturned}>
           <input
             id="reservationRef"
@@ -250,19 +236,19 @@ const AdminDashboard = () => {
             value={reservRef}
             onChange={(e) => setReservRef(e.target.value)}
           />
-          <button type="submit">Mark as returned</button>
+          <button type="submit">Marcar com a tornat</button>
         </form>
       </section>
       <section className="view-reservation-section">
-        <h2>View reservation</h2>
+        <h2>Veure Reserva</h2>
         <form onSubmit={handleViewReservation}>
           <input
             type="text"
-            placeholder="Reservation ID"
+            placeholder="ID Reserva"
             value={selectedReservationId}
             onChange={(e) => setSelectedReservationId(e.target.value)}
           />
-          <button type="submit">View Reservation</button>
+          <button type="submit">Veure reserva</button>
         </form>
         {selectedReservationDetails && (
           <div className="overlay">
@@ -274,7 +260,7 @@ const AdminDashboard = () => {
               <p>End Date: {selectedReservationDetails.endDate}</p>
               <p>Status: {selectedReservationDetails.status}</p>
               <button onClick={() => setSelectedReservationDetails(null)}>
-                Close
+                Tancar
               </button>
             </div>
           </div>
@@ -284,12 +270,32 @@ const AdminDashboard = () => {
         <ul className="AdminUl">
           <li className="AdminLi">
             <NavLink
+              to="/admin/reservations"
+              onClick={() => reload()}
+              activeClassName="active-link"
+              className="menu-link" // Apply the nav-link class
+            >
+              Reserves
+            </NavLink>
+          </li>
+          <li className="AdminLi">
+            <NavLink
+              to="/admin/delayed"
+              onClick={() => reload()}
+              activeClassName="active-link"
+              className="menu-link" // Apply the nav-link class
+            >
+              Reserves endarrerides
+            </NavLink>
+          </li>
+          <li className="AdminLi">
+            <NavLink
               to="/admin/books"
               onClick={() => reload()}
               activeClassName="active-link"
               className="menu-link" // Apply the nav-link class
             >
-              Books
+              Llibres
             </NavLink>
           </li>
           <li className="AdminLi">
@@ -304,12 +310,22 @@ const AdminDashboard = () => {
           </li>
           <li className="AdminLi">
             <NavLink
+              to="/admin/languages"
+              onClick={() => reload()}
+              activeClassName="active-link"
+              className="menu-link" // Apply the nav-link class
+            >
+              Llenguatges
+            </NavLink>
+          </li>
+          <li className="AdminLi">
+            <NavLink
               to="/admin/authors"
               onClick={() => reload()}
               activeClassName="active-link"
               className="menu-link" // Apply the nav-link class
             >
-              Authors
+              Autors
             </NavLink>
           </li>
           <li className="AdminLi">
@@ -319,12 +335,15 @@ const AdminDashboard = () => {
               activeClassName="active-link"
               className="menu-link" // Apply the nav-link class
             >
-              Admin Users
+              Administradors
             </NavLink>
           </li>
         </ul>
       </nav>
       <Switch>
+        <Route path="/admin/reservations" component={AdminReservations} />
+        <Route path="/admin/delayed" component={DelayedBooks} />
+        <Route path="/admin/languages" component={Languages} />
         <Route path="/admin/books">
           <Books />
         </Route>

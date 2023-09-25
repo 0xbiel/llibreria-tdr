@@ -21,6 +21,9 @@ import Books from "./components/Books";
 import Categories from "./components/Categories";
 import Authors from "./components/Authors";
 import AdminUsers from "./components/AdminUsers";
+import DelayedBooks from "./components/DelayedBooks";
+import AdminReservations from "./components/AdminReservations";
+import Languages from "./components/Languages";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -52,15 +55,22 @@ const App = () => {
         <Route path="/books/:id" component={BookDetails} />
         <Route path="/category/:categoryId" component={Category} />
         <Route path="/admin/dashboard" component={AdminDashboard} />
+        <Route path="/admin/reservations" component={AdminReservations} />
+
+        <Route path="/admin/delayed">
+          <DelayedBooks />
+        </Route>
         <Route path="/admin/admin_users">
           <AdminUsers />
         </Route>
         <Route path="/admin/books">
           <Books />
         </Route>
+
         <Route path="/admin/categories">
           <Categories />
         </Route>
+        <Route path="/admin/languages" component={Languages} />
         <Route path="/admin/authors">
           <Authors />
         </Route>

@@ -1,0 +1,10 @@
+"filename", "language", "JSON", "JavaScript", "CSS", "comment", "blank", "total"
+"c:\Users\anxoa\WebstormProjects\library-app-alpha\package-lock.json", "JSON", 2571, 0, 0, 0, 0, 2571
+"c:\Users\anxoa\WebstormProjects\library-app-alpha\package.json", "JSON", 1, 0, 0, 0, 0, 1
+"c:\Users\anxoa\WebstormProjects\library-app-alpha\src\App.js", "JavaScript", 0, 4, 0, 0, 0, 4
+"c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\AdminDashboard.css", "CSS", 0, 0, 26, 0, 5, 31
+"c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\AdminDashboard.js", "JavaScript", 0, 16, 0, 0, 1, 17
+"c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\DelayedBooks.js", "JavaScript", 0, 110, 0, 0, 18, 128
+"c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Navbar.css", "CSS", 0, 0, 4, 0, 0, 4
+"c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Reservations.css", "CSS", 0, 0, 0, -2, 0, -2
+"Total", "-", 2572, 130, 30, -2, 24, 2754

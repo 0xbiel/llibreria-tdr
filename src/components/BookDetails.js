@@ -92,12 +92,12 @@ function BookDetails() {
     const today = new Date();
 
     if (selectedStartDate_Date < today) {
-      alert("Please select a start date in the future.");
+      alert("Selecciona una data vàlida.");
       return;
     }
 
     if (!selectedStartDate) {
-      alert("Please select a start date for the reservation.");
+      alert("Selecciona una data.");
       return;
     }
 
@@ -105,7 +105,7 @@ function BookDetails() {
     const activeReservationsQuery = query(
       collection(db, "reservations"),
       where("userId", "==", auth.currentUser.uid),
-      where("status", "==", "active")
+      where("status", "in", ["active", "delivered"])
     );
 
     const activeBooksQuery = query(
@@ -121,7 +121,7 @@ function BookDetails() {
     const activeReservationsSnapshot = await getDocs(activeReservationsQuery);
 
     if (!activeReservationsSnapshot.empty) {
-      alert("You already have an active reservation.");
+      alert("Ja tens una reserva activa.");
       return;
     }
 
@@ -141,7 +141,7 @@ function BookDetails() {
     const availableCopies = bookData.availableCopies;
 
     if (bookSize >= availableCopies) {
-      alert("No available copies for the selected period.");
+      alert("No hi ha cap llibre disponible per aquest periode.");
       return;
     }
 
@@ -153,18 +153,19 @@ function BookDetails() {
         startDate: selectedStartDate.toLocaleDateString("en-GB"),
         endDate: endDate.toLocaleDateString("en-GB"),
         status: "active",
+        email: auth.currentUser.email,
       };
 
       await addDoc(collection(db, "reservations"), reservationData);
 
-      alert("Reservation created successfully");
+      alert("Reserva creada amb èxit!");
     } catch (error) {
-      console.error("Error creating reservation:", error);
+      console.error("Error creant la reserva:", error);
     }
   };
 
   if (!book) {
-    return <div>Loading...</div>;
+    return <div>Carregant...</div>;
   }
 
   return (
@@ -180,12 +181,12 @@ function BookDetails() {
         onChange={(date) => setSelectedStartDate(date)}
       />
       <button onClick={handleReservation} className="reservation-button">
-        Make Reservation
+        Fer Reserva
       </button>
-      <p>Author: {book.author.name}</p>
-      <p>Genre: {book.category.name}</p>
+      <p>Autor: {book.author.name}</p>
+      <p>Gènere: {book.category.name}</p>
       <p>ISBN: {book.isbn}</p>
-      <p>Description: {book.description}</p>
+      <p>Descripció: {book.description}</p>
     </div>
   );
 }

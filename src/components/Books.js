@@ -73,7 +73,7 @@ const Books = () => {
 
   const handleDeleteBook = async (bookId) => {
     const confirmation = window.confirm(
-      "Are you sure you want to delete this book?"
+      "Estas segur que vols eliminar aquest llibre?"
     );
 
     if (confirmation) {
@@ -266,10 +266,10 @@ const Books = () => {
   return (
     <div>
       <section className="add-book-section">
-        <h2>Add book</h2>
+        <h2>Afagir llibre</h2>
         <form className="add-book-form" onSubmit={handleSubmitCreateBook}>
           <label>
-            Title:
+            Titol:
             <input
               type="text"
               name="title"
@@ -286,7 +286,7 @@ const Books = () => {
             />
           </label>
           <label>
-            Description:
+            Descripció:
             <textarea
               name="description"
               value={newBook.description}
@@ -294,7 +294,7 @@ const Books = () => {
             />
           </label>
           <label>
-            Image URL:
+            Imatge URL:
             <textarea
               name="imageUrl"
               value={newBook.imageUrl}
@@ -302,7 +302,7 @@ const Books = () => {
             />
           </label>
           <label>
-            Authors:
+            Autor:
             <select name="authors" multiple onChange={handleAuthorsChange}>
               {authors.map((author) => (
                 <option key={author.id} value={author.id}>
@@ -312,7 +312,7 @@ const Books = () => {
             </select>
           </label>
           <label>
-            Category:
+            Categoria:
             <select name="categories" multiple onChange={handleCategoryChange}>
               {categories.map((category) => (
                 <option key={category.id} value={category.id}>
@@ -322,7 +322,7 @@ const Books = () => {
             </select>
           </label>
           <label>
-            Available Copies:
+            Copies totals:
             <input
               type="number"
               name="availableCopies"
@@ -334,16 +334,16 @@ const Books = () => {
         </form>
       </section>
       <section className="books-section">
-        <h2>Books</h2>
+        <h2>Llibres</h2>
         <table>
           <thead>
             <tr>
-              <th>Title</th>
-              <th>Author</th>
+              <th>Titol</th>
+              <th>Autor</th>
               <th>ISBN</th>
-              <th>Category</th>
-              <th>Available Copies</th>
-              <th>Actions</th>
+              <th>Categoria</th>
+              <th>Copies totals</th>
+              <th>Accions</th>
             </tr>
           </thead>
           <tbody>
@@ -364,9 +364,9 @@ const Books = () => {
                   <td>{book.category.name}</td>
                   <td>{book.availableCopies}</td>
                   <td>
-                    <button onClick={() => handleEditBook(book)}>Edit</button>
+                    <button onClick={() => handleEditBook(book)}>Editar</button>
                     <button onClick={() => handleDeleteBook(book.id)}>
-                      Delete
+                      Eliminar
                     </button>
                   </td>
                 </tr>

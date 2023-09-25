@@ -85,7 +85,6 @@ const Category = () => {
       <h2 className="text-2xl font-semibold mb-4">{categories.name}</h2>
       <div className="book-grid">
         {" "}
-        {/* Updated class name to 'book-grid' */}
         {books.map((book) => (
           <BookCard key={book.id} book={book} />
         ))}

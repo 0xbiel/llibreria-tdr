@@ -38,17 +38,17 @@ const Login = ({ setUser }) => {
       await wait(100);
       window.location.reload();
     } catch (error) {
-      console.error("Login error:", error);
+      alert("Login error:", error);
     }
   };
 
   return (
     <div className="login-container">
       <div className="login-box">
-        <h2 className="login-title">Sign in to your account</h2>
+        <h2 className="login-title">Iniciar sessió</h2>
         <form className="login-form" onSubmit={handleLogin}>
           <label htmlFor="email" className="login-label">
-            Email address
+            Email
           </label>
           <input
             id="email"
@@ -62,7 +62,7 @@ const Login = ({ setUser }) => {
           />
 
           <label htmlFor="password" className="login-label">
-            Password
+            Contrasenya
           </label>
           <input
             id="password"
@@ -76,7 +76,7 @@ const Login = ({ setUser }) => {
           />
 
           <button type="submit" className="login-button">
-            Sign in
+            Iniciar sessió
           </button>
         </form>
       </div>

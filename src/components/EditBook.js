@@ -55,7 +55,7 @@ const EditBook = ({ book, onSave, onCancel, authors, categories }) => {
       <h2>Edit Book</h2>
       <form onSubmit={handleSubmit}>
         <label>
-          Title:
+          Titol:
           <input
             type="text"
             name="title"
@@ -73,7 +73,7 @@ const EditBook = ({ book, onSave, onCancel, authors, categories }) => {
           />
         </label>
         <label>
-          Image URL:
+          Imatge URL:
           <input
             type="text"
             name="imageUrl"
@@ -82,7 +82,7 @@ const EditBook = ({ book, onSave, onCancel, authors, categories }) => {
           />
         </label>
         <label>
-          Description:
+          Descripció:
           <textarea
             name="description"
             value={editedBook.description}
@@ -90,7 +90,7 @@ const EditBook = ({ book, onSave, onCancel, authors, categories }) => {
           />
         </label>
         <label>
-          Authors:
+          Autors:
           <select name="authors" multiple onChange={handleAuthorsChange}>
             {authors.map((author) => (
               <option key={author.id} value={author.id}>
@@ -100,7 +100,7 @@ const EditBook = ({ book, onSave, onCancel, authors, categories }) => {
           </select>
         </label>
         <label>
-          Category:
+          Categoria:
           <select name="categories" multiple onChange={handleCategoryChange}>
             {categories.map((category) => (
               <option key={category.id} value={category.id}>
@@ -110,7 +110,7 @@ const EditBook = ({ book, onSave, onCancel, authors, categories }) => {
           </select>
         </label>
         <label>
-          Available Copies:
+          Copies totals:
           <input
             type="number"
             name="availableCopies"
@@ -118,9 +118,9 @@ const EditBook = ({ book, onSave, onCancel, authors, categories }) => {
             onChange={handleInputChange}
           />
         </label>
-        <button type="submit">Save</button>
+        <button type="submit">Guardar</button>
         <button type="button" onClick={onCancel}>
-          Cancel
+          Cancel·lar
         </button>
       </form>
     </div>

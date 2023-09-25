@@ -25,25 +25,25 @@ const Register = () => {
           });
           console.log("Display name updated successfully");
         } catch (error) {
-          console.error("Error updating display name:", error);
+          alert("Error updating display name:", error);
         }
       };
 
       changeDisplayName(username);
       history.push("/"); // Redirect to the homepage
     } catch (error) {
-      console.error("Registration error:", error);
+      alert("Registration error:", error);
     }
   };
 
   return (
     <div className="register-container">
       <div className="register-box">
-        <h2 className="register-title">Register</h2>
+        <h2 className="register-title">Crear un compte</h2>
         <form className="register-form" onSubmit={handleRegister}>
           <input
             type="text"
-            placeholder="Username"
+            placeholder="Nom d'usuari"
             className="register-input"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -57,13 +57,13 @@ const Register = () => {
           />
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Contrasenya"
             className="register-input"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           <button type="submit" className="register-button">
-            Register
+            Crear un compte
           </button>
         </form>
       </div>

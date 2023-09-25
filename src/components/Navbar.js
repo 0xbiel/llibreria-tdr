@@ -58,7 +58,7 @@ const Navbar = () => {
       window.location.reload();
       history.push("/login");
     } catch (error) {
-      alert("Logout error:", error);
+      alert("Error tancant la sessió:", error);
     }
   };
 
@@ -98,13 +98,13 @@ const Navbar = () => {
       <div className="nav-container">
         <div className="nav-logo">
           <Link to="/" onClick={() => reload()} className="nav-logo-text">
-            Library App
+            Llibreria
           </Link>
         </div>
         <ul className="nav-links">
           <li>
             <Link to="/" onClick={() => reload()} className="nav-link">
-              Home
+              Pàgina d'inici
             </Link>
           </li>
           <div className="dropdown">
@@ -130,7 +130,7 @@ const Navbar = () => {
                 onClick={() => reload()}
                 className="nav-link"
               >
-                Reservations
+                Reserves
               </Link>
             </li>
           )}
@@ -141,7 +141,7 @@ const Navbar = () => {
                 onClick={() => reload()}
                 className="nav-link"
               >
-                Admin Dashboard
+                Pàgina d'administrador
               </Link>
             </li>
           )}
@@ -154,14 +154,14 @@ const Navbar = () => {
               <p className="user-info">Null</p>
             )}
             <button onClick={() => handleLogout()} className="logout-button">
-              Logout
+              Tanca la sessió
             </button>
           </div>
         ) : (
           <ul className="nav-links">
             <li>
               <button onClick={() => login()} className="login-button">
-                Login
+                Inici de sessió
               </button>
             </li>
             <li>
@@ -170,7 +170,7 @@ const Navbar = () => {
                 onClick={() => register()}
                 className="register-button"
               >
-                Register
+                Crear un compte
               </button>
             </li>
           </ul>

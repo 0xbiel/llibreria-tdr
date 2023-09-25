@@ -109,7 +109,7 @@ const Categories = () => {
 
   const handleDeleteCategory = async (categoryId) => {
     const confirmation = window.confirm(
-      "Are you sure you want to delete this category?"
+      "Estas segur que vols eliminar aquesta categoria?"
     );
 
     if (confirmation) {
@@ -138,7 +138,7 @@ const Categories = () => {
     const querySnapshot = await getDocs(categoryQuery);
 
     if (!querySnapshot.empty) {
-      alert("A category with the same name already exists!");
+      alert("Una categoria amb aquest nom ja existeix!");
       return; // Exit the function if a category with the same name exists
     }
 
@@ -155,25 +155,26 @@ const Categories = () => {
   return (
     <div>
       <section className="create-category-section" onSubmit={handleAddCategory}>
-        <h2>Create category</h2>
+        <h2>Crear categoria</h2>
         <form className="create-category-form">
           <input
             id="category"
             name="category"
+            placeholder="Nom categoria"
             type="text"
             required
             className="category-input"
             value={newCategory}
             onChange={(e) => setNewCategory(e.target.value)}
           />
-          <button type="submit">Create category</button>
+          <button type="submit">Crear categoria</button>
         </form>
       </section>
       <section>
         <h2>Categories</h2>
         <input
           type="text"
-          placeholder="Search categories"
+          placeholder="Cercar categories"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)} // Update search query
         />
@@ -205,19 +206,19 @@ const Categories = () => {
                 <td>
                   {editingCategory && editingCategory.id === category.id ? (
                     <>
-                      <button onClick={handleEditCategory}>Save</button>
-                      <button onClick={handleDeleteCategory}>Delete</button>
+                      <button onClick={handleEditCategory}>Guardar</button>
+                      <button onClick={handleDeleteCategory}>Eliminar</button>
                       <button onClick={() => setEditingCategory(null)}>
-                        Cancel
+                        Cancel·lar
                       </button>
                     </>
                   ) : (
                     <>
                       <button onClick={() => setEditingCategory(category)}>
-                        Edit
+                        Editar
                       </button>
                       <button onClick={() => handleDeleteCategory(category.id)}>
-                        Delete
+                        Eliminar
                       </button>
                     </>
                   )}

@@ -110,7 +110,7 @@ const Reservation = () => {
 
   return (
     <div className="reservation-container">
-      <h2 className="reservation-title">Your Reservations</h2>
+      <h2 className="reservation-title">Les teves reserves</h2>
       <ul className="reservation-list">
         {reservations.map((reservation) => (
           <li
@@ -130,21 +130,34 @@ const Reservation = () => {
                 await wait(100);
                 window.location.reload();
               }}
-              className="book-title"
+              className={`book-title${
+                reservation.status === "delivered" &&
+                isDelayed(reservation.endDate)
+                  ? "delayed-reservation"
+                  : reservation.status === "delivered"
+                  ? "delivered-reservation"
+                  : ""
+              }`}
             >
-              Book: {reservation.book.title}
+              Llibre: {reservation.book.title}
             </Link>
-            <p className="book-date">Date: {reservation.startDate}</p>
+            <p className="book-date">Data: {reservation.startDate}</p>
             <p className="max-return-date">
-              Max return date: {reservation.endDate}
+              Data màxima per tornar: {reservation.endDate}
             </p>
             <p className="book-status">
               Status:{" "}
               {reservation.status === "delivered" &&
               isDelayed(reservation.endDate)
-                ? "Delayed"
+                ? "Endarrerit"
                 : reservation.status === "delivered"
-                ? "Delivered"
+                ? "Entregat"
+                : reservation.status === "active"
+                ? "Pendent"
+                : reservation.status === "cancelled"
+                ? "Cancel·lat"
+                : reservation.status === "returned"
+                ? "Retornat"
                 : reservation.status}
             </p>
             <table className="table">
@@ -180,7 +193,7 @@ const Reservation = () => {
                         }
                         className="cancel-button"
                       >
-                        Cancel Reservation
+                        Cance·lar Reserva
                       </button>
                     )}
                   </td>

@@ -1,0 +1,39 @@
+Date : 2023-09-24 20:12:15
+Directory : c:\Users\anxoa\WebstormProjects\library-app-alpha
+Total : 11 files,  224 codes, 1 comments, 27 blanks, all 252 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JavaScript |          9 |        211 |          3 |         26 |        240 |
+| CSS        |          2 |         13 |         -2 |          1 |         12 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                  | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                     |         11 |        224 |          1 |         27 |        252 |
+| src                                                                                   |         11 |        224 |          1 |         27 |        252 |
+| src (Files)                                                                           |          1 |          2 |          0 |          0 |          2 |
+| src\components                                                                        |         10 |        222 |          1 |         27 |        250 |
++---------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                              | language   | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\App.js                          | JavaScript |          2 |          0 |          0 |          2 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\AdminDashboard.js    | JavaScript |         12 |          0 |          0 |         12 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\AdminReservations.js | JavaScript |        168 |          3 |         25 |        196 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\AdminUsers.js        | JavaScript |          1 |          0 |          0 |          1 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\BookDetails.js       | JavaScript |          1 |          0 |          0 |          1 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Categories.js        | JavaScript |          1 |          0 |          0 |          1 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Category.js          | JavaScript |         -1 |          0 |          0 |         -1 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\DelayedBooks.js      | JavaScript |         14 |          0 |          1 |         15 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Navbar.css           | CSS        |          7 |         -2 |          1 |          6 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Reservations.css     | CSS        |          6 |          0 |          0 |          6 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Reservations.js      | JavaScript |         13 |          0 |          0 |         13 |
+| Total                                                                                 |            |        224 |          1 |         27 |        252 |
++---------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

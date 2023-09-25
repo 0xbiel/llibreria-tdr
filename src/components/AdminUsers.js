@@ -100,7 +100,7 @@ const AdminUsers = () => {
 
   const handleDeleteUser = async (userId) => {
     const confirmation = window.confirm(
-      "Are you sure you want to delete this user?"
+      "Estas segur que vols eliminar aquest administrador?"
     );
 
     if (confirmation) {
@@ -134,7 +134,7 @@ const AdminUsers = () => {
   return (
     <div>
       <section className="add-admin-section">
-        <h2>Add admin</h2>
+        <h2>Afagir admin</h2>
         <form className="add-admin-form" onSubmit={handleAddAdmin}>
           <input
             id="email"
@@ -142,10 +142,11 @@ const AdminUsers = () => {
             type="email"
             required
             className="email-input"
+            placeholder="Email"
             value={Email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <button type="submit">Add admin</button>
+          <button type="submit">Afagir admin</button>
         </form>
       </section>
       <section className="Admin table">
@@ -155,7 +156,7 @@ const AdminUsers = () => {
             <tr>
               <th>Id</th>
               <th>Email</th>
-              <th>Actions</th>
+              <th>Accions</th>
             </tr>
           </thead>
           <tbody>
@@ -184,16 +185,16 @@ const AdminUsers = () => {
                       <button onClick={handleEditUser}>Save</button>
                       <button onClick={handleDeleteUser}>Delete</button>
                       <button onClick={() => setEditingUser(null)}>
-                        Cancel
+                        Cancel·lar
                       </button>
                     </>
                   ) : (
                     <>
                       <button onClick={() => setEditingUser(admin)}>
-                        Edit
+                        Editar
                       </button>
                       <button onClick={() => handleDeleteUser(admin.id)}>
-                        Delete
+                        Borrar
                       </button>
                     </>
                   )}

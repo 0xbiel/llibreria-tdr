@@ -77,13 +77,13 @@ const Homepage = () => {
   return (
     <div className="homepage-container">
       <header className="homepage-header">
-        <h1 className="homepage-title">Welcome to the Library</h1>
-        <p className="homepage-subtitle">Explore a world of books</p>
+        <h1 className="homepage-title">Benvingut a la llibreria</h1>
+        <p className="homepage-subtitle">Explora un món de llibres</p>
       </header>
       <div className="search-bar">
         <input
           type="text"
-          placeholder="Search by title, author, or category"
+          placeholder="Cerca per títol, autor, categoria o ISBN	"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />

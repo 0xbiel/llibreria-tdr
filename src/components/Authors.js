@@ -100,7 +100,7 @@ const Authors = () => {
 
   const handleDeleteAuthor = async (authorId) => {
     const confirmation = window.confirm(
-      "Are you sure you want to delete this author?"
+      "Estas segur que vols eliminar aquest autor?"
     );
 
     if (confirmation) {
@@ -134,7 +134,7 @@ const Authors = () => {
     const querySnapshot = await getDocs(authorQuery);
 
     if (!querySnapshot.empty) {
-      alert("A category with the same name already exists!");
+      alert("Autor amb el mateix nom ja existeix!");
       return; // Exit the function if a category with the same name exists
     }
 
@@ -151,10 +151,10 @@ const Authors = () => {
   return (
     <div>
       <section className="create-author-section">
-        <h2>Create author</h2>
+        <h2>Crear autor</h2>
         <form className="create-author-form" onSubmit={handleAddAuthor}>
           <label>
-            Name:
+            Nom:
             <input
               type="text"
               name="name"
@@ -163,24 +163,24 @@ const Authors = () => {
             />
           </label>
           <label>
-            Description:
+            Descripció:
             <textarea
               name="description"
               value={newAuthor.description}
               onChange={handleInputChangeAuthor}
             />
           </label>
-          <button type="submit">Create</button>
+          <button type="submit">Crear</button>
         </form>
       </section>
       <section>
-        <h2>Authors</h2>
+        <h2>Autors</h2>
         <table>
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Actions</th>
+              <th>Nom</th>
+              <th>Descripció</th>
+              <th>Accions</th>
             </tr>
           </thead>
           <tbody>
@@ -190,7 +190,7 @@ const Authors = () => {
                   <td>
                     <input
                       type="text"
-                      placeholder="Name"
+                      placeholder="Nom"
                       value={editingAuthor.name}
                       onChange={(e) =>
                         setEditingAuthor({
@@ -207,7 +207,7 @@ const Authors = () => {
                   <td>
                     <input
                       type="text"
-                      placeholder="Description"
+                      placeholder="Descripció"
                       value={editingAuthor.description}
                       onChange={(e) =>
                         setEditingAuthor({
@@ -224,22 +224,22 @@ const Authors = () => {
                   {editingAuthor && editingAuthor.id === author.id ? (
                     <>
                       <button onClick={() => handleSaveAuthor(author)}>
-                        Save
+                        Guardar
                       </button>
                       <button onClick={() => handleDeleteAuthor(author.id)}>
-                        Delete
+                        Eliminar
                       </button>
                       <button onClick={() => setEditingAuthor(null)}>
-                        Cancel
+                        Cancel·lar
                       </button>
                     </>
                   ) : (
                     <>
                       <button onClick={() => setEditingAuthor(author)}>
-                        Edit
+                        Editar
                       </button>
                       <button onClick={() => handleDeleteAuthor(author.id)}>
-                        Delete
+                        Eliminar
                       </button>
                     </>
                   )}
