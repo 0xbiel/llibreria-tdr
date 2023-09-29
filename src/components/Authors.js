@@ -1,4 +1,3 @@
-// Authors.js
 import React, { useState, useEffect } from "react";
 import {
   getFirestore,
@@ -25,6 +24,7 @@ const Authors = () => {
     name: "",
     description: "",
   });
+  const [searchQuery, setSearchQuery] = useState(""); // Add search query state
 
   function wait(milliseconds) {
     return new Promise((resolve) => setTimeout(resolve, milliseconds));
@@ -148,6 +148,13 @@ const Authors = () => {
     setNewAuthor({ name: "", description: "" });
   };
 
+  // Function to filter authors based on search query
+  const filterAuthors = () => {
+    return authors.filter((author) =>
+      author.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  };
+
   return (
     <div>
       <section className="create-author-section">
@@ -175,6 +182,14 @@ const Authors = () => {
       </section>
       <section>
         <h2>Autors</h2>
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Cerca autors"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </div>
         <table>
           <thead>
             <tr>
@@ -184,7 +199,7 @@ const Authors = () => {
             </tr>
           </thead>
           <tbody>
-            {authors.map((author) => (
+            {filterAuthors().map((author) => (
               <tr key={author.id}>
                 {editingAuthor && editingAuthor.id === author.id ? (
                   <td>

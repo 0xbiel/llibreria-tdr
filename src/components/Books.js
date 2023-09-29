@@ -26,7 +26,13 @@ const Books = () => {
   const [editingBookId, setEditingBookId] = useState(null);
   const [authors, setAuthors] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [languages, setLanguages] = useState([]);
   const history = useHistory();
+  const [publishers, setPublishers] = useState([]);
+  const [publicationYear, setPublicationYear] = useState("");
+  const [currentDate, setCurrentDate] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [subjects, setSubjects] = useState([]);
   const [newBook, setNewBook] = useState({
     title: "",
     imageUrl: "",
@@ -34,6 +40,13 @@ const Books = () => {
     description: "",
     authorRef: "",
     categoryRef: "",
+    availableCopies: "",
+    languageRef: "",
+    numberOfPages: "",
+    publisherRef: "",
+    publicationYear: "",
+    dateAdded: "",
+    subjectRef: "",
   });
 
   function wait(milliseconds) {
@@ -45,25 +58,51 @@ const Books = () => {
     setNewBook({ ...newBook, [name]: value });
   };
 
-  const handleAuthorsChange = (e) => {
-    const selectedAuthors = Array.from(
-      e.target.selectedOptions,
-      (option) => option.value
+  const filterBooks = () => {
+    return books.filter(
+      (book) =>
+        book.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        book.isbn.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        book.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        book.author.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        book.publisher.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        book.category.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        book.language.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        book.subject.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        book.publicationYear.toString().includes(searchQuery)
     );
+  };
+
+  const handleAuthorsChange = (e) => {
+    const selectedAuthors = Array.from(e.target.selectedOptions, (option) =>
+      doc(db, "authors", option.value)
+    );
+    // Assuming you want to store only one author for a book, you can take the first one
     setNewBook({
       ...newBook,
-      authorRef: doc(db, "authors", selectedAuthors[0]),
+      authorRef: selectedAuthors[0], // Store a single Firestore document reference
     });
   };
 
   const handleCategoryChange = (e) => {
-    const selectedCategory = Array.from(
-      e.target.selectedOptions,
-      (option) => option.value
+    const selectedCategories = Array.from(e.target.selectedOptions, (option) =>
+      doc(db, "categories", option.value)
     );
+    // Assuming you want to store only one category for a book, you can take the first one
     setNewBook({
       ...newBook,
-      categoryRef: doc(db, "categories", selectedCategory[0]),
+      categoryRef: selectedCategories[0], // Store a single Firestore document reference
+    });
+  };
+
+  const handleLanguageChange = (e) => {
+    const selectedLanguages = Array.from(e.target.selectedOptions, (option) =>
+      doc(db, "languages", option.value)
+    );
+    // Assuming you want to store only one language for a book, you can take the first one
+    setNewBook({
+      ...newBook,
+      languageRef: selectedLanguages[0],
     });
   };
 
@@ -101,6 +140,18 @@ const Books = () => {
     setAuthors(authorList);
   };
 
+  const fetchPublishers = async () => {
+    const publishersRef = collection(db, "publishers");
+    const snapshot = await getDocs(publishersRef);
+    const publisherList = await Promise.all(
+      snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }))
+    );
+    setPublishers(publisherList);
+  };
+
   const handleSaveBook = async (editedBook) => {
     try {
       // Update the book details in the database
@@ -113,6 +164,9 @@ const Books = () => {
         authorRef: editedBook.authorRef,
         categoryRef: editedBook.categoryRef,
         availableCopies: editedBook.availableCopies, // Save availableCopies
+        languageRef: editedBook.languageRef,
+        numberOfPages: editedBook.numberOfPages,
+        publisherRef: editedBook.publisherRef,
       });
 
       // Update the state to reflect the changes
@@ -140,6 +194,18 @@ const Books = () => {
     setCategories(categoryList);
   };
 
+  const fetchLanguages = async () => {
+    const languagesRef = collection(db, "languages");
+    const snapshot = await getDocs(languagesRef);
+    const languageList = await Promise.all(
+      snapshot.docs.map((doc3) => ({
+        id: doc3.id,
+        ...doc3.data(),
+      }))
+    );
+    setLanguages(languageList);
+  };
+
   const handleCancelEdit = () => {
     setEditingBook(null);
   };
@@ -147,16 +213,24 @@ const Books = () => {
   const handleSubmitCreateBook = async (e) => {
     e.preventDefault();
 
-    // Ensure availableCopies is an integer
+    const yearPublished = parseInt(newBook.publicationYear, 10);
     const availableCopies = parseInt(newBook.availableCopies, 10);
+    const numberOfPages = parseInt(newBook.numberOfPages, 10);
 
     const bookData = {
       title: newBook.title,
       imageUrl: newBook.imageUrl,
+      isbn: newBook.isbn,
       description: newBook.description,
       authorRef: newBook.authorRef,
       categoryRef: newBook.categoryRef,
-      availableCopies: availableCopies, // Save availableCopies
+      availableCopies: availableCopies,
+      languageRef: newBook.languageRef,
+      numberOfPages: numberOfPages,
+      publisherRef: newBook.publisherRef,
+      publicationYear: yearPublished,
+      dateAdded: newBook.dateAdded || getCurrentDate(),
+      subjectRef: newBook.subjectRef,
     };
 
     const docRef = await addDoc(collection(db, "books"), bookData).catch(
@@ -173,7 +247,10 @@ const Books = () => {
       description: "",
       authorRef: "",
       categoryRef: "",
-      availableCopies: "", // Reset availableCopies
+      availableCopies: "",
+      numberOfPages: "",
+      publisherRef: "",
+      subjectRef: "",
     });
   };
 
@@ -185,6 +262,9 @@ const Books = () => {
         const bookData = doc.data();
         const authorRef = bookData.authorRef;
         const categoryRef = bookData.categoryRef;
+        const languageRef = bookData.languageRef;
+        const publisherRef = bookData.publisherRef;
+        const subjectRef = bookData.subjectRef;
 
         // Make sure authorRef is properly defined before using it
         if (authorRef) {
@@ -196,18 +276,68 @@ const Books = () => {
             const categoryDoc = await getDoc(categoryRef);
             const categoryData = categoryDoc.data();
 
-            return {
-              id: doc.id,
-              ...bookData,
-              author: authorData,
-              category: categoryData,
-            };
+            if (languageRef) {
+              const languageDoc = await getDoc(languageRef);
+              const languageData = languageDoc.data();
+
+              if (publisherRef) {
+                const publisherDoc = await getDoc(publisherRef);
+                const publisherData = publisherDoc.data();
+
+                if (subjectRef) {
+                  const subjectDoc = await getDoc(subjectRef);
+                  const subjectData = subjectDoc.data();
+
+                  return {
+                    id: doc.id,
+                    ...bookData,
+                    author: authorData,
+                    category: categoryData,
+                    language: languageData,
+                    publisher: publisherData,
+                    subject: subjectData,
+                  };
+                } else {
+                  return {
+                    id: doc.id,
+                    ...bookData,
+                    author: authorData,
+                    category: categoryData,
+                    language: languageData,
+                    publisher: publisherData,
+                    subject: { name: "null" },
+                  };
+                }
+              }
+
+              return {
+                id: doc.id,
+                ...bookData,
+                author: authorData,
+                category: categoryData,
+                language: languageData,
+                publisher: { name: "null" },
+                subject: { name: "null" },
+              };
+            } else {
+              return {
+                id: doc.id,
+                ...bookData,
+                author: authorData,
+                category: categoryData,
+                language: { name: "null" },
+                publisher: { name: "null" },
+                subject: { name: "null" },
+              };
+            }
           } else {
             return {
               id: doc.id,
               ...bookData,
               author: authorData,
               category: { name: "null" },
+              publisher: { name: "null" },
+              subject: { name: "null" },
             };
           }
         }
@@ -217,6 +347,8 @@ const Books = () => {
           ...bookData,
           author: { name: null },
           category: { name: "null" },
+          language: { name: "null" },
+          publisher: { name: "null" },
         };
       })
     );
@@ -251,7 +383,10 @@ const Books = () => {
           checkAdmin(user);
           fetchBooks();
           fetchAuthors();
+          fetchLanguages();
           fetchCategories();
+          fetchPublishers();
+          fetchSubjects();
         } catch (e) {}
       } else {
         backWhereYouCameFrom();
@@ -262,6 +397,46 @@ const Books = () => {
       unsubscribe();
     };
   }, [db]);
+
+  const fetchSubjects = async () => {
+    const subjectsRef = collection(db, "subjects");
+    const snapshot = await getDocs(subjectsRef);
+    const subjectList = await Promise.all(
+      snapshot.docs.map((doc3) => ({
+        id: doc3.id,
+        ...doc3.data(),
+      }))
+    );
+    setSubjects(subjectList);
+  };
+
+  const handlePublisherChange = (e) => {
+    const selectedPublisherId = e.target.value;
+    const selectedPublisherRef = doc(db, "publishers", selectedPublisherId);
+
+    setNewBook({
+      ...newBook,
+      publisherRef: selectedPublisherRef,
+    });
+  };
+
+  const getCurrentDate = () => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const day = String(now.getDate()).padStart(2, "0");
+    return `${day}-${month}-${year}`;
+  };
+
+  const handleSubjectChange = (e) => {
+    const selectedSubjectId = e.target.value;
+    const selectedSubjectRef = doc(db, "subjects", selectedSubjectId);
+
+    setNewBook({
+      ...newBook,
+      subjectRef: selectedSubjectRef,
+    });
+  };
 
   return (
     <div>
@@ -312,11 +487,41 @@ const Books = () => {
             </select>
           </label>
           <label>
+            Editorial:
+            <select name="publisher" multiple onChange={handlePublisherChange}>
+              {publishers.map((publisher) => (
+                <option key={publisher.id} value={publisher.id}>
+                  {publisher.name}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label>
             Categoria:
             <select name="categories" multiple onChange={handleCategoryChange}>
               {categories.map((category) => (
                 <option key={category.id} value={category.id}>
                   {category.name}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label>
+            Idioma:
+            <select name="languages" multiple onChange={handleLanguageChange}>
+              {languages.map((language) => (
+                <option key={language.id} value={language.id}>
+                  {language.name}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label>
+            Assignatura:
+            <select name="subject" multiple onChange={handleSubjectChange}>
+              {subjects.map((subject) => (
+                <option key={subject.id} value={subject.id}>
+                  {subject.name}
                 </option>
               ))}
             </select>
@@ -330,24 +535,58 @@ const Books = () => {
               onChange={handleInputChange}
             />
           </label>
-          <button type="submit">Create</button>
+          <label>
+            Número de pàgines:
+            <input
+              type="number"
+              name="numberOfPages"
+              value={newBook.numberOfPages}
+              onChange={handleInputChange}
+            />
+          </label>
+          <label>
+            Any de publicació:
+            <input
+              type="number"
+              name="publicationYear"
+              value={newBook.publicationYear}
+              onChange={handleInputChange}
+            />
+          </label>
+
+          <button type="submit">Crear</button>
         </form>
       </section>
       <section className="books-section">
         <h2>Llibres</h2>
+        <label>
+          Cerca:
+          <input
+            type="text"
+            name="search"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </label>
         <table>
           <thead>
             <tr>
               <th>Titol</th>
               <th>Autor</th>
+              <th>Editorial</th>
               <th>ISBN</th>
               <th>Categoria</th>
+              <th>Llanguatge</th>
               <th>Copies totals</th>
+              <th>Número de pàgines</th>
+              <th>Any publicació</th>
+              <th>Data creat</th>
+              <th>Assignatura</th>
               <th>Accions</th>
             </tr>
           </thead>
           <tbody>
-            {books.map((book) => (
+            {filterBooks().map((book) => (
               <React.Fragment key={book.id}>
                 <tr>
                   <Link
@@ -360,9 +599,15 @@ const Books = () => {
                     {book.title}
                   </Link>
                   <td>{book.author.name}</td>
+                  <td>{book.publisher.name}</td>
                   <td>{book.isbn}</td>
                   <td>{book.category.name}</td>
+                  <td>{book.language.name}</td>
                   <td>{book.availableCopies}</td>
+                  <td>{book.numberOfPages}</td>
+                  <td>{book.publicationYear}</td>
+                  <td>{book.dateAdded}</td>
+                  <td>{book.subject.name}</td>
                   <td>
                     <button onClick={() => handleEditBook(book)}>Editar</button>
                     <button onClick={() => handleDeleteBook(book.id)}>
@@ -379,6 +624,9 @@ const Books = () => {
                         onCancel={() => setEditingBookId(null)} // Close edit form
                         authors={authors}
                         categories={categories}
+                        languages={languages}
+                        publishers={publishers}
+                        subjects={subjects}
                       />
                     </td>
                   </tr>
@@ -393,8 +641,11 @@ const Books = () => {
           book={editingBook}
           onSave={handleSaveBook}
           onCancel={handleCancelEdit}
-          authors={authors} // Pass the list of authors to the EditBook component
-          categories={categories} // Pass the list of categories to the EditBook component
+          authors={authors}
+          categories={categories}
+          languages={languages}
+          publishers={publishers}
+          subjects={subjects}
         />
       )}
     </div>

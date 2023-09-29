@@ -14,12 +14,12 @@ import { app, auth } from "../firebase";
 import { useHistory } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 
-const Languages = () => {
+const Publisher = () => {
   const [user, setUser] = useState(null);
-  const [languages, setLanguages] = useState([]); // Updated state variable name
-  const [editingLanguage, setEditingLanguage] = useState(null); // Updated state variable name
-  const [newLanguage, setNewLanguage] = useState(""); // Updated state variable name
-  const [searchQuery, setSearchQuery] = useState(""); // New state for search query
+  const [publishers, setPublishers] = useState([]);
+  const [editingPublisher, setEditingPublisher] = useState(null);
+  const [newPublisher, setNewPublisher] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const history = useHistory();
   const db = getFirestore(app);
 
@@ -40,7 +40,7 @@ const Languages = () => {
         try {
           console.log(user);
           checkAdmin(user);
-          fetchLanguages(); // Updated function name
+          fetchPublishers(); // Updated function name
         } catch (e) {}
       } else {
         backWhereYouCameFrom();
@@ -52,38 +52,38 @@ const Languages = () => {
     };
   }, [db]);
 
-  // Function to filter languages based on the search query
-  const filterLanguages = () => {
-    return languages.filter(
+  // Function to filter publishers based on the search query
+  const filterPublishers = () => {
+    return publishers.filter(
       (
-        language // Updated variable name
-      ) => language.name.toLowerCase().includes(searchQuery.toLowerCase())
+        publisher // Updated variable name
+      ) => publisher.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
   };
 
-  const handleEditLanguage = async () => {
-    if (!editingLanguage) {
-      return; // Return if no language is being edited
+  const handleEditPublisher = async () => {
+    if (!editingPublisher) {
+      return; // Return if no publisher is being edited
     }
 
     try {
-      const languageRef = doc(db, "languages", editingLanguage.id); // Updated collection name
+      const languageRef = doc(db, "publishers", editingPublisher.id); // Updated collection name
       await updateDoc(languageRef, {
-        name: editingLanguage.name,
+        name: editingPublisher.name,
       });
 
-      // Refresh the language list
-      fetchLanguages();
+      // Refresh the publisher list
+      fetchPublishers();
 
       // Reset the editing state
-      setEditingLanguage(null);
+      setEditingPublisher(null);
     } catch (error) {
-      console.error("Error updating language:", error);
+      console.error("Error updating publisher:", error);
     }
   };
 
-  const fetchLanguages = async () => {
-    const languagesRef = collection(db, "languages"); // Updated collection name
+  const fetchPublishers = async () => {
+    const languagesRef = collection(db, "publishers"); // Updated collection name
     console.log(languagesRef);
     const snapshot = await getDocs(languagesRef); // Updated collection name
     const languageList = await Promise.all(
@@ -92,7 +92,7 @@ const Languages = () => {
         ...doc3.data(),
       }))
     );
-    setLanguages(languageList); // Updated variable name
+    setPublishers(languageList); // Updated variable name
   };
 
   const checkAdmin = async (user1) => {
@@ -108,124 +108,130 @@ const Languages = () => {
     }
   };
 
-  const handleDeleteLanguage = async (languageId) => {
+  const handleDeletePublisher = async (languageId) => {
     const confirmation = window.confirm(
       "Estas segur que vols eliminar aquesta llengua?"
     );
 
     if (confirmation) {
       try {
-        await deleteDoc(doc(db, "languages", languageId)); // Updated collection name
+        await deleteDoc(doc(db, "publishers", languageId)); // Updated collection name
 
-        // Refresh the language list
-        fetchLanguages();
+        // Refresh the publisher list
+        fetchPublishers();
 
         // Reset the editing state
-        setEditingLanguage(null);
+        setEditingPublisher(null);
       } catch (error) {
-        console.error("Error deleting language:", error);
+        console.error("Error deleting publisher:", error);
       }
     }
   };
 
-  const handleAddLanguage = async (e) => {
+  const handleAddPublisher = async (e) => {
     e.preventDefault();
 
-    // Check if a language with the same name already exists
+    // Check if a publisher with the same name already exists
     const languageQuery = query(
-      collection(db, "languages"), // Updated collection name
-      where("name", "==", newLanguage)
+      collection(db, "publishers"), // Updated collection name
+      where("name", "==", newPublisher)
     );
     const querySnapshot = await getDocs(languageQuery);
 
     if (!querySnapshot.empty) {
-      alert("A language with this name already exists!");
-      return; // Exit the function if a language with the same name exists
+      alert("A publisher with this name already exists!");
+      return; // Exit the function if a publisher with the same name exists
     }
 
-    // If the language doesn't exist, add it
-    const docRef = await addDoc(collection(db, "languages"), {
+    // If the publisher doesn't exist, add it
+    const docRef = await addDoc(collection(db, "publishers"), {
       // Updated collection name
-      name: newLanguage,
+      name: newPublisher,
     }).catch((error) => {
       console.error("Error adding document: ", error);
     });
 
-    setNewLanguage("");
+    setNewPublisher("");
   };
 
   return (
     <div>
-      <section className="create-language-section" onSubmit={handleAddLanguage}>
-        <h2>Crear llenguatge</h2>
-        <form className="create-language-form">
+      <section
+        className="create-publisher-section"
+        onSubmit={handleAddPublisher}
+      >
+        <h2>Crear Editorial</h2>
+        <form className="create-publisher-form">
           <input
-            id="language" // Updated ID
-            name="language" // Updated name attribute
-            placeholder="Nom Llenguatge"
+            id="publisher" // Updated ID
+            name="publisher" // Updated name attribute
+            placeholder="Nom Editorial"
             type="text"
             required
-            className="language-input" // Updated class name
-            value={newLanguage}
-            onChange={(e) => setNewLanguage(e.target.value)}
+            className="publisher-input" // Updated class name
+            value={newPublisher}
+            onChange={(e) => setNewPublisher(e.target.value)}
           />
-          <button type="submit">Crear llenguatge</button>{" "}
+          <button type="submit">Crear Editorial</button>{" "}
           {/* Updated button text */}
         </form>
       </section>
       <section>
-        <h2>Llenguatges</h2> {/* Updated heading */}
+        <h2>Editorials</h2> {/* Updated heading */}
         <input
           type="text"
-          placeholder="Cercar llenguatges"
+          placeholder="Cercar Editorials"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)} // Update search query
         />
         <table>
           <thead>
             <tr>
-              <th>Name</th> {/* Updated column header */}
+              <th>Nom</th> {/* Updated column header */}
             </tr>
           </thead>
           <tbody>
-            {filterLanguages().map(
+            {filterPublishers().map(
               (
-                language // Updated variable name
+                publisher // Updated variable name
               ) => (
-                <tr key={language.id}>
-                  {editingLanguage && editingLanguage.id === language.id ? (
+                <tr key={publisher.id}>
+                  {editingPublisher && editingPublisher.id === publisher.id ? (
                     <td>
                       <input
                         type="text"
-                        value={editingLanguage.name}
+                        value={editingPublisher.name}
                         onChange={(e) =>
-                          setEditingLanguage({
-                            ...editingLanguage,
+                          setEditingPublisher({
+                            ...editingPublisher,
                             name: e.target.value,
                           })
                         }
                       />
                     </td>
                   ) : (
-                    <td>{language.name}</td>
+                    <td>{publisher.name}</td>
                   )}
                   <td>
-                    {editingLanguage && editingLanguage.id === language.id ? (
+                    {editingPublisher &&
+                    editingPublisher.id === publisher.id ? (
                       <>
-                        <button onClick={handleEditLanguage}>Guardar</button>{" "}
-                        <button onClick={handleDeleteLanguage}>Eliminar</button>{" "}
-                        <button onClick={() => setEditingLanguage(null)}>
+                        <button onClick={handleEditPublisher}>Guardar</button>{" "}
+                        <button onClick={handleDeletePublisher}>
+                          Eliminar
+                        </button>{" "}
+                        <button onClick={() => setEditingPublisher(null)}>
                           Cancel
                         </button>
                       </>
                     ) : (
                       <>
-                        <button onClick={() => setEditingLanguage(language)}>
+                        <button onClick={() => setEditingPublisher(publisher)}>
                           Edit
                         </button>{" "}
                         {/* Updated button text */}
                         <button
-                          onClick={() => handleDeleteLanguage(language.id)}
+                          onClick={() => handleDeletePublisher(publisher.id)}
                         >
                           Delete
                         </button>{" "}
@@ -243,4 +249,4 @@ const Languages = () => {
   );
 };
 
-export default Languages; // Updated component name
+export default Publisher;

@@ -24,6 +24,8 @@ import AdminUsers from "./AdminUsers";
 import DelayedBooks from "./DelayedBooks";
 import AdminReservations from "./AdminReservations";
 import Languages from "./Languages";
+import Publisher from "./Publisher";
+import Subjects from "./Subjects";
 
 const AdminDashboard = () => {
   const [user, setUser] = useState(null);
@@ -310,6 +312,16 @@ const AdminDashboard = () => {
           </li>
           <li className="AdminLi">
             <NavLink
+              to="/admin/publishers"
+              onClick={() => reload()}
+              activeClassName="active-link"
+              className="menu-link" // Apply the nav-link class
+            >
+              Editorials
+            </NavLink>
+          </li>
+          <li className="AdminLi">
+            <NavLink
               to="/admin/languages"
               onClick={() => reload()}
               activeClassName="active-link"
@@ -330,6 +342,16 @@ const AdminDashboard = () => {
           </li>
           <li className="AdminLi">
             <NavLink
+              to="/admin/subjects"
+              onClick={() => reload()}
+              activeClassName="active-link"
+              className="menu-link" // Apply the nav-link class
+            >
+              Assignatures
+            </NavLink>
+          </li>
+          <li className="AdminLi">
+            <NavLink
               to="/admin/admin_users"
               onClick={() => reload()}
               activeClassName="active-link"
@@ -344,6 +366,8 @@ const AdminDashboard = () => {
         <Route path="/admin/reservations" component={AdminReservations} />
         <Route path="/admin/delayed" component={DelayedBooks} />
         <Route path="/admin/languages" component={Languages} />
+        <Route path="/admin/publishers" component={Publisher} />
+        <Route path="admin/subjects" component={Subjects} />
         <Route path="/admin/books">
           <Books />
         </Route>

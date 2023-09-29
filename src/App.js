@@ -24,6 +24,8 @@ import AdminUsers from "./components/AdminUsers";
 import DelayedBooks from "./components/DelayedBooks";
 import AdminReservations from "./components/AdminReservations";
 import Languages from "./components/Languages";
+import Publisher from "./components/Publisher";
+import Subjects from "./components/Subjects";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -56,6 +58,8 @@ const App = () => {
         <Route path="/category/:categoryId" component={Category} />
         <Route path="/admin/dashboard" component={AdminDashboard} />
         <Route path="/admin/reservations" component={AdminReservations} />
+        <Route path="/admin/publishers" component={Publisher} />
+        <Route path="/admin/subjects" component={Subjects} />
 
         <Route path="/admin/delayed">
           <DelayedBooks />

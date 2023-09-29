@@ -181,7 +181,7 @@ const Categories = () => {
         <table>
           <thead>
             <tr>
-              <th>Name</th>
+              <th>Nom</th>
             </tr>
           </thead>
           <tbody>

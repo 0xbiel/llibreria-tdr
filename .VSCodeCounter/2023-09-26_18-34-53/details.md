@@ -1,10 +1,10 @@
 # Details
 
-Date : 2023-09-24 20:12:15
+Date : 2023-09-26 18:34:53
 
 Directory c:\\Users\\anxoa\\WebstormProjects\\library-app-alpha
 
-Total : 45 files,  39955 codes, 141 comments, 514 blanks, all 40610 lines
+Total : 46 files,  40304 codes, 154 comments, 543 blanks, all 41001 lines
 
 [Summary](results.md) / Details / [Diff Summary](diff.md) / [Diff Details](diff-details.md)
 
@@ -21,25 +21,26 @@ Total : 45 files,  39955 codes, 141 comments, 514 blanks, all 40610 lines
 | [public/index.html](/public/index.html) | HTML | 20 | 23 | 1 | 44 |
 | [public/manifest.json](/public/manifest.json) | JSON | 25 | 0 | 1 | 26 |
 | [src/App.css](/src/App.css) | CSS | 37 | 0 | 7 | 44 |
-| [src/App.js](/src/App.js) | JavaScript | 73 | 1 | 6 | 80 |
+| [src/App.js](/src/App.js) | JavaScript | 75 | 1 | 8 | 84 |
 | [src/App.test.js](/src/App.test.js) | JavaScript | 7 | 0 | 2 | 9 |
 | [src/components/AdminDashboard.css](/src/components/AdminDashboard.css) | CSS | 122 | 10 | 21 | 153 |
-| [src/components/AdminDashboard.js](/src/components/AdminDashboard.js) | JavaScript | 339 | 4 | 28 | 371 |
+| [src/components/AdminDashboard.js](/src/components/AdminDashboard.js) | JavaScript | 338 | 3 | 24 | 365 |
 | [src/components/AdminReservations.js](/src/components/AdminReservations.js) | JavaScript | 168 | 3 | 25 | 196 |
 | [src/components/AdminUsers.js](/src/components/AdminUsers.js) | JavaScript | 188 | 3 | 21 | 212 |
 | [src/components/Authors.js](/src/components/Authors.js) | JavaScript | 226 | 8 | 23 | 257 |
 | [src/components/BookCard.css](/src/components/BookCard.css) | CSS | 42 | 6 | 8 | 56 |
 | [src/components/BookCard.js](/src/components/BookCard.js) | JavaScript | 28 | 1 | 4 | 33 |
 | [src/components/BookDetails.css](/src/components/BookDetails.css) | CSS | 38 | 5 | 6 | 49 |
-| [src/components/BookDetails.js](/src/components/BookDetails.js) | JavaScript | 159 | 7 | 29 | 195 |
-| [src/components/Books.js](/src/components/Books.js) | JavaScript | 364 | 8 | 33 | 405 |
+| [src/components/BookDetails.js](/src/components/BookDetails.js) | JavaScript | 183 | 7 | 31 | 221 |
+| [src/components/Books.js](/src/components/Books.js) | JavaScript | 433 | 11 | 36 | 480 |
 | [src/components/Categories.js](/src/components/Categories.js) | JavaScript | 204 | 8 | 24 | 236 |
 | [src/components/Category.css](/src/components/Category.css) | CSS | 69 | 2 | 14 | 85 |
 | [src/components/Category.js](/src/components/Category.js) | JavaScript | 84 | 0 | 13 | 97 |
 | [src/components/DelayedBooks.js](/src/components/DelayedBooks.js) | JavaScript | 124 | 0 | 19 | 143 |
-| [src/components/EditBook.js](/src/components/EditBook.js) | JavaScript | 121 | 1 | 9 | 131 |
+| [src/components/EditBook.js](/src/components/EditBook.js) | JavaScript | 157 | 4 | 11 | 172 |
 | [src/components/Homepage.css](/src/components/Homepage.css) | CSS | 64 | 3 | 13 | 80 |
 | [src/components/Homepage.js](/src/components/Homepage.js) | JavaScript | 86 | 3 | 12 | 101 |
+| [src/components/Languages.js](/src/components/Languages.js) | JavaScript | 219 | 8 | 24 | 251 |
 | [src/components/Login.css](/src/components/Login.css) | CSS | 50 | 1 | 9 | 60 |
 | [src/components/Login.js](/src/components/Login.js) | JavaScript | 74 | 3 | 11 | 88 |
 | [src/components/Navbar.css](/src/components/Navbar.css) | CSS | 175 | 13 | 30 | 218 |

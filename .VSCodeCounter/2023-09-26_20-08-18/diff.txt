@@ -1,0 +1,33 @@
+Date : 2023-09-26 20:08:18
+Directory : c:\Users\anxoa\WebstormProjects\library-app-alpha
+Total : 6 files,  266 codes, 8 comments, 28 blanks, all 302 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JavaScript |          6 |        266 |          8 |         28 |        302 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                               | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                  |          6 |        266 |          8 |         28 |        302 |
+| src                                                                                |          6 |        266 |          8 |         28 |        302 |
+| src (Files)                                                                        |          1 |          2 |          0 |          0 |          2 |
+| src\components                                                                     |          5 |        264 |          8 |         28 |        300 |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                           | language   | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\App.js                       | JavaScript |          2 |          0 |          0 |          2 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\AdminDashboard.js | JavaScript |         12 |          0 |          0 |         12 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Books.js          | JavaScript |         55 |          0 |          4 |         59 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Languages.js      | JavaScript |         -4 |          0 |          0 |         -4 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Publisher.js      | JavaScript |         -4 |          0 |          0 |         -4 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Subjects.js       | JavaScript |        205 |          8 |         24 |        237 |
+| Total                                                                              |            |        266 |          8 |         28 |        302 |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

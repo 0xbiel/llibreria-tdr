@@ -1,10 +1,10 @@
 # Details
 
-Date : 2023-09-23 16:03:16
+Date : 2023-09-26 19:41:18
 
 Directory c:\\Users\\anxoa\\WebstormProjects\\library-app-alpha
 
-Total : 43 files,  36999 codes, 142 comments, 463 blanks, all 37604 lines
+Total : 47 files,  40671 codes, 161 comments, 576 blanks, all 41408 lines
 
 [Summary](results.md) / Details / [Diff Summary](diff.md) / [Diff Details](diff-details.md)
 
@@ -15,37 +15,41 @@ Total : 43 files,  36999 codes, 142 comments, 463 blanks, all 37604 lines
 | [.idea/modules.xml](/.idea/modules.xml) | XML | 8 | 0 | 0 | 8 |
 | [.idea/vcs.xml](/.idea/vcs.xml) | XML | 6 | 0 | 0 | 6 |
 | [README.md](/README.md) | Markdown | 38 | 0 | 33 | 71 |
-| [package-lock.json](/package-lock.json) | JSON | 33,649 | 0 | 1 | 33,650 |
-| [package.json](/package.json) | JSON | 47 | 0 | 1 | 48 |
+| [package-lock.json](/package-lock.json) | JSON | 36,220 | 0 | 1 | 36,221 |
+| [package.json](/package.json) | JSON | 48 | 0 | 1 | 49 |
 | [postcss.config.js](/postcss.config.js) | JavaScript | 6 | 0 | 1 | 7 |
 | [public/index.html](/public/index.html) | HTML | 20 | 23 | 1 | 44 |
 | [public/manifest.json](/public/manifest.json) | JSON | 25 | 0 | 1 | 26 |
 | [src/App.css](/src/App.css) | CSS | 37 | 0 | 7 | 44 |
-| [src/App.js](/src/App.js) | JavaScript | 67 | 1 | 6 | 74 |
+| [src/App.js](/src/App.js) | JavaScript | 77 | 1 | 8 | 86 |
 | [src/App.test.js](/src/App.test.js) | JavaScript | 7 | 0 | 2 | 9 |
-| [src/components/AdminDashboard.css](/src/components/AdminDashboard.css) | CSS | 96 | 10 | 16 | 122 |
-| [src/components/AdminDashboard.js](/src/components/AdminDashboard.js) | JavaScript | 311 | 4 | 27 | 342 |
-| [src/components/AdminUsers.js](/src/components/AdminUsers.js) | JavaScript | 187 | 3 | 21 | 211 |
+| [src/components/AdminDashboard.css](/src/components/AdminDashboard.css) | CSS | 122 | 10 | 21 | 153 |
+| [src/components/AdminDashboard.js](/src/components/AdminDashboard.js) | JavaScript | 350 | 3 | 24 | 377 |
+| [src/components/AdminReservations.js](/src/components/AdminReservations.js) | JavaScript | 168 | 3 | 25 | 196 |
+| [src/components/AdminUsers.js](/src/components/AdminUsers.js) | JavaScript | 188 | 3 | 21 | 212 |
 | [src/components/Authors.js](/src/components/Authors.js) | JavaScript | 226 | 8 | 23 | 257 |
 | [src/components/BookCard.css](/src/components/BookCard.css) | CSS | 42 | 6 | 8 | 56 |
 | [src/components/BookCard.js](/src/components/BookCard.js) | JavaScript | 28 | 1 | 4 | 33 |
 | [src/components/BookDetails.css](/src/components/BookDetails.css) | CSS | 38 | 5 | 6 | 49 |
-| [src/components/BookDetails.js](/src/components/BookDetails.js) | JavaScript | 158 | 7 | 29 | 194 |
-| [src/components/Books.js](/src/components/Books.js) | JavaScript | 364 | 8 | 33 | 405 |
-| [src/components/Categories.js](/src/components/Categories.js) | JavaScript | 203 | 8 | 24 | 235 |
+| [src/components/BookDetails.js](/src/components/BookDetails.js) | JavaScript | 202 | 7 | 32 | 241 |
+| [src/components/Books.js](/src/components/Books.js) | JavaScript | 514 | 10 | 43 | 567 |
+| [src/components/Categories.js](/src/components/Categories.js) | JavaScript | 204 | 8 | 24 | 236 |
 | [src/components/Category.css](/src/components/Category.css) | CSS | 69 | 2 | 14 | 85 |
-| [src/components/Category.js](/src/components/Category.js) | JavaScript | 85 | 0 | 13 | 98 |
-| [src/components/EditBook.js](/src/components/EditBook.js) | JavaScript | 121 | 1 | 9 | 131 |
+| [src/components/Category.js](/src/components/Category.js) | JavaScript | 84 | 0 | 13 | 97 |
+| [src/components/DelayedBooks.js](/src/components/DelayedBooks.js) | JavaScript | 124 | 0 | 19 | 143 |
+| [src/components/EditBook.js](/src/components/EditBook.js) | JavaScript | 187 | 4 | 12 | 203 |
 | [src/components/Homepage.css](/src/components/Homepage.css) | CSS | 64 | 3 | 13 | 80 |
 | [src/components/Homepage.js](/src/components/Homepage.js) | JavaScript | 86 | 3 | 12 | 101 |
+| [src/components/Languages.js](/src/components/Languages.js) | JavaScript | 219 | 8 | 24 | 251 |
 | [src/components/Login.css](/src/components/Login.css) | CSS | 50 | 1 | 9 | 60 |
 | [src/components/Login.js](/src/components/Login.js) | JavaScript | 74 | 3 | 11 | 88 |
-| [src/components/Navbar.css](/src/components/Navbar.css) | CSS | 164 | 15 | 29 | 208 |
+| [src/components/Navbar.css](/src/components/Navbar.css) | CSS | 175 | 13 | 30 | 218 |
 | [src/components/Navbar.js](/src/components/Navbar.js) | JavaScript | 170 | 1 | 13 | 184 |
+| [src/components/Publisher.js](/src/components/Publisher.js) | JavaScript | 223 | 8 | 24 | 255 |
 | [src/components/Register.css](/src/components/Register.css) | CSS | 45 | 1 | 8 | 54 |
 | [src/components/Register.js](/src/components/Register.js) | JavaScript | 66 | 1 | 8 | 75 |
-| [src/components/Reservations.css](/src/components/Reservations.css) | CSS | 81 | 3 | 15 | 99 |
-| [src/components/Reservations.js](/src/components/Reservations.js) | JavaScript | 178 | 0 | 20 | 198 |
+| [src/components/Reservations.css](/src/components/Reservations.css) | CSS | 87 | 1 | 15 | 103 |
+| [src/components/Reservations.js](/src/components/Reservations.js) | JavaScript | 191 | 0 | 20 | 211 |
 | [src/firebase.js](/src/firebase.js) | JavaScript | 18 | 1 | 4 | 23 |
 | [src/index.css](/src/index.css) | CSS | 16 | 0 | 3 | 19 |
 | [src/index.js](/src/index.js) | JavaScript | 13 | 3 | 3 | 19 |

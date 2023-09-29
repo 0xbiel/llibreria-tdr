@@ -13,9 +13,7 @@ import {
   query,
   getDocs,
   where,
-  updateDoc,
-} from "firebase/firestore"; // Import your Firebase configuration
-
+} from "firebase/firestore";
 import "./BookDetails.css";
 import { onAuthStateChanged } from "firebase/auth";
 
@@ -23,7 +21,7 @@ function BookDetails() {
   const db = getFirestore(app);
   const { id } = useParams();
   const [book, setBook] = useState(null);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null); // eslint-disable-line no-unused-vars
   const [bookRef, setBookRef] = useState(null);
 
   useEffect(() => {
@@ -46,6 +44,9 @@ function BookDetails() {
           const bookData = bookDoc.data();
           const authorRef = bookData.authorRef;
           const categoryRef = bookData.categoryRef;
+          const languageRef = bookData.languageRef;
+          const publisherRef = bookData.publisherRef;
+          const subjectRef = bookData.subjectRef;
 
           if (authorRef) {
             const authorDoc = await getDoc(authorRef);
@@ -56,18 +57,79 @@ function BookDetails() {
               const categoryDoc = await getDoc(categoryRef);
               const categoryData = categoryDoc.data();
 
+              if (languageRef) {
+                const languageDoc = await getDoc(languageRef);
+                const languageData = languageDoc.data();
+
+                if (publisherRef) {
+                  const publisherDoc = await getDoc(publisherRef);
+                  const publisherData = publisherDoc.data();
+
+                  if (subjectRef) {
+                    const subjectDoc = await getDoc(subjectRef);
+                    const subjectData = subjectDoc.data();
+
+                    setBook({
+                      ...bookData,
+                      author: authorData,
+                      category: categoryData,
+                      language: languageData,
+                      publisher: publisherData,
+                      subject: subjectData,
+                    });
+                  } else {
+                    setBook({
+                      ...bookData,
+                      author: authorData,
+                      category: categoryData,
+                      language: languageData,
+                      publisher: publisherData,
+                      subject: { name: "No disponible" },
+                    });
+                  }
+                } else {
+                  setBook({
+                    ...bookData,
+                    author: authorData,
+                    category: categoryData,
+                    language: languageData,
+                    publisher: { name: "No disponible" },
+                    subject: { name: "No disponible" },
+                  });
+                }
+                setBookRef(bookDoc.id);
+              } else {
+                setBook({
+                  ...bookData,
+                  author: authorData,
+                  category: categoryData,
+                  language: { name: "No disponible" },
+                  publisher: { name: "No disponible" },
+                  subject: { name: "No disponible" },
+                });
+              }
+
+              setBookRef(bookDoc.id);
+            } else {
               setBook({
                 ...bookData,
                 author: authorData,
-                category: categoryData,
+                category: { name: "No disponible" },
+                language: { name: "No disponible" },
+                publisher: { name: "No disponible" },
+                subject: { name: "No disponible" },
               });
-              setBookRef(bookDoc.id);
-            } else {
-              setBook({ ...bookData, author: authorData });
               setBookRef(bookDoc.id);
             }
           } else {
-            setBook({ ...bookData, author: null, category: null });
+            setBook({
+              ...bookData,
+              author: null,
+              category: null,
+              language: null,
+              publisher: null,
+              subject: null,
+            });
             setBookRef(bookDoc.id);
           }
         } else {
@@ -185,7 +247,12 @@ function BookDetails() {
       </button>
       <p>Autor: {book.author.name}</p>
       <p>Gènere: {book.category.name}</p>
+      <p>Editorial: {book.publisher.name}</p>
       <p>ISBN: {book.isbn}</p>
+      <p>Assignatura: {book.subject.name}</p>
+      <p>Any de publicació: {book.publicationYear}</p>
+      <p>Número de pàgines: {book.numberOfPages}</p>
+      <p>Idioma: {book.language.name}</p>
       <p>Descripció: {book.description}</p>
     </div>
   );
