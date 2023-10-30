@@ -5,7 +5,7 @@
   background-color: #d6d6d6a2;
   color: #000;
   margin: 0;
-  max-width: 100%;
+  width: auto;
 }
 
 /* Container for the navigation elements */
@@ -134,6 +134,7 @@
   text-align: center;
   transition: color 0.3s ease;
   text-decoration: none;
+  margin: 10px;
 }
 
 .login-button:hover,

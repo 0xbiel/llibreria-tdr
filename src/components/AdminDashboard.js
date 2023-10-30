@@ -187,6 +187,14 @@ const AdminDashboard = () => {
       if (reservationData) {
         const bookSnapshot = await getDoc(reservationData.bookId);
         const bookData = bookSnapshot.data();
+        if (!bookData) {
+          setSelectedReservationDetails({
+            id: reservationData.id,
+            ...reservationData,
+            book: { title: "Llibre no existeix" },
+          });
+          return;
+        }
 
         setSelectedReservationDetails({
           id: reservationData.id,
@@ -212,7 +220,7 @@ const AdminDashboard = () => {
     <div>
       <h1>Pàgina d'administrador</h1>
       <section className="mark-as-delivered-section">
-        <h2>Marcat com entregat</h2>
+        <h2>Marcar com entregat</h2>
         <form className="return-form" onSubmit={handleSetAsDelivered}>
           <input
             id="reservationRef"

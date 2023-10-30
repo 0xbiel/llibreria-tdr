@@ -16,10 +16,10 @@ import { onAuthStateChanged } from "firebase/auth";
 
 const Subjects = () => {
   const [user, setUser] = useState(null);
-  const [subjects, setSubjects] = useState([]); // Updated variable name
-  const [editingSubject, setEditingSubject] = useState(null); // Updated variable name
-  const [newSubject, setNewSubject] = useState(""); // Updated variable name
-  const [searchQuery, setSearchQuery] = useState(""); // Updated variable name
+  const [subjects, setSubjects] = useState([]);
+  const [editingSubject, setEditingSubject] = useState(null);
+  const [newSubject, setNewSubject] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const history = useHistory();
   const db = getFirestore(app);
 
@@ -62,11 +62,11 @@ const Subjects = () => {
 
   const handleEditSubject = async () => {
     if (!editingSubject) {
-      return; // Return if no subject is being edited
+      return;
     }
 
     try {
-      const subjectRef = doc(db, "subjects", editingSubject.id); // Updated collection name
+      const subjectRef = doc(db, "subjects", editingSubject.id);
       await updateDoc(subjectRef, {
         name: editingSubject.name,
       });
@@ -82,16 +82,16 @@ const Subjects = () => {
   };
 
   const fetchSubjects = async () => {
-    const subjectsRef = collection(db, "subjects"); // Updated collection name
+    const subjectsRef = collection(db, "subjects");
     console.log(subjectsRef);
-    const snapshot = await getDocs(subjectsRef); // Updated collection name
+    const snapshot = await getDocs(subjectsRef);
     const subjectList = await Promise.all(
       snapshot.docs.map((doc3) => ({
         id: doc3.id,
         ...doc3.data(),
       }))
     );
-    setSubjects(subjectList); // Updated variable name
+    setSubjects(subjectList);
   };
 
   const checkAdmin = async (user1) => {
@@ -114,7 +114,7 @@ const Subjects = () => {
 
     if (confirmation) {
       try {
-        await deleteDoc(doc(db, "subjects", subjectId)); // Updated collection name
+        await deleteDoc(doc(db, "subjects", subjectId));
 
         // Refresh the subject list
         fetchSubjects();

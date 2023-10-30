@@ -557,8 +557,9 @@ const Books = () => {
           <button type="submit">Crear</button>
         </form>
       </section>
+      <div className="divider"></div>
       <section className="books-section">
-        <h2>Llibres</h2>
+        <h2>Consultar llibres</h2>
         <label>
           Cerca:
           <input

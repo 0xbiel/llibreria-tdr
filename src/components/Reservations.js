@@ -80,9 +80,7 @@ const Reservation = () => {
   }, []);
 
   const handleCancelReservation = async (reservationId, bookRef) => {
-    const confirmation = window.confirm(
-      "Are you sure you want to delete this book?"
-    );
+    const confirmation = window.confirm("Vols eliminar la reserva?");
     if (!confirmation) return;
     try {
       const reservationRef = doc(db, "reservations", reservationId);
@@ -181,6 +179,17 @@ const Reservation = () => {
                         alt={reservation.book.imageUrl}
                       />
                     </div>
+                  </td>
+                  <td className="table">
+                    <button
+                      onClick={() =>
+                        navigator.clipboard.writeText(reservation.id) &&
+                        alert("ID copiat")
+                      }
+                      className="copy-button"
+                    >
+                      Copiar ID
+                    </button>
                   </td>
                   <td className="table">
                     {reservation.status === "active" && (
