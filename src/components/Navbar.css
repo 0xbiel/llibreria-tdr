@@ -6,6 +6,7 @@
   color: #000;
   margin: 0;
   width: auto;
+  max-width: 100%;
 }
 
 /* Container for the navigation elements */
@@ -16,7 +17,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
 }
 
 /* Styling for the logo */
@@ -26,6 +26,7 @@
   font-size: 24px; /* Adjust font size as needed */
   font-weight: bold;
   transition: color 0.3s ease;
+  padding: 0px 20px;
 }
 
 .nav-logo-text:hover {
@@ -39,7 +40,7 @@
   gap: 20px;
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0 10px;
 }
 
 .nav-links a {

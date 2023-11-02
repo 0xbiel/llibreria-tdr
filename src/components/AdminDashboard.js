@@ -138,12 +138,14 @@ const AdminDashboard = () => {
       console.error("Error updating document: ", error);
     }
   };
+
   const handleSetAsDelivered = async (e) => {
     e.preventDefault();
     try {
-      const reservationRef = doc(db, "reservations", reservRef);
+      const reservationRef = doc(db, "reservations", reservRefDelivered);
       await updateDoc(reservationRef, { status: "delivered" });
     } catch (error) {
+      console.log(reservRef);
       console.error("Error updating document: ", error);
     }
   };
@@ -182,7 +184,6 @@ const AdminDashboard = () => {
       const reservationRef = doc(db, "reservations", selectedReservationId);
       const reservationSnapshot = await getDoc(reservationRef);
       const reservationData = reservationSnapshot.data();
-      console.log(reservationData);
 
       if (reservationData) {
         const bookSnapshot = await getDoc(reservationData.bookId);
@@ -218,7 +219,7 @@ const AdminDashboard = () => {
 
   return (
     <div>
-      <h1>Pàgina d'administrador</h1>
+      <h1 className="header">Pàgina d'administrador</h1>
       <section className="mark-as-delivered-section">
         <h2>Marcar com entregat</h2>
         <form className="return-form" onSubmit={handleSetAsDelivered}>
@@ -231,7 +232,9 @@ const AdminDashboard = () => {
             value={reservRefDelivered}
             onChange={(e) => setReservRefDelivered(e.target.value)}
           />
-          <button type="submit">Marcat com entregat</button>
+          <button className="adminButton" type="submit">
+            Marcat com entregat
+          </button>
         </form>
       </section>
       <section className="mark-as-returned-section">
@@ -246,7 +249,9 @@ const AdminDashboard = () => {
             value={reservRef}
             onChange={(e) => setReservRef(e.target.value)}
           />
-          <button type="submit">Marcar com a tornat</button>
+          <button className="adminButton" type="submit">
+            Marcar com a tornat
+          </button>
         </form>
       </section>
       <section className="view-reservation-section">
@@ -258,7 +263,9 @@ const AdminDashboard = () => {
             value={selectedReservationId}
             onChange={(e) => setSelectedReservationId(e.target.value)}
           />
-          <button type="submit">Veure reserva</button>
+          <button className="adminButton" type="submit">
+            Veure reserva
+          </button>
         </form>
         {selectedReservationDetails && (
           <div className="overlay">
@@ -269,7 +276,10 @@ const AdminDashboard = () => {
               <p>Start Date: {selectedReservationDetails.startDate}</p>
               <p>End Date: {selectedReservationDetails.endDate}</p>
               <p>Status: {selectedReservationDetails.status}</p>
-              <button onClick={() => setSelectedReservationDetails(null)}>
+              <button
+                className="adminButton"
+                onClick={() => setSelectedReservationDetails(null)}
+              >
                 Tancar
               </button>
             </div>

@@ -150,6 +150,10 @@ function BookDetails() {
 
   // Function to handle reservation creation
   const handleReservation = async () => {
+    // Query the book document to get the available copies count
+    const bookDocRef = doc(db, "books", bookRef);
+    const bookDoc = await getDoc(bookDocRef);
+
     const selectedStartDate_Date = new Date(selectedStartDate);
     const today = new Date();
 
@@ -172,7 +176,7 @@ function BookDetails() {
 
     const activeBooksQuery = query(
       collection(db, "reservations"),
-      where("bookId", "==", bookRef),
+      where("bookId", "==", doc(db, "books", bookRef)),
       where("status", "in", ["active", "delivered"])
     );
 
@@ -190,10 +194,6 @@ function BookDetails() {
     const endDate = new Date(selectedStartDate);
     endDate.setDate(selectedStartDate.getDate() + 14); // Two weeks later
 
-    // Query the book document to get the available copies count
-    const bookDocRef = doc(db, "books", bookRef);
-    const bookDoc = await getDoc(bookDocRef);
-
     if (!bookDoc.exists()) {
       console.log("Book not found.");
       return;
@@ -203,8 +203,16 @@ function BookDetails() {
     const availableCopies = bookData.availableCopies;
 
     if (bookSize >= availableCopies) {
-      alert("No hi ha cap llibre disponible per aquest periode.");
-      return;
+      for (const doc of activeBooksSnapshot.docs) {
+        const reservationData = doc.data();
+        const endDate = new Date(
+          reservationData.endDate.split("/").reverse().join("/")
+        );
+        if (selectedStartDate_Date < endDate) {
+          alert("No hi ha cap llibre disponible per aquest periode.");
+          return;
+        }
+      }
     }
 
     // Create the reservation and update the available copies count

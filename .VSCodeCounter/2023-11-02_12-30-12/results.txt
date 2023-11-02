@@ -1,14 +1,14 @@
-Date : 2023-09-25 09:59:54
+Date : 2023-11-02 12:30:12
 Directory : c:\Users\anxoa\WebstormProjects\library-app-alpha
-Total : 46 files,  40188 codes, 149 comments, 539 blanks, all 40876 lines
+Total : 48 files,  41120 codes, 169 comments, 616 blanks, all 41905 lines
 
 Languages
 +------------+------------+------------+------------+------------+------------+
 | language   | files      | code       | comment    | blank      | total      |
 +------------+------------+------------+------------+------------+------------+
 | JSON       |          3 |     36,293 |          0 |          3 |     36,296 |
-| JavaScript |         25 |      2,969 |         69 |        340 |      3,378 |
-| CSS        |         12 |        840 |         57 |        162 |      1,059 |
+| JavaScript |         27 |      3,839 |         89 |        409 |      4,337 |
+| CSS        |         12 |        902 |         57 |        170 |      1,129 |
 | Markdown   |          1 |         38 |          0 |         33 |         71 |
 | XML        |          4 |         28 |          0 |          0 |         28 |
 | HTML       |          1 |         20 |         23 |          1 |         44 |
@@ -18,13 +18,13 @@ Directories
 +---------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
 | path                                                                                  | files      | code       | comment    | blank      | total      |
 +---------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
-| .                                                                                     |         46 |     40,188 |        149 |        539 |     40,876 |
+| .                                                                                     |         48 |     41,120 |        169 |        616 |     41,905 |
 | . (Files)                                                                             |          5 |     36,326 |          1 |         40 |     36,367 |
 | .idea                                                                                 |          3 |         27 |          0 |          0 |         27 |
 | public                                                                                |          2 |         45 |         23 |          2 |         70 |
-| src                                                                                   |         36 |      3,790 |        125 |        497 |      4,412 |
-| src (Files)                                                                           |         10 |        275 |         24 |         58 |        357 |
-| src\components                                                                        |         26 |      3,515 |        101 |        439 |      4,055 |
+| src                                                                                   |         38 |      4,722 |        145 |        574 |      5,441 |
+| src (Files)                                                                           |         10 |        279 |         24 |         58 |        361 |
+| src\components                                                                        |         28 |      4,443 |        121 |        516 |      5,080 |
 +---------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
 
 Files
@@ -41,34 +41,36 @@ Files
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\public\index.html                   | HTML       |         20 |         23 |          1 |         44 |
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\public\manifest.json                | JSON       |         25 |          0 |          1 |         26 |
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\src\App.css                         | CSS        |         37 |          0 |          7 |         44 |
-| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\App.js                          | JavaScript |         75 |          1 |          8 |         84 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\App.js                          | JavaScript |         79 |          1 |          8 |         88 |
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\src\App.test.js                     | JavaScript |          7 |          0 |          2 |          9 |
-| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\AdminDashboard.css   | CSS        |        122 |         10 |         21 |        153 |
-| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\AdminDashboard.js    | JavaScript |        351 |          4 |         27 |        382 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\AdminDashboard.css   | CSS        |        166 |         10 |         27 |        203 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\AdminDashboard.js    | JavaScript |        379 |          3 |         24 |        406 |
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\AdminReservations.js | JavaScript |        168 |          3 |         25 |        196 |
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\AdminUsers.js        | JavaScript |        188 |          3 |         21 |        212 |
-| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Authors.js           | JavaScript |        226 |          8 |         23 |        257 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Authors.js           | JavaScript |        240 |          8 |         24 |        272 |
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\BookCard.css         | CSS        |         42 |          6 |          8 |         56 |
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\BookCard.js          | JavaScript |         28 |          1 |          4 |         33 |
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\BookDetails.css      | CSS        |         38 |          5 |          6 |         49 |
-| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\BookDetails.js       | JavaScript |        159 |          7 |         29 |        195 |
-| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Books.js             | JavaScript |        364 |          8 |         33 |        405 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\BookDetails.js       | JavaScript |        231 |          7 |         32 |        270 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Books.js             | JavaScript |        599 |         10 |         48 |        657 |
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Categories.js        | JavaScript |        204 |          8 |         24 |        236 |
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Category.css         | CSS        |         69 |          2 |         14 |         85 |
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Category.js          | JavaScript |         84 |          0 |         13 |         97 |
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\DelayedBooks.js      | JavaScript |        124 |          0 |         19 |        143 |
-| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\EditBook.js          | JavaScript |        121 |          1 |          9 |        131 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\EditBook.js          | JavaScript |        207 |          4 |         14 |        225 |
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Homepage.css         | CSS        |         64 |          3 |         13 |         80 |
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Homepage.js          | JavaScript |         86 |          3 |         12 |        101 |
-| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Languages.js         | JavaScript |        219 |          8 |         24 |        251 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Languages.js         | JavaScript |        215 |          8 |         24 |        247 |
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Login.css            | CSS        |         50 |          1 |          9 |         60 |
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Login.js             | JavaScript |         74 |          3 |         11 |         88 |
-| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Navbar.css           | CSS        |        175 |         13 |         30 |        218 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Navbar.css           | CSS        |        177 |         13 |         30 |        220 |
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Navbar.js            | JavaScript |        170 |          1 |         13 |        184 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Publisher.js         | JavaScript |        221 |          8 |         24 |        253 |
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Register.css         | CSS        |         45 |          1 |          8 |         54 |
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Register.js          | JavaScript |         66 |          1 |          8 |         75 |
-| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Reservations.css     | CSS        |         87 |          1 |         15 |        103 |
-| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Reservations.js      | JavaScript |        191 |          0 |         20 |        211 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Reservations.css     | CSS        |        103 |          1 |         17 |        121 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Reservations.js      | JavaScript |        200 |          0 |         20 |        220 |
+| c:\Users\anxoa\WebstormProjects\library-app-alpha\src\components\Subjects.js          | JavaScript |        205 |          8 |         24 |        237 |
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\src\firebase.js                     | JavaScript |         18 |          1 |          4 |         23 |
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\src\index.css                       | CSS        |         16 |          0 |          3 |         19 |
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\src\index.js                        | JavaScript |         13 |          3 |          3 |         19 |
@@ -77,5 +79,5 @@ Files
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\src\setupTests.js                   | JavaScript |          1 |          4 |          1 |          6 |
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\src\styles.css                      | CSS        |         95 |         15 |         28 |        138 |
 | c:\Users\anxoa\WebstormProjects\library-app-alpha\tailwind.config.js                  | JavaScript |         14 |          1 |          4 |         19 |
-| Total                                                                                 |            |     40,188 |        149 |        539 |     40,876 |
+| Total                                                                                 |            |     41,120 |        169 |        616 |     41,905 |
 +---------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

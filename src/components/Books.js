@@ -443,49 +443,40 @@ const Books = () => {
       <section className="add-book-section">
         <h2>Afagir llibre</h2>
         <form className="add-book-form" onSubmit={handleSubmitCreateBook}>
-          <label>
-            Titol:
-            <input
-              type="text"
-              name="title"
-              value={newBook.title}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            ISBN:
-            <textarea
-              name="isbn"
-              value={newBook.isbn}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Descripció:
-            <textarea
-              name="description"
-              value={newBook.description}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Imatge URL:
-            <textarea
-              name="imageUrl"
-              value={newBook.imageUrl}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Autor:
-            <select name="authors" multiple onChange={handleAuthorsChange}>
-              {authors.map((author) => (
-                <option key={author.id} value={author.id}>
-                  {author.name}
-                </option>
-              ))}
-            </select>
-          </label>
+          <label>Titol</label>
+          <input
+            type="text"
+            name="title"
+            value={newBook.title}
+            onChange={handleInputChange}
+          />
+          <label>ISBN</label>
+          <input
+            name="isbn"
+            value={newBook.isbn}
+            onChange={handleInputChange}
+          />
+          <label>Descripció</label>
+          <textarea
+            type="text"
+            name="description"
+            value={newBook.description}
+            onChange={handleInputChange}
+          />
+          <label>Imatge URL</label>
+          <textarea
+            name="imageUrl"
+            value={newBook.imageUrl}
+            onChange={handleInputChange}
+          />
+          <label>Autor:</label>
+          <select name="authors" multiple onChange={handleAuthorsChange}>
+            {authors.map((author) => (
+              <option key={author.id} value={author.id}>
+                {author.name}
+              </option>
+            ))}
+          </select>
           <label>
             Editorial:
             <select name="publisher" multiple onChange={handlePublisherChange}>

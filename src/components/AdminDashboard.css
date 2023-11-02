@@ -179,3 +179,24 @@ a:hover {
   background-color: #ccc;
   margin: 10px 0px;
 }
+
+.mark-as-delivered-section,
+.mark-as-returned-section,
+.view-reservation-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  padding: 10px;
+  text-align: center;
+  align-self: center;
+}
+
+.header {
+  display: flex;
+  padding: 1rem;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #eeeeee00;
+  color: #000000;
+}
