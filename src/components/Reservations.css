@@ -18,15 +18,16 @@
 }
 
 .reservation-item {
-  background-color: #000000;
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
   border-radius: 10px;
   padding: 15px;
   margin-bottom: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #00000025;
 }
 
 .book-title {
-  color: #e2e2e2;
+  color: #000000;
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -34,17 +35,17 @@
 
 .book-date {
   font-size: 16px;
-  color: #e2e2e2;
+  color: #000000;
 }
 
 .max-return-date {
   font-size: 16px;
-  color: #e2e2e2;
+  color: #000000;
 }
 
 .book-status {
   font-size: 16px;
-  color: #e2e2e2;
+  color: #000000;
 }
 
 .cancel-button {

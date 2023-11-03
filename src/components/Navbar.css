@@ -2,11 +2,12 @@
 
 /* Base styling for the navbar */
 .nav-container {
-  background-color: #d6d6d6a2;
+  background: #e2e2e275;
   color: #000;
   margin: 0;
   width: auto;
   max-width: 100%;
+  border-bottom: 1px solid #00000095;
 }
 
 /* Container for the navigation elements */
@@ -105,7 +106,7 @@
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-  background-color: #cecece;
+  background-color: #cecece00;
 }
 
 /* Styling for user info and buttons */
@@ -203,9 +204,9 @@
     width: 80%;
     margin: 10px auto;
     padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
+    background-color: #eeeeee00;
+    color: #000;
+    border: 2px color #000;
     border-radius: 5px;
     font-size: 1.2rem;
     cursor: pointer;
@@ -215,5 +216,9 @@
   .login-button:hover,
   .register-button:hover {
     background-color: #0056b3;
+  }
+
+  .nav-logo-text {
+    padding: 1rem;
   }
 }

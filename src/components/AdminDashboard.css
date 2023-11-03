@@ -80,16 +80,6 @@ td {
   text-align: left;
 }
 
-/* Links */
-a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
 /* Edit and delete buttons */
 .edit-button,
 .delete-button {
@@ -125,6 +115,7 @@ a:hover {
   background-color: #eeeeee00;
   color: none;
   text-align: center;
+  align-items: center;
 }
 
 .AdminUl {
@@ -132,7 +123,6 @@ a:hover {
   margin: 10px 0px;
   padding: 10px;
   overflow: hidden;
-  background-color: #007bff;
 }
 
 .AdminLi {
@@ -141,14 +131,19 @@ a:hover {
 
 .AdminLi a {
   display: block;
-  color: rgb(255, 255, 255);
+  background-color: #fff;
+  color: #000000;
+  border: 2px solid #00000045;
+  border-radius: 5px;
   text-align: center;
   padding: 16px;
   text-decoration: none;
+  align-self: auto;
+  margin: 10px 0px;
 }
 
 .AdminLi a:hover {
-  background-color: #0056b3;
+  background-color: #00000035;
 }
 
 .add-book-section {
