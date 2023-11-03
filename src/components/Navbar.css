@@ -2,7 +2,7 @@
 
 /* Base styling for the navbar */
 .nav-container {
-  background: #e2e2e275;
+  background: #e2e2e230;
   color: #000;
   margin: 0;
   width: auto;
@@ -20,18 +20,10 @@
   align-items: center;
 }
 
-/* Styling for the logo */
-.nav-logo-text {
-  color: #000;
-  text-decoration: none;
-  font-size: 24px; /* Adjust font size as needed */
-  font-weight: bold;
-  transition: color 0.3s ease;
-  padding: 0px 20px;
-}
-
-.nav-logo-text:hover {
-  color: #007bff; /* Change the hover color to your preference */
+.logo {
+  width: 50px;
+  height: 50px;
+  padding: 0px 30px;
 }
 
 /* Styling for navigation links */
@@ -58,7 +50,7 @@
 
 /* Styling for the dropdown button */
 .dropbtn {
-  background-color: transparent;
+  background: transparent !important;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -81,7 +73,7 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  background: #f1f1f1 !important;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -125,7 +117,7 @@
 .login-button,
 .register-button,
 .logout-button {
-  background-color: transparent;
+  background: transparent !important;
   border: 2px solid #000;
   color: #000;
   font-size: 18px;
@@ -204,7 +196,7 @@
     width: 80%;
     margin: 10px auto;
     padding: 10px;
-    background-color: #eeeeee00;
+    background: #eeeeee00 !important;
     color: #000;
     border: 2px color #000;
     border-radius: 5px;

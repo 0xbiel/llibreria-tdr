@@ -7,13 +7,7 @@ body {
 }
 
 body {
-  background-image: radial-gradient(73% 147%, #eadfdf 59%, #ece2df 100%),
-    radial-gradient(
-      91% 146%,
-      rgba(255, 255, 255, 0.5) 47%,
-      rgba(0, 0, 0, 0.5) 100%
-    );
-  background-blend-mode: screen;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 }
 
 .homepage-container {

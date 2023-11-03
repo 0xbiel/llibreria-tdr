@@ -49,8 +49,8 @@
 /* Book image */
 .book-image {
   max-width: 100%;
-  min-width: 90%;
   height: auto;
+  width: auto;
   margin-top: 0.5rem;
   border-radius: 10px;
 }

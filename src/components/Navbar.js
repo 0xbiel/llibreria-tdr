@@ -12,6 +12,7 @@ import {
   getDocs,
 } from "firebase/firestore";
 import "./Navbar.css";
+import logo from "../trans512.png";
 
 const Navbar = () => {
   const [user, setUser] = useState(null);
@@ -98,7 +99,7 @@ const Navbar = () => {
       <div className="nav-container">
         <div className="nav-logo">
           <Link to="/" onClick={() => reload()} className="nav-logo-text">
-            Llibreria
+            <img src={logo} alt="logo" className="logo"></img>
           </Link>
         </div>
         <ul className="nav-links">

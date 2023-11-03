@@ -18,7 +18,18 @@
 }
 
 .reservation-item {
-  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+  background: #20002c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #cbb4d4,
+    #20002c
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #cbb4d4,
+    #20002c
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   border-radius: 10px;
   padding: 15px;
   margin-bottom: 15px;
@@ -27,7 +38,7 @@
 }
 
 .book-title {
-  color: #000000;
+  color: #fff;
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -50,7 +61,7 @@
 
 .cancel-button {
   display: inline-block;
-  background-color: #cf0000;
+  background: #cf0000;
   padding: 10px;
   margin-top: 10px;
   font-size: 14px;
@@ -59,7 +70,7 @@
   border: none;
 }
 .cancel-button:hover {
-  background-color: #da0000;
+  background: #da0000;
   text-decoration: underline;
   color: #bba5a5;
   opacity: 0.7;
@@ -67,7 +78,7 @@
 
 .copy-button {
   display: inline-block;
-  background-color: #141414;
+  background: #141414;
   padding: 10px;
   margin-top: 10px;
   font-size: 14px;
@@ -77,7 +88,7 @@
 }
 
 .copy-button:hover {
-  background-color: #626262;
+  background: #626262;
   text-decoration: underline;
   color: #bba5a5;
   opacity: 0.7;
@@ -91,7 +102,7 @@
 }
 
 .book-titledelivered-reservation {
-  color: #23c214;
+  color: #1f5e09;
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 5px;

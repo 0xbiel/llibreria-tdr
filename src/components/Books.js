@@ -452,6 +452,7 @@ const Books = () => {
           />
           <label>ISBN</label>
           <input
+            type="text"
             name="isbn"
             value={newBook.isbn}
             onChange={handleInputChange}
