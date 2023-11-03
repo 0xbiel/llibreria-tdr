@@ -1,4 +1,7 @@
 // src/components/BookDetails.js
+/* The line `import React, { useEffect, useState } from "react";` is importing the `React` library and
+two hooks, `useEffect` and `useState`, from the `react` package. These hooks are used to manage
+state and side effects in functional components in React. */
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import DatePicker from "react-datepicker"; // Import the DatePicker component

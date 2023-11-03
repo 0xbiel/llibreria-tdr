@@ -1,23 +1,24 @@
 # Diff Summary
 
-Date : 2023-09-26 18:34:53
+Date : 2023-11-03 10:18:36
 
 Directory c:\\Users\\anxoa\\WebstormProjects\\library-app-alpha
 
-Total : 4 files,  116 codes, 5 comments, 4 blanks, all 125 lines
+Total : 4 files,  13 codes, 3 comments, 2 blanks, all 18 lines
 
 [Summary](results.md) / [Details](details.md) / Diff Summary / [Diff Details](diff-details.md)
 
 ## Languages
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| JavaScript | 4 | 116 | 5 | 4 | 125 |
+| JavaScript | 3 | 7 | 3 | 1 | 11 |
+| CSS | 1 | 6 | 0 | 1 | 7 |
 
 ## Directories
 | path | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| . | 4 | 116 | 5 | 4 | 125 |
-| src | 4 | 116 | 5 | 4 | 125 |
-| src\\components | 4 | 116 | 5 | 4 | 125 |
+| . | 4 | 13 | 3 | 2 | 18 |
+| src | 4 | 13 | 3 | 2 | 18 |
+| src\\components | 4 | 13 | 3 | 2 | 18 |
 
 [Summary](results.md) / [Details](details.md) / Diff Summary / [Diff Details](diff-details.md)

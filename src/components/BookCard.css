@@ -49,7 +49,14 @@
 /* Book image */
 .book-image {
   max-width: 100%;
+  min-width: 90%;
   height: auto;
   margin-top: 0.5rem;
   border-radius: 10px;
+}
+
+.image-div {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0px;
 }

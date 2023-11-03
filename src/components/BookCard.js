@@ -16,15 +16,22 @@ const BookCard = ({ book }) => {
           await wait(100);
           window.location.reload();
         }}
+        className="image-div"
+      >
+        <img src={book.imageUrl} alt={book.title} className="book-image" />
+      </Link>
+      <Link
+        to={`/books/${book.id}`}
+        onClick={async () => {
+          await wait(100);
+          window.location.reload();
+        }}
         className="book-title-link"
       >
         {book.title}
       </Link>
       <h4 className="author-name">{book.author.name}</h4>
       <h4 className="category-name">{book.category.name}</h4>
-      <div className="flex justify-center">
-        <img src={book.imageUrl} alt={book.title} className="book-image" />
-      </div>
     </div>
   );
 };
