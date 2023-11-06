@@ -345,7 +345,7 @@ const Books = () => {
         return {
           id: doc.id,
           ...bookData,
-          author: { name: null },
+          author: { name: "null" },
           category: { name: "null" },
           language: { name: "null" },
           publisher: { name: "null" },
