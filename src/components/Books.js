@@ -478,73 +478,59 @@ const Books = () => {
               </option>
             ))}
           </select>
-          <label>
-            Editorial:
-            <select name="publisher" multiple onChange={handlePublisherChange}>
-              {publishers.map((publisher) => (
-                <option key={publisher.id} value={publisher.id}>
-                  {publisher.name}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label>
-            Categoria:
-            <select name="categories" multiple onChange={handleCategoryChange}>
-              {categories.map((category) => (
-                <option key={category.id} value={category.id}>
-                  {category.name}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label>
-            Idioma:
-            <select name="languages" multiple onChange={handleLanguageChange}>
-              {languages.map((language) => (
-                <option key={language.id} value={language.id}>
-                  {language.name}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label>
-            Assignatura:
-            <select name="subject" multiple onChange={handleSubjectChange}>
-              {subjects.map((subject) => (
-                <option key={subject.id} value={subject.id}>
-                  {subject.name}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label>
-            Copies totals:
-            <input
-              type="number"
-              name="availableCopies"
-              value={newBook.availableCopies}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Número de pàgines:
-            <input
-              type="number"
-              name="numberOfPages"
-              value={newBook.numberOfPages}
-              onChange={handleInputChange}
-            />
-          </label>
-          <label>
-            Any de publicació:
-            <input
-              type="number"
-              name="publicationYear"
-              value={newBook.publicationYear}
-              onChange={handleInputChange}
-            />
-          </label>
+          <label>Editorial:</label>
+          <select name="publisher" multiple onChange={handlePublisherChange}>
+            {publishers.map((publisher) => (
+              <option key={publisher.id} value={publisher.id}>
+                {publisher.name}
+              </option>
+            ))}
+          </select>
+          <label>Categoria:</label>
+          <select name="categories" multiple onChange={handleCategoryChange}>
+            {categories.map((category) => (
+              <option key={category.id} value={category.id}>
+                {category.name}
+              </option>
+            ))}
+          </select>
+          <label>Idioma:</label>
+          <select name="languages" multiple onChange={handleLanguageChange}>
+            {languages.map((language) => (
+              <option key={language.id} value={language.id}>
+                {language.name}
+              </option>
+            ))}
+          </select>
+          <label>Assignatura:</label>
+          <select name="subject" multiple onChange={handleSubjectChange}>
+            {subjects.map((subject) => (
+              <option key={subject.id} value={subject.id}>
+                {subject.name}
+              </option>
+            ))}
+          </select>
+          <label>Copies totals:</label>
+          <input
+            type="number"
+            name="availableCopies"
+            value={newBook.availableCopies}
+            onChange={handleInputChange}
+          />
+          <label>Número de pàgines:</label>
+          <input
+            type="number"
+            name="numberOfPages"
+            value={newBook.numberOfPages}
+            onChange={handleInputChange}
+          />
+          <label>Any de publicació:</label>
+          <input
+            type="number"
+            name="publicationYear"
+            value={newBook.publicationYear}
+            onChange={handleInputChange}
+          />
 
           <button type="submit">Crear</button>
         </form>

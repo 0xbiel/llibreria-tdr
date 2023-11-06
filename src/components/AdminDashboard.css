@@ -30,11 +30,13 @@ form {
 /* Input fields */
 input[type="text"],
 input[type="email"],
+input[type="number"],
 textarea[type="text"],
 textarea,
 select {
   width: auto;
   align-self: center;
+  min-width: 80%;
   max-width: 90%; /* Ensure the textarea doesn't exceed its parent's width */
   padding: 20px;
   margin: 5px;
