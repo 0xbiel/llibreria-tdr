@@ -4,6 +4,7 @@
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
+  margin-top: 65px;
 }
 
 .reservation-title {
@@ -129,4 +130,73 @@
   max-height: 150px;
   border-radius: 20px;
   padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .reservation-container {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .reservation-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .reservation-item {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .book-title {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  .book-date,
+  .max-return-date,
+  .book-status {
+    font-size: 14px;
+  }
+
+  .cancel-button {
+    display: inline-block;
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 12px;
+    width: auto; /* Adjust width as needed */
+  }
+
+  .copy-button {
+    display: inline-block;
+    padding: 8px; /* You can adjust this padding as needed */
+    margin-top: 5px;
+    font-size: 12px;
+  }
+
+  .book-titledelayed-reservation,
+  .book-titledelivered-reservation {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  .qr-code {
+    padding: 5px;
+    margin-top: 5px;
+  }
+
+  .table {
+    margin-top: 10px;
+  }
+
+  .copy-button {
+    display: none;
+    margin: 0px;
+  }
+
+  .image {
+    max-width: 100px;
+    max-height: 100px;
+    padding: 5px;
+  }
 }

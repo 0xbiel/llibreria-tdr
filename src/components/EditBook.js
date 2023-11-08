@@ -88,6 +88,7 @@ const EditBook = ({
   };
 
   const handleSubmit = (e) => {
+    console.log("handleSubmit");
     e.preventDefault(); // Prevent form submission
     onSave(editedBook);
   };

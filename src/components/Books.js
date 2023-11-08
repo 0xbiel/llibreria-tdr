@@ -167,6 +167,7 @@ const Books = () => {
         languageRef: editedBook.languageRef,
         numberOfPages: editedBook.numberOfPages,
         publisherRef: editedBook.publisherRef,
+        subjectRef: editedBook.subjectRef,
       });
 
       // Update the state to reflect the changes
