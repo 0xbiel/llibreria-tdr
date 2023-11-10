@@ -30,7 +30,8 @@ const Register = () => {
       };
 
       changeDisplayName(username);
-      history.push("/"); // Redirect to the homepage
+      await history.push("/"); // Redirect to the homepage
+      window.location.reload(); // Reload the page
     } catch (error) {
       alert("Registration error:", error);
     }
