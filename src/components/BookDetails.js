@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import DatePicker from "react-datepicker"; // Import the DatePicker component
 import "react-datepicker/dist/react-datepicker.css";
-import { app, auth } from "../firebase";
+import { app, auth, analytics } from "../firebase";
 import {
   doc,
   getDoc,
@@ -19,6 +19,7 @@ import {
 } from "firebase/firestore";
 import "./BookDetails.css";
 import { onAuthStateChanged } from "firebase/auth";
+import { logEvent } from "firebase/analytics";
 
 function BookDetails() {
   const db = getFirestore(app);
@@ -26,6 +27,14 @@ function BookDetails() {
   const [book, setBook] = useState(null);
   const [user, setUser] = useState(null); // eslint-disable-line no-unused-vars
   const [bookRef, setBookRef] = useState(null);
+
+  const logBookView = (bookTitle) => {
+    console.log("Logging book view " + id + " " + bookTitle);
+    logEvent(analytics, "view_book_detail", {
+      item_id: id,
+      item_name: bookTitle,
+    });
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -80,6 +89,8 @@ function BookDetails() {
                       publisher: publisherData,
                       subject: subjectData,
                     });
+
+                    logBookView(bookData.title.toString());
                   } else {
                     setBook({
                       ...bookData,
@@ -89,6 +100,7 @@ function BookDetails() {
                       publisher: publisherData,
                       subject: { name: "No disponible" },
                     });
+                    logBookView(bookData.title.toString());
                   }
                 } else {
                   setBook({
@@ -99,6 +111,7 @@ function BookDetails() {
                     publisher: { name: "No disponible" },
                     subject: { name: "No disponible" },
                   });
+                  logBookView(bookData.title.toString());
                 }
                 setBookRef(bookDoc.id);
               } else {
@@ -110,6 +123,7 @@ function BookDetails() {
                   publisher: { name: "No disponible" },
                   subject: { name: "No disponible" },
                 });
+                logBookView(bookData.title.toString());
               }
 
               setBookRef(bookDoc.id);
@@ -123,6 +137,7 @@ function BookDetails() {
                 subject: { name: "No disponible" },
               });
               setBookRef(bookDoc.id);
+              logBookView(bookData.title.toString());
             }
           } else {
             setBook({
@@ -134,6 +149,7 @@ function BookDetails() {
               subject: null,
             });
             setBookRef(bookDoc.id);
+            logBookView(bookData.title.toString());
           }
         } else {
           console.log("Book not found");
