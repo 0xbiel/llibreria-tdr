@@ -60,3 +60,29 @@
   justify-content: center;
   padding: 10px 0px;
 }
+
+@media (max-width: 768px) {
+  .book-card {
+    padding: 0.5rem;
+  }
+
+  .book-title-link {
+    font-size: 18px !important;
+  }
+
+  .author-name {
+    font-size: 0.75rem;
+  }
+
+  .category-name {
+    font-size: 0.75rem;
+  }
+
+  .book-image {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    margin-top: 0.5rem;
+    border-radius: 10px;
+  }
+}

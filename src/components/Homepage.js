@@ -77,8 +77,8 @@ const Homepage = () => {
   return (
     <div className="homepage-container">
       <header className="homepage-header">
-        <h1 className="homepage-title">Benvingut a la llibreria</h1>
-        <p className="homepage-subtitle">Explora un món de llibres</p>
+        <p className="homepage-subtitle">Bon dia!</p>
+        <h1 className="homepage-title">Pàgina d'inici</h1>
       </header>
       <div className="search-bar">
         <input
