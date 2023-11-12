@@ -220,72 +220,74 @@ const AdminDashboard = () => {
   return (
     <div>
       <h1 className="header">Pàgina d'administrador</h1>
-      <section className="mark-as-delivered-section">
-        <h2>Marcar com entregat</h2>
-        <form className="return-form" onSubmit={handleSetAsDelivered}>
-          <input
-            id="reservationRef"
-            name="reservationRef"
-            type="text"
-            required
-            className="reservationRef-input"
-            value={reservRefDelivered}
-            onChange={(e) => setReservRefDelivered(e.target.value)}
-          />
-          <button className="adminButton" type="submit">
-            Marcat com entregat
-          </button>
-        </form>
-      </section>
-      <section className="mark-as-returned-section">
-        <h2>Marcar com a tornat</h2>
-        <form className="return-form" onSubmit={handleSetAsReturned}>
-          <input
-            id="reservationRef"
-            name="reservationRef"
-            type="text"
-            required
-            className="reservationRef-input"
-            value={reservRef}
-            onChange={(e) => setReservRef(e.target.value)}
-          />
-          <button className="adminButton" type="submit">
-            Marcar com a tornat
-          </button>
-        </form>
-      </section>
-      <section className="view-reservation-section">
-        <h2>Veure Reserva</h2>
-        <form onSubmit={handleViewReservation}>
-          <input
-            type="text"
-            placeholder="ID Reserva"
-            value={selectedReservationId}
-            onChange={(e) => setSelectedReservationId(e.target.value)}
-          />
-          <button className="adminButton" type="submit">
-            Veure reserva
-          </button>
-        </form>
-        {selectedReservationDetails && (
-          <div className="overlay">
-            <div className="modal">
-              <h2>Reservation Details</h2>
-              <p>Reservation ID: {selectedReservationId}</p>
-              <p>Book Title: {selectedReservationDetails.book.title}</p>
-              <p>Start Date: {selectedReservationDetails.startDate}</p>
-              <p>End Date: {selectedReservationDetails.endDate}</p>
-              <p>Status: {selectedReservationDetails.status}</p>
-              <button
-                className="adminButton"
-                onClick={() => setSelectedReservationDetails(null)}
-              >
-                Tancar
-              </button>
+      <div className="dashboard-form">
+        <section className="mark-as-delivered-section">
+          <h2>Marcar com entregat</h2>
+          <form className="return-form" onSubmit={handleSetAsDelivered}>
+            <input
+              id="reservationRef"
+              name="reservationRef"
+              type="text"
+              required
+              className="reservationRef-input"
+              value={reservRefDelivered}
+              onChange={(e) => setReservRefDelivered(e.target.value)}
+            />
+            <button className="adminButton" type="submit">
+              Marcat com entregat
+            </button>
+          </form>
+        </section>
+        <section className="mark-as-returned-section">
+          <h2>Marcar com a tornat</h2>
+          <form className="return-form" onSubmit={handleSetAsReturned}>
+            <input
+              id="reservationRef"
+              name="reservationRef"
+              type="text"
+              required
+              className="reservationRef-input"
+              value={reservRef}
+              onChange={(e) => setReservRef(e.target.value)}
+            />
+            <button className="adminButton" type="submit">
+              Marcar com a tornat
+            </button>
+          </form>
+        </section>
+        <section className="view-reservation-section">
+          <h2>Veure Reserva</h2>
+          <form onSubmit={handleViewReservation}>
+            <input
+              type="text"
+              placeholder="ID Reserva"
+              value={selectedReservationId}
+              onChange={(e) => setSelectedReservationId(e.target.value)}
+            />
+            <button className="adminButton" type="submit">
+              Veure reserva
+            </button>
+          </form>
+          {selectedReservationDetails && (
+            <div className="overlay">
+              <div className="modal">
+                <h2>Reservation Details</h2>
+                <p>Reservation ID: {selectedReservationId}</p>
+                <p>Book Title: {selectedReservationDetails.book.title}</p>
+                <p>Start Date: {selectedReservationDetails.startDate}</p>
+                <p>End Date: {selectedReservationDetails.endDate}</p>
+                <p>Status: {selectedReservationDetails.status}</p>
+                <button
+                  className="adminButton"
+                  onClick={() => setSelectedReservationDetails(null)}
+                >
+                  Tancar
+                </button>
+              </div>
             </div>
-          </div>
-        )}
-      </section>
+          )}
+        </section>
+      </div>
       <nav className="AdminNav">
         <ul className="AdminUl">
           <li className="AdminLi">

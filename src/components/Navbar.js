@@ -105,7 +105,7 @@ const Navbar = () => {
         <ul className="nav-links">
           <li>
             <Link to="/" onClick={() => reload()} className="nav-link">
-              Pàgina d'inici
+              Inici
             </Link>
           </li>
           <div className="dropdown">
@@ -142,7 +142,7 @@ const Navbar = () => {
                 onClick={() => reload()}
                 className="nav-link"
               >
-                Pàgina d'administrador
+                Administració
               </Link>
             </li>
           )}

@@ -156,31 +156,29 @@ const Authors = () => {
   };
 
   return (
-    <div>
+    <div className="div-forms">
       <section className="create-author-section">
         <h2>Crear autor</h2>
         <form className="create-author-form" onSubmit={handleAddAuthor}>
-          <label>
-            Nom:
-            <input
-              type="text"
-              name="name"
-              value={newAuthor.name}
-              onChange={handleInputChangeAuthor}
-            />
-          </label>
-          <label>
-            Descripció:
-            <textarea
-              name="description"
-              value={newAuthor.description}
-              onChange={handleInputChangeAuthor}
-            />
-          </label>
-          <button type="submit">Crear</button>
+          <label>Nom:</label>
+          <input
+            type="text"
+            name="name"
+            value={newAuthor.name}
+            onChange={handleInputChangeAuthor}
+          />
+          <label>Descripció:</label>
+          <textarea
+            name="description"
+            value={newAuthor.description}
+            onChange={handleInputChangeAuthor}
+          />
+          <button className="button-width" type="submit">
+            Crear
+          </button>
         </form>
       </section>
-      <section>
+      <section className="tables-search-container">
         <h2>Autors</h2>
         <div className="search-bar">
           <input

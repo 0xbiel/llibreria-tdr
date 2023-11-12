@@ -83,7 +83,7 @@ const Homepage = () => {
       <div className="search-bar">
         <input
           type="text"
-          placeholder="Cerca per títol, autor, categoria o ISBN	"
+          placeholder="🔎 Cerca per títol, autor, categoria o ISBN	"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />

@@ -171,7 +171,7 @@ const Reservation = () => {
                       value={reservation.id}
                     />
                   </td>
-                  <td className="table">
+                  <td className="table-image">
                     <div className="flex justify-center">
                       <img
                         className="image"
@@ -180,7 +180,7 @@ const Reservation = () => {
                       />
                     </div>
                   </td>
-                  <td className="table">
+                  <td className="table-copy-button">
                     <button
                       onClick={() =>
                         navigator.clipboard.writeText(reservation.id) &&
@@ -191,7 +191,7 @@ const Reservation = () => {
                       Copiar ID
                     </button>
                   </td>
-                  <td className="table">
+                  <td className="table-cancel">
                     {reservation.status === "active" && (
                       <button
                         onClick={() =>

@@ -268,6 +268,7 @@ function BookDetails() {
       <DatePicker
         selected={selectedStartDate}
         onChange={(date) => setSelectedStartDate(date)}
+        placeholderText="Selecciona una data"
       />
       <button onClick={handleReservation} className="reservation-button">
         Fer Reserva
@@ -280,7 +281,7 @@ function BookDetails() {
       <p>Any de publicació: {book.publicationYear}</p>
       <p>Número de pàgines: {book.numberOfPages}</p>
       <p>Idioma: {book.language.name}</p>
-      <p>Descripció: {book.description}</p>
+      <p className="description">Descripció: {book.description}</p>
     </div>
   );
 }

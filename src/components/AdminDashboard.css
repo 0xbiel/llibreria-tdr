@@ -194,9 +194,8 @@ td {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-items: center;
   padding: 10px;
-  text-align: center;
+  padding-bottom: 50px;
   align-self: center;
 }
 
@@ -207,4 +206,79 @@ td {
   justify-content: center;
   background-color: #eeeeee00;
   color: #000000;
+}
+
+.create-author-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: auto;
+  padding-bottom: 50px;
+}
+
+.create-author-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+section {
+  display: flex;
+  max-width: 1440px;
+  flex-direction: column;
+  padding: auto;
+  width: 90%;
+  align-items: center;
+}
+
+.reservation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  padding-bottom: 50px;
+}
+
+.div-forms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  padding-bottom: 50px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+section {
+  align-self: center;
+}
+
+.dashboard-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.submit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100% !important;
+}
+
+.button-width {
+  width: 70%;
+}
+
+textarea,
+input[type="text"] {
+  padding: auto !important;
+  width: 90%;
 }

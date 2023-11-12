@@ -47,3 +47,9 @@
   cursor: pointer;
   border: none;
 }
+
+@media (max-width: 768px) {
+  .description {
+    padding-bottom: 100px;
+  }
+}

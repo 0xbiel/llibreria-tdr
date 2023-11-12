@@ -135,9 +135,9 @@ const AdminReservations = () => {
   };
 
   return (
-    <div>
+    <div className="div-forms">
       <section className="reservation-container">
-        <h2 className="reservation-title">Reserves endarrerides</h2>
+        <h2 className="reservation-title">Reserves</h2>
 
         {/* Search input */}
         <div className="search-bar">

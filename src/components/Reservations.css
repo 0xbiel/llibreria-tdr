@@ -22,13 +22,15 @@
   background: #20002c; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     -215deg,
-    #cbb4d4,
-    #20002c
+    #a271c8,
+    #5e0d84,
+    rgba(84, 0, 181, 0.65) 100%
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     -215deg,
-    #cbb4d4,
-    #20002c
+    #a271c8,
+    #5e0d84,
+    rgba(84, 0, 181, 0.65) 100%
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   border-radius: 10px;
@@ -125,6 +127,33 @@
   border-radius: 10px;
 }
 
+.table-copy-button {
+  width: 100%;
+  border: none;
+  margin-top: 20px;
+  align-self: auto;
+  background-color: #eeeeee;
+  border-radius: 10px;
+}
+
+.table-cancel {
+  width: 100%;
+  border: none;
+  margin-top: 20px;
+  align-self: auto;
+  background-color: #eeeeee;
+  border-radius: 10px;
+}
+
+.table-image {
+  width: 100%;
+  border: none;
+  margin-top: 20px;
+  align-self: auto;
+  background-color: #eeeeee;
+  border-radius: 10px;
+}
+
 .image {
   max-width: 150px;
   max-height: 150px;
@@ -199,5 +228,16 @@
     max-width: 100px;
     max-height: 100px;
     padding: 5px;
+  }
+  .table-copy-button {
+    display: none;
+  }
+
+  .table-cancel {
+    padding: 0px 5px !important;
+  }
+
+  .table-image {
+    padding: 0px 5px !important;
   }
 }
