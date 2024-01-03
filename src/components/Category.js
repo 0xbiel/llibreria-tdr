@@ -24,7 +24,7 @@ const Category = () => {
     const fetchBooks = async () => {
       const categoryQuery = query(
         collection(db, "books"),
-        where("categoryRef", "==", doc(db, "categories", categoryId))
+        where("categoryRef", "==", doc(db, "categories", categoryId)),
       );
       const snapshot = await getDocs(categoryQuery);
       const fetchedBooks = await Promise.all(
@@ -63,7 +63,7 @@ const Category = () => {
             author: "null",
             category: { name: "null" },
           };
-        })
+        }),
       );
       setBooks(fetchedBooks);
     };

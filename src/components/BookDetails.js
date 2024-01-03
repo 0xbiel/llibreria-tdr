@@ -190,13 +190,13 @@ function BookDetails() {
     const activeReservationsQuery = query(
       collection(db, "reservations"),
       where("userId", "==", auth.currentUser.uid),
-      where("status", "in", ["active", "delivered"])
+      where("status", "in", ["active", "delivered"]),
     );
 
     const activeBooksQuery = query(
       collection(db, "reservations"),
       where("bookId", "==", doc(db, "books", bookRef)),
-      where("status", "in", ["active", "delivered"])
+      where("status", "in", ["active", "delivered"]),
     );
 
     const activeBooksSnapshot = await getDocs(activeBooksQuery);
@@ -225,7 +225,7 @@ function BookDetails() {
       for (const doc of activeBooksSnapshot.docs) {
         const reservationData = doc.data();
         const endDate = new Date(
-          reservationData.endDate.split("/").reverse().join("/")
+          reservationData.endDate.split("/").reverse().join("/"),
         );
         if (selectedStartDate_Date < endDate) {
           alert("No hi ha cap llibre disponible per aquest periode.");

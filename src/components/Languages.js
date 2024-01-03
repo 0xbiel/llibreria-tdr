@@ -56,8 +56,8 @@ const Languages = () => {
   const filterLanguages = () => {
     return languages.filter(
       (
-        language // Updated variable name
-      ) => language.name.toLowerCase().includes(searchQuery.toLowerCase())
+        language, // Updated variable name
+      ) => language.name.toLowerCase().includes(searchQuery.toLowerCase()),
     );
   };
 
@@ -90,7 +90,7 @@ const Languages = () => {
       snapshot.docs.map((doc3) => ({
         id: doc3.id,
         ...doc3.data(),
-      }))
+      })),
     );
     setLanguages(languageList); // Updated variable name
   };
@@ -98,7 +98,7 @@ const Languages = () => {
   const checkAdmin = async (user1) => {
     const q = query(
       collection(db, "admins"),
-      where("email", "==", user1.email)
+      where("email", "==", user1.email),
     );
     const querySnapshot = await getDocs(q);
     if (querySnapshot.empty) {
@@ -110,7 +110,7 @@ const Languages = () => {
 
   const handleDeleteLanguage = async (languageId) => {
     const confirmation = window.confirm(
-      "Estas segur que vols eliminar aquesta llengua?"
+      "Estas segur que vols eliminar aquesta llengua?",
     );
 
     if (confirmation) {
@@ -134,7 +134,7 @@ const Languages = () => {
     // Check if a language with the same name already exists
     const languageQuery = query(
       collection(db, "languages"), // Updated collection name
-      where("name", "==", newLanguage)
+      where("name", "==", newLanguage),
     );
     const querySnapshot = await getDocs(languageQuery);
 
@@ -190,7 +190,7 @@ const Languages = () => {
           <tbody>
             {filterLanguages().map(
               (
-                language // Updated variable name
+                language, // Updated variable name
               ) => (
                 <tr key={language.id}>
                   {editingLanguage && editingLanguage.id === language.id ? (
@@ -234,7 +234,7 @@ const Languages = () => {
                     )}
                   </td>
                 </tr>
-              )
+              ),
             )}
           </tbody>
         </table>

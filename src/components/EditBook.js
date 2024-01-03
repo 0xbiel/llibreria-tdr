@@ -36,7 +36,7 @@ const EditBook = ({
 
   const handleAuthorsChange = (e) => {
     const selectedAuthors = Array.from(e.target.selectedOptions, (option) =>
-      doc(db, "authors", option.value)
+      doc(db, "authors", option.value),
     );
     // Assuming you want to store only one author for a book, you can take the first one
     setEditedBook({
@@ -47,7 +47,7 @@ const EditBook = ({
 
   const handleCategoryChange = (e) => {
     const selectedCategories = Array.from(e.target.selectedOptions, (option) =>
-      doc(db, "categories", option.value)
+      doc(db, "categories", option.value),
     );
     // Assuming you want to store only one category for a book, you can take the first one
     setEditedBook({
@@ -58,7 +58,7 @@ const EditBook = ({
 
   const handleLanguageChange = (e) => {
     const selectedLanguages = Array.from(e.target.selectedOptions, (option) =>
-      doc(db, "languages", option.value)
+      doc(db, "languages", option.value),
     );
     // Assuming you want to store only one language for a book, you can take the first one
     setEditedBook({

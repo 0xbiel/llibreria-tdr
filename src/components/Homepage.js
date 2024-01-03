@@ -53,7 +53,7 @@ const Homepage = () => {
             author: "null",
             category: { name: "null" },
           };
-        })
+        }),
       );
       setBooks(fetchedBooks);
       setFilteredBooks(fetchedBooks);
@@ -69,7 +69,7 @@ const Homepage = () => {
         book.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         book.author.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         book.category.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        book.isbn.toLowerCase().includes(searchQuery.toLowerCase())
+        book.isbn.toLowerCase().includes(searchQuery.toLowerCase()),
     );
     setFilteredBooks(filtered);
   }, [searchQuery, books]);

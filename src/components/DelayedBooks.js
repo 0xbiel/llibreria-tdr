@@ -48,7 +48,7 @@ const DelayedBooks = () => {
   const checkAdmin = async (user1) => {
     const q = query(
       collection(db, "admins"),
-      where("email", "==", user1.email)
+      where("email", "==", user1.email),
     );
 
     const querySnapshot = await getDocs(q);
@@ -80,7 +80,7 @@ const DelayedBooks = () => {
     });
     const delayedReservations = reservations.filter(
       (reservation) =>
-        reservation.status === "delivered" && isDelayed(reservation.endDate)
+        reservation.status === "delivered" && isDelayed(reservation.endDate),
     );
 
     const fetchedReservs = await Promise.all(
@@ -98,7 +98,7 @@ const DelayedBooks = () => {
           book: bookData ?? { title: "Book doesn't exist" },
           bookId: { id: bookDoc.id } ?? { title: "Book doesn't exist" },
         };
-      })
+      }),
     );
 
     fetchedReservs.sort((a, b) => {

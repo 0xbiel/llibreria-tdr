@@ -69,13 +69,13 @@ const Books = () => {
         book.category.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         book.language.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         book.subject.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        book.publicationYear.toString().includes(searchQuery)
+        book.publicationYear.toString().includes(searchQuery),
     );
   };
 
   const handleAuthorsChange = (e) => {
     const selectedAuthors = Array.from(e.target.selectedOptions, (option) =>
-      doc(db, "authors", option.value)
+      doc(db, "authors", option.value),
     );
     // Assuming you want to store only one author for a book, you can take the first one
     setNewBook({
@@ -86,7 +86,7 @@ const Books = () => {
 
   const handleCategoryChange = (e) => {
     const selectedCategories = Array.from(e.target.selectedOptions, (option) =>
-      doc(db, "categories", option.value)
+      doc(db, "categories", option.value),
     );
     // Assuming you want to store only one category for a book, you can take the first one
     setNewBook({
@@ -97,7 +97,7 @@ const Books = () => {
 
   const handleLanguageChange = (e) => {
     const selectedLanguages = Array.from(e.target.selectedOptions, (option) =>
-      doc(db, "languages", option.value)
+      doc(db, "languages", option.value),
     );
     // Assuming you want to store only one language for a book, you can take the first one
     setNewBook({
@@ -112,7 +112,7 @@ const Books = () => {
 
   const handleDeleteBook = async (bookId) => {
     const confirmation = window.confirm(
-      "Estas segur que vols eliminar aquest llibre?"
+      "Estas segur que vols eliminar aquest llibre?",
     );
 
     if (confirmation) {
@@ -135,7 +135,7 @@ const Books = () => {
       snapshot.docs.map((doc2) => ({
         id: doc2.id,
         ...doc2.data(),
-      }))
+      })),
     );
     setAuthors(authorList);
   };
@@ -147,7 +147,7 @@ const Books = () => {
       snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
-      }))
+      })),
     );
     setPublishers(publisherList);
   };
@@ -172,7 +172,9 @@ const Books = () => {
 
       // Update the state to reflect the changes
       setBooks((prevBooks) =>
-        prevBooks.map((book) => (book.id === editedBook.id ? editedBook : book))
+        prevBooks.map((book) =>
+          book.id === editedBook.id ? editedBook : book,
+        ),
       );
 
       // Reset the editing state
@@ -190,7 +192,7 @@ const Books = () => {
       snapshot.docs.map((doc3) => ({
         id: doc3.id,
         ...doc3.data(),
-      }))
+      })),
     );
     setCategories(categoryList);
   };
@@ -202,7 +204,7 @@ const Books = () => {
       snapshot.docs.map((doc3) => ({
         id: doc3.id,
         ...doc3.data(),
-      }))
+      })),
     );
     setLanguages(languageList);
   };
@@ -237,7 +239,7 @@ const Books = () => {
     const docRef = await addDoc(collection(db, "books"), bookData).catch(
       (error) => {
         console.error("Error adding document: ", error);
-      }
+      },
     );
 
     console.log("Document written with ID: ", docRef.id);
@@ -351,7 +353,7 @@ const Books = () => {
           language: { name: "null" },
           publisher: { name: "null" },
         };
-      })
+      }),
     );
     setBooks(fetchedBooks);
   };
@@ -359,7 +361,7 @@ const Books = () => {
   const checkAdmin = async (user1) => {
     const q = query(
       collection(db, "admins"),
-      where("email", "==", user1.email)
+      where("email", "==", user1.email),
     );
     const querySnapshot = await getDocs(q);
     if (querySnapshot.empty) {
@@ -406,7 +408,7 @@ const Books = () => {
       snapshot.docs.map((doc3) => ({
         id: doc3.id,
         ...doc3.data(),
-      }))
+      })),
     );
     setSubjects(subjectList);
   };

@@ -86,7 +86,7 @@ const AdminDashboard = () => {
           author: { name: null },
           category: { name: "null" },
         };
-      })
+      }),
     );
     setBooks(fetchedBooks);
   };
@@ -119,7 +119,7 @@ const AdminDashboard = () => {
   const checkAdmin = async (user1) => {
     const q = query(
       collection(db, "admins"),
-      where("email", "==", user1.email)
+      where("email", "==", user1.email),
     );
     const querySnapshot = await getDocs(q);
     if (querySnapshot.empty) {
@@ -158,7 +158,7 @@ const AdminDashboard = () => {
       snapshot.docs.map((doc2) => ({
         id: doc2.id,
         ...doc2.data(),
-      }))
+      })),
     );
     setAuthors(authorList);
   };
@@ -171,7 +171,7 @@ const AdminDashboard = () => {
       snapshot.docs.map((doc3) => ({
         id: doc3.id,
         ...doc3.data(),
-      }))
+      })),
     );
     setCategories(categoryList);
   };

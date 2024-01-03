@@ -50,7 +50,7 @@ const AdminReservations = () => {
   const checkAdmin = async (user1) => {
     const q = query(
       collection(db, "admins"),
-      where("email", "==", user1.email)
+      where("email", "==", user1.email),
     );
 
     const querySnapshot = await getDocs(q);
@@ -87,7 +87,7 @@ const AdminReservations = () => {
           book: bookData ?? { title: "Book doesn't exist" },
           bookId: { id: bookDoc.id } ?? { title: "Book doesn't exist" },
         };
-      })
+      }),
     );
 
     fetchedReservs.sort((a, b) => {
@@ -173,14 +173,14 @@ const AdminReservations = () => {
                   isDelayed(reservation.endDate)
                     ? "Endarrerit"
                     : reservation.status === "delivered"
-                    ? "Entregat"
-                    : reservation.status === "active"
-                    ? "Pendent"
-                    : reservation.status === "cancelled"
-                    ? "Cancel·lat"
-                    : reservation.status === "returned"
-                    ? "Retornat"
-                    : reservation.status}
+                      ? "Entregat"
+                      : reservation.status === "active"
+                        ? "Pendent"
+                        : reservation.status === "cancelled"
+                          ? "Cancel·lat"
+                          : reservation.status === "returned"
+                            ? "Retornat"
+                            : reservation.status}
                 </td>
                 <td>{reservation.email ?? "Null"}</td>
               </tr>

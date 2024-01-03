@@ -56,8 +56,8 @@ const Publisher = () => {
   const filterPublishers = () => {
     return publishers.filter(
       (
-        publisher // Updated variable name
-      ) => publisher.name.toLowerCase().includes(searchQuery.toLowerCase())
+        publisher, // Updated variable name
+      ) => publisher.name.toLowerCase().includes(searchQuery.toLowerCase()),
     );
   };
 
@@ -90,7 +90,7 @@ const Publisher = () => {
       snapshot.docs.map((doc3) => ({
         id: doc3.id,
         ...doc3.data(),
-      }))
+      })),
     );
     setPublishers(languageList); // Updated variable name
   };
@@ -98,7 +98,7 @@ const Publisher = () => {
   const checkAdmin = async (user1) => {
     const q = query(
       collection(db, "admins"),
-      where("email", "==", user1.email)
+      where("email", "==", user1.email),
     );
     const querySnapshot = await getDocs(q);
     if (querySnapshot.empty) {
@@ -110,7 +110,7 @@ const Publisher = () => {
 
   const handleDeletePublisher = async (languageId) => {
     const confirmation = window.confirm(
-      "Estas segur que vols eliminar aquesta llengua?"
+      "Estas segur que vols eliminar aquesta llengua?",
     );
 
     if (confirmation) {
@@ -134,7 +134,7 @@ const Publisher = () => {
     // Check if a publisher with the same name already exists
     const languageQuery = query(
       collection(db, "publishers"), // Updated collection name
-      where("name", "==", newPublisher)
+      where("name", "==", newPublisher),
     );
     const querySnapshot = await getDocs(languageQuery);
 
@@ -193,7 +193,7 @@ const Publisher = () => {
           <tbody>
             {filterPublishers().map(
               (
-                publisher // Updated variable name
+                publisher, // Updated variable name
               ) => (
                 <tr key={publisher.id}>
                   {editingPublisher && editingPublisher.id === publisher.id ? (
@@ -240,7 +240,7 @@ const Publisher = () => {
                     )}
                   </td>
                 </tr>
-              )
+              ),
             )}
           </tbody>
         </table>

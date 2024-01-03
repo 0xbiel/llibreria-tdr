@@ -31,7 +31,7 @@ const AdminUsers = () => {
   const checkAdmin = async (user1) => {
     const q = query(
       collection(db, "admins"),
-      where("email", "==", user1.email)
+      where("email", "==", user1.email),
     );
     const querySnapshot = await getDocs(q);
     if (querySnapshot.empty) {
@@ -100,7 +100,7 @@ const AdminUsers = () => {
 
   const handleDeleteUser = async (userId) => {
     const confirmation = window.confirm(
-      "Estas segur que vols eliminar aquest administrador?"
+      "Estas segur que vols eliminar aquest administrador?",
     );
 
     if (confirmation) {

@@ -56,7 +56,7 @@ const Categories = () => {
   // Function to filter categories based on the search query
   const filterCategories = () => {
     return categories.filter((category) =>
-      category.name.toLowerCase().includes(searchQuery.toLowerCase())
+      category.name.toLowerCase().includes(searchQuery.toLowerCase()),
     );
   };
 
@@ -89,7 +89,7 @@ const Categories = () => {
       snapshot.docs.map((doc3) => ({
         id: doc3.id,
         ...doc3.data(),
-      }))
+      })),
     );
     setCategories(categoryList);
   };
@@ -97,7 +97,7 @@ const Categories = () => {
   const checkAdmin = async (user1) => {
     const q = query(
       collection(db, "admins"),
-      where("email", "==", user1.email)
+      where("email", "==", user1.email),
     );
     const querySnapshot = await getDocs(q);
     if (querySnapshot.empty) {
@@ -109,7 +109,7 @@ const Categories = () => {
 
   const handleDeleteCategory = async (categoryId) => {
     const confirmation = window.confirm(
-      "Estas segur que vols eliminar aquesta categoria?"
+      "Estas segur que vols eliminar aquesta categoria?",
     );
 
     if (confirmation) {
@@ -133,7 +133,7 @@ const Categories = () => {
     // Check if a category with the same name already exists
     const categoryQuery = query(
       collection(db, "categories"),
-      where("name", "==", newCategory)
+      where("name", "==", newCategory),
     );
     const querySnapshot = await getDocs(categoryQuery);
 

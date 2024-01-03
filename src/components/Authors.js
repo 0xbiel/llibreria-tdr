@@ -33,7 +33,7 @@ const Authors = () => {
   const checkAdmin = async (user1) => {
     const q = query(
       collection(db, "admins"),
-      where("email", "==", user1.email)
+      where("email", "==", user1.email),
     );
     const querySnapshot = await getDocs(q);
     if (querySnapshot.empty) {
@@ -100,7 +100,7 @@ const Authors = () => {
 
   const handleDeleteAuthor = async (authorId) => {
     const confirmation = window.confirm(
-      "Estas segur que vols eliminar aquest autor?"
+      "Estas segur que vols eliminar aquest autor?",
     );
 
     if (confirmation) {
@@ -129,7 +129,7 @@ const Authors = () => {
     // Check if a category with the same name already exists
     const authorQuery = query(
       collection(db, "authors"),
-      where("name", "==", newAuthor.name)
+      where("name", "==", newAuthor.name),
     );
     const querySnapshot = await getDocs(authorQuery);
 
@@ -142,7 +142,7 @@ const Authors = () => {
     const docRef = await addDoc(collection(db, "authors"), newAuthor).catch(
       (error) => {
         console.error("Error adding document: ", error);
-      }
+      },
     );
 
     setNewAuthor({ name: "", description: "" });
@@ -151,7 +151,7 @@ const Authors = () => {
   // Function to filter authors based on search query
   const filterAuthors = () => {
     return authors.filter((author) =>
-      author.name.toLowerCase().includes(searchQuery.toLowerCase())
+      author.name.toLowerCase().includes(searchQuery.toLowerCase()),
     );
   };
 

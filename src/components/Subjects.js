@@ -56,7 +56,7 @@ const Subjects = () => {
   const filterSubjects = () => {
     return subjects.filter(
       (subject) =>
-        subject.name.toLowerCase().includes(searchQuery.toLowerCase()) // Updated variable name
+        subject.name.toLowerCase().includes(searchQuery.toLowerCase()), // Updated variable name
     );
   };
 
@@ -89,7 +89,7 @@ const Subjects = () => {
       snapshot.docs.map((doc3) => ({
         id: doc3.id,
         ...doc3.data(),
-      }))
+      })),
     );
     setSubjects(subjectList);
   };
@@ -97,7 +97,7 @@ const Subjects = () => {
   const checkAdmin = async (user1) => {
     const q = query(
       collection(db, "admins"),
-      where("email", "==", user1.email)
+      where("email", "==", user1.email),
     );
     const querySnapshot = await getDocs(q);
     if (querySnapshot.empty) {
@@ -109,7 +109,7 @@ const Subjects = () => {
 
   const handleDeleteSubject = async (subjectId) => {
     const confirmation = window.confirm(
-      "Are you sure you want to delete this subject?"
+      "Are you sure you want to delete this subject?",
     );
 
     if (confirmation) {
@@ -133,7 +133,7 @@ const Subjects = () => {
     // Check if a subject with the same name already exists
     const subjectQuery = query(
       collection(db, "subjects"), // Updated collection name
-      where("name", "==", newSubject)
+      where("name", "==", newSubject),
     );
     const querySnapshot = await getDocs(subjectQuery);
 

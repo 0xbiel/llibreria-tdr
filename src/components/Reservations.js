@@ -26,7 +26,7 @@ const Reservation = () => {
   const fetchReservs = async () => {
     const q = query(
       collection(db, "reservations"),
-      where("userId", "==", auth.currentUser.uid)
+      where("userId", "==", auth.currentUser.uid),
     );
     const snapshot = await getDocs(q);
 
@@ -46,7 +46,7 @@ const Reservation = () => {
           book: bookData ?? { title: "Book doesn't exist" },
           bookId: { id: bookDoc.id } ?? { title: "Book doesn't exist" },
         };
-      })
+      }),
     );
 
     fetchedReservs.sort((a, b) => {
@@ -118,8 +118,8 @@ const Reservation = () => {
               isDelayed(reservation.endDate)
                 ? "delayed-reservation"
                 : reservation.status === "delivered"
-                ? "delivered-reservation"
-                : ""
+                  ? "delivered-reservation"
+                  : ""
             }`}
           >
             <Link
@@ -133,8 +133,8 @@ const Reservation = () => {
                 isDelayed(reservation.endDate)
                   ? "delayed-reservation"
                   : reservation.status === "delivered"
-                  ? "delivered-reservation"
-                  : ""
+                    ? "delivered-reservation"
+                    : ""
               }`}
             >
               Llibre: {reservation.book.title}
@@ -149,14 +149,14 @@ const Reservation = () => {
               isDelayed(reservation.endDate)
                 ? "Endarrerit"
                 : reservation.status === "delivered"
-                ? "Entregat"
-                : reservation.status === "active"
-                ? "Pendent"
-                : reservation.status === "cancelled"
-                ? "Cancel·lat"
-                : reservation.status === "returned"
-                ? "Retornat"
-                : reservation.status}
+                  ? "Entregat"
+                  : reservation.status === "active"
+                    ? "Pendent"
+                    : reservation.status === "cancelled"
+                      ? "Cancel·lat"
+                      : reservation.status === "returned"
+                        ? "Retornat"
+                        : reservation.status}
             </p>
             <table className="table">
               <thead></thead>
@@ -197,7 +197,7 @@ const Reservation = () => {
                         onClick={() =>
                           handleCancelReservation(
                             reservation.id,
-                            reservation.bookId
+                            reservation.bookId,
                           )
                         }
                         className="cancel-button"

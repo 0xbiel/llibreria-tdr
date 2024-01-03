@@ -21,7 +21,7 @@ const Login = ({ setUser }) => {
       const userCredentials = await signInWithEmailAndPassword(
         auth,
         email,
-        password
+        password,
       );
       await signInWithEmailAndPassword(auth, email, password);
 
