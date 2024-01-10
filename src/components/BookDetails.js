@@ -254,18 +254,61 @@ function BookDetails() {
   };
 
   if (!book) {
-    return <div>Carregant...</div>;
+    return (
+      <div
+        className="container py-5"
+        style={{
+          borderRadius: "30px",
+          marginBottom: "100px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "10px",
+        }}
+      >
+        Carregant...
+        <img
+          src="https://i.gifer.com/ZKZg.gif"
+          width={"30px"}
+          style={{
+            border: "0",
+            backgroundColor: "#ffffff00",
+            marginBottom: "0",
+            boxShadow: "",
+          }}
+        ></img>
+      </div>
+    );
   }
 
   return (
-    <div className="container py-5" style={{borderRadius: "30px", marginBottom: "100px"}} >
-      <div style={{display: "flex", flexWrap:"wrap", gap: "20px", alignItems: "center", justifyContent: "center", width:"100%"}}>
+    <div
+      className="container py-5"
+      style={{ borderRadius: "30px", marginBottom: "100px" }}
+    >
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "20px",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "100%",
+        }}
+      >
         <img
           src={book.imageUrl}
           alt={book.title}
           className="max-w-full h-auto mb-2"
         />
-        <div style={{display: "flex", flexDirection:"column", justifyContent:"flex-start", alignItems:"flex-start"}}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-start",
+            alignItems: "flex-start",
+          }}
+        >
           <h2 className="text-3xl font-semibold mb-4">{book.title}</h2>
           <DatePicker
             selected={selectedStartDate}
@@ -279,19 +322,44 @@ function BookDetails() {
       </div>
       <hr class="rounded"></hr>
       <div>
-        <div style={{display: "flex", flexWrap: "wrap", gap: "20px", rowGap:"5px" }}>
-          <p><b>Autor:</b> {book.author.name}</p>
-          <p><b>Gènere:</b> {book.category.name}</p>
-          <p><b>Editorial:</b> {book.publisher.name}</p>
-          <p><b>ISBN:</b> {book.isbn}</p>
-          <p><b>Assignatura:</b> {book.subject.name}</p>
-          <p><b>Any de publicació:</b> {book.publicationYear}</p>
-          <p><b>Número de pàgines:</b> {book.numberOfPages}</p>
-          <p><b>Idioma:</b> {book.language.name}</p>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "20px",
+            rowGap: "5px",
+          }}
+        >
+          <p>
+            <b>Autor:</b> {book.author.name}
+          </p>
+          <p>
+            <b>Gènere:</b> {book.category.name}
+          </p>
+          <p>
+            <b>Editorial:</b> {book.publisher.name}
+          </p>
+          <p>
+            <b>ISBN:</b> {book.isbn}
+          </p>
+          <p>
+            <b>Assignatura:</b> {book.subject.name}
+          </p>
+          <p>
+            <b>Any de publicació:</b> {book.publicationYear}
+          </p>
+          <p>
+            <b>Número de pàgines:</b> {book.numberOfPages}
+          </p>
+          <p>
+            <b>Idioma:</b> {book.language.name}
+          </p>
         </div>
         <hr class="rounded"></hr>
         <div>
-          <p className="description" style={{fontWeight: "bold"}}>Descripció:</p>
+          <p className="description" style={{ fontWeight: "bold" }}>
+            Descripció:
+          </p>
           <p>{book.description}</p>
         </div>
       </div>

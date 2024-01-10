@@ -49,6 +49,10 @@
 }
 
 @media (max-width: 768px) {
+  .container {
+    margin: 10px auto;
+    padding: 1rem;
+  }
   .description {
     padding-bottom: 100px;
   }
