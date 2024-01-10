@@ -1,7 +1,7 @@
 /* Base styling for the container */
 .container {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 80px auto;
   padding: 2rem;
   background-color: #ffffff;
   border-radius: 10px;

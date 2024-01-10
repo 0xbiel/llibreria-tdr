@@ -19,19 +19,7 @@
 }
 
 .reservation-item {
-  background: #20002c; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    -215deg,
-    #a271c8,
-    #5e0d84,
-    rgba(84, 0, 181, 0.65) 100%
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    -215deg,
-    #a271c8,
-    #5e0d84,
-    rgba(84, 0, 181, 0.65) 100%
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #18191A; 
 
   border-radius: 10px;
   padding: 15px;
@@ -49,17 +37,17 @@
 
 .book-date {
   font-size: 16px;
-  color: #000000;
+  color: #fff;
 }
 
 .max-return-date {
   font-size: 16px;
-  color: #000000;
+  color: #fff;
 }
 
 .book-status {
   font-size: 16px;
-  color: #000000;
+  color: #fff;
 }
 
 .cancel-button {
