@@ -289,7 +289,7 @@ const AdminDashboard = () => {
         </section>
       </div>
       <nav className="AdminNav">
-        <ul className="AdminUl">
+        <ul className="AdminUl" style={{display:"flex", flexWrap: "wrap", gap: "20px", alignItems: "center", justifyContent: "center"}}>
           <li className="AdminLi">
             <NavLink
               to="/admin/reservations"

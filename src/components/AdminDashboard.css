@@ -130,6 +130,7 @@ td {
 
 .AdminLi {
   float: down;
+  min-width: 25%;
 }
 
 .AdminLi a {
@@ -151,15 +152,16 @@ td {
 
 .add-book-section {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   padding: 10px;
   padding-bottom: 50px;
 }
 
 .add-book-form {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   width: 100%;
 }
