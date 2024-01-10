@@ -442,123 +442,193 @@ const Books = () => {
   };
 
   return (
-    <div className="add-book-section" style={{display: "flex", justifyContent: "center", alignContent: "center"}}>
+    <div
+      className="add-book-section"
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignContent: "center",
+      }}
+    >
       <section>
         <h2>Afagir llibre</h2>
-        <form className="add-book-form" onSubmit={handleSubmitCreateBook} style={{display: "flex", justifyContent: "center", alignContent:"center", flexDirection: "column", gap:"50px", marginTop: "20px"}}>
-          <div style={{display:"flex", flexWrap: "wrap", justifyContent:"center", alignContent:"center", gap:"20px", maxWidth: "1300px"}}>
-          <div>
-            <label>Titol</label>
-            <input
-              type="text"
-              name="title"
-              value={newBook.title}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div>
-            <label>ISBN</label>
-            <input
-              type="text"
-              name="isbn"
-              value={newBook.isbn}
-              onChange={handleInputChange}
-            />
-          </div>
-         <div>
-          <label>Descripció</label>
-            <textarea
-              type="text"
-              name="description"
-              value={newBook.description}
-              onChange={handleInputChange}
-            />
-         </div>
-          <div>
-            <label>Imatge URL</label>
-            <textarea
-              name="imageUrl"
-              value={newBook.imageUrl}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div style={{display: "flex", justifyContent: "center", alignContent: "center", flexDirection: "column"}}>
-            <label>Autor:</label>
-            <select name="authors" multiple onChange={handleAuthorsChange}>
-              {authors.map((author) => (
-                <option key={author.id} value={author.id}>
-                  {author.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div style={{display: "flex", justifyContent: "center", alignContent: "center", flexDirection: "column"}}>
-            <label>Editorial:</label>
-            <select name="publisher" multiple onChange={handlePublisherChange}>
-              {publishers.map((publisher) => (
-                <option key={publisher.id} value={publisher.id}>
-                  {publisher.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div style={{display: "flex", justifyContent: "center", alignContent: "center", flexDirection: "column"}}>
-            <label>Categoria:</label>
-            <select name="categories" multiple onChange={handleCategoryChange}>
-              {categories.map((category) => (
-                <option key={category.id} value={category.id}>
-                  {category.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div style={{display: "flex", justifyContent: "center", alignContent: "center", flexDirection: "column"}}>
-            <label>Idioma:</label>
-            <select name="languages" multiple onChange={handleLanguageChange}>
-              {languages.map((language) => (
-                <option key={language.id} value={language.id}>
-                  {language.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div style={{display: "flex", justifyContent: "center", alignContent: "center", flexDirection: "column"}}>
-            <label>Assignatura:</label>
-            <select name="subject" multiple onChange={handleSubjectChange}>
-              {subjects.map((subject) => (
-                <option key={subject.id} value={subject.id}>
-                  {subject.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label>Copies totals:</label>
-            <input
-              type="number"
-              name="availableCopies"
-              value={newBook.availableCopies}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div>
-            <label>Número de pàgines:</label>
-            <input
-              type="number"
-              name="numberOfPages"
-              value={newBook.numberOfPages}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div>
-            <label>Any de publicació:</label>
-            <input
-              type="number"
-              name="publicationYear"
-              value={newBook.publicationYear}
-              onChange={handleInputChange}
-            />
-          </div>
+        <form
+          className="add-book-form"
+          onSubmit={handleSubmitCreateBook}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignContent: "center",
+            flexDirection: "column",
+            gap: "50px",
+            marginTop: "20px",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              alignContent: "center",
+              gap: "20px",
+              maxWidth: "1300px",
+            }}
+          >
+            <div>
+              <label>Titol</label>
+              <input
+                type="text"
+                name="title"
+                value={newBook.title}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label>ISBN</label>
+              <input
+                type="text"
+                name="isbn"
+                value={newBook.isbn}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label>Descripció</label>
+              <textarea
+                type="text"
+                name="description"
+                value={newBook.description}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label>Imatge URL</label>
+              <textarea
+                name="imageUrl"
+                value={newBook.imageUrl}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignContent: "center",
+                flexDirection: "column",
+              }}
+            >
+              <label>Autor:</label>
+              <select name="authors" multiple onChange={handleAuthorsChange}>
+                {authors.map((author) => (
+                  <option key={author.id} value={author.id}>
+                    {author.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignContent: "center",
+                flexDirection: "column",
+              }}
+            >
+              <label>Editorial:</label>
+              <select
+                name="publisher"
+                multiple
+                onChange={handlePublisherChange}
+              >
+                {publishers.map((publisher) => (
+                  <option key={publisher.id} value={publisher.id}>
+                    {publisher.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignContent: "center",
+                flexDirection: "column",
+              }}
+            >
+              <label>Categoria:</label>
+              <select
+                name="categories"
+                multiple
+                onChange={handleCategoryChange}
+              >
+                {categories.map((category) => (
+                  <option key={category.id} value={category.id}>
+                    {category.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignContent: "center",
+                flexDirection: "column",
+              }}
+            >
+              <label>Idioma:</label>
+              <select name="languages" multiple onChange={handleLanguageChange}>
+                {languages.map((language) => (
+                  <option key={language.id} value={language.id}>
+                    {language.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignContent: "center",
+                flexDirection: "column",
+              }}
+            >
+              <label>Assignatura:</label>
+              <select name="subject" multiple onChange={handleSubjectChange}>
+                {subjects.map((subject) => (
+                  <option key={subject.id} value={subject.id}>
+                    {subject.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label>Copies totals:</label>
+              <input
+                type="number"
+                name="availableCopies"
+                value={newBook.availableCopies}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label>Número de pàgines:</label>
+              <input
+                type="number"
+                name="numberOfPages"
+                value={newBook.numberOfPages}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label>Any de publicació:</label>
+              <input
+                type="number"
+                name="publicationYear"
+                value={newBook.publicationYear}
+                onChange={handleInputChange}
+              />
+            </div>
           </div>
           <button type="submit">Crear</button>
         </form>

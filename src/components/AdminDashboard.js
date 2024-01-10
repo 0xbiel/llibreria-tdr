@@ -289,7 +289,16 @@ const AdminDashboard = () => {
         </section>
       </div>
       <nav className="AdminNav">
-        <ul className="AdminUl" style={{display:"flex", flexWrap: "wrap", gap: "20px", alignItems: "center", justifyContent: "center"}}>
+        <ul
+          className="AdminUl"
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "20px",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           <li className="AdminLi">
             <NavLink
               to="/admin/reservations"
@@ -297,7 +306,7 @@ const AdminDashboard = () => {
               activeClassName="active-link"
               className="menu-link" // Apply the nav-link class
             >
-              Reserves
+              🎟️ Reserves
             </NavLink>
           </li>
           <li className="AdminLi">
@@ -307,7 +316,7 @@ const AdminDashboard = () => {
               activeClassName="active-link"
               className="menu-link" // Apply the nav-link class
             >
-              Reserves endarrerides
+              🕙 Reserves endarrerides
             </NavLink>
           </li>
           <li className="AdminLi">
@@ -317,7 +326,7 @@ const AdminDashboard = () => {
               activeClassName="active-link"
               className="menu-link" // Apply the nav-link class
             >
-              Llibres
+              📖 Llibres
             </NavLink>
           </li>
           <li className="AdminLi">
@@ -327,7 +336,7 @@ const AdminDashboard = () => {
               activeClassName="active-link"
               className="menu-link" // Apply the nav-link class
             >
-              Categories
+              📂 Categories
             </NavLink>
           </li>
           <li className="AdminLi">
@@ -337,7 +346,7 @@ const AdminDashboard = () => {
               activeClassName="active-link"
               className="menu-link" // Apply the nav-link class
             >
-              Editorials
+              📝 Editorials
             </NavLink>
           </li>
           <li className="AdminLi">
@@ -347,7 +356,7 @@ const AdminDashboard = () => {
               activeClassName="active-link"
               className="menu-link" // Apply the nav-link class
             >
-              Llenguatges
+              🌐 Llenguatges
             </NavLink>
           </li>
           <li className="AdminLi">
@@ -357,7 +366,7 @@ const AdminDashboard = () => {
               activeClassName="active-link"
               className="menu-link" // Apply the nav-link class
             >
-              Autors
+              ✍️ Autors
             </NavLink>
           </li>
           <li className="AdminLi">
@@ -367,7 +376,7 @@ const AdminDashboard = () => {
               activeClassName="active-link"
               className="menu-link" // Apply the nav-link class
             >
-              Assignatures
+              📚 Assignatures
             </NavLink>
           </li>
           <li className="AdminLi">
@@ -377,7 +386,7 @@ const AdminDashboard = () => {
               activeClassName="active-link"
               className="menu-link" // Apply the nav-link class
             >
-              Administradors
+              👨‍💼 Administradors
             </NavLink>
           </li>
         </ul>

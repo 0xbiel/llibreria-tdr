@@ -5,6 +5,7 @@ body {
   background-color: #f0f0f0; /* Background color for the entire page */
   margin: 0;
   padding: 0;
+  margin-bottom: 20px;
 }
 
 .admin-dashboard {
@@ -126,6 +127,7 @@ td {
   margin: 10px 0px;
   padding: 10px;
   overflow: hidden;
+  margin-bottom: 120px;
 }
 
 .AdminLi {
