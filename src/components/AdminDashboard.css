@@ -276,3 +276,7 @@ input[type="text"] {
   padding: auto !important;
   width: 90%;
 }
+
+.return-form {
+  max-width: "300px" !important;
+}

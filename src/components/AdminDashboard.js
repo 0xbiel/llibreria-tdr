@@ -221,9 +221,10 @@ const AdminDashboard = () => {
     <div>
       <h1 className="header">Pàgina d'administrador</h1>
       <div className="dashboard-form">
+        <div style={{display: "flex", justifyContent: "center", alignContent: "center", gap: "20px", alignItems: "center", width: "100%", flexWrap: "wrap"}}>
         <section className="mark-as-delivered-section">
           <h2>Marcar com entregat</h2>
-          <form className="return-form" onSubmit={handleSetAsDelivered}>
+          <form className="return-form" onSubmit={handleSetAsDelivered} style={{maxWidth:"500px"}}>
             <input
               id="reservationRef"
               name="reservationRef"
@@ -240,7 +241,7 @@ const AdminDashboard = () => {
         </section>
         <section className="mark-as-returned-section">
           <h2>Marcar com a tornat</h2>
-          <form className="return-form" onSubmit={handleSetAsReturned}>
+          <form className="return-form" onSubmit={handleSetAsReturned}  style={{maxWidth:"500px"}}>
             <input
               id="reservationRef"
               name="reservationRef"
@@ -255,9 +256,11 @@ const AdminDashboard = () => {
             </button>
           </form>
         </section>
+        </div>
+        
         <section className="view-reservation-section">
           <h2>Veure Reserva</h2>
-          <form onSubmit={handleViewReservation}>
+          <form style={{maxWidth: "1440px"}} onSubmit={handleViewReservation}>
             <input
               type="text"
               placeholder="ID Reserva"

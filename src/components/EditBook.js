@@ -98,7 +98,12 @@ const EditBook = ({
   }, [book]);
 
   return (
-    <div>
+    <div style={{
+      display: "flex",
+      justifyContent: "center",
+      alignContent: "center",
+      width: "100%",
+    }}>
       <h2>Edit Book</h2>
       <form onSubmit={handleSubmit}>
         <label>
