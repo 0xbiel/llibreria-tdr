@@ -2,7 +2,12 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
+import {
+  auth,
+  signInWithGooglePopup,
+  singInWithGitHubPopup,
+} from "../firebase";
+import { Link } from "react-router-dom";
 
 import "./Login.css";
 
@@ -14,6 +19,11 @@ const Login = ({ setUser }) => {
   function wait(milliseconds) {
     return new Promise((resolve) => setTimeout(resolve, milliseconds));
   }
+
+  const reload = async () => {
+    await wait(100);
+    window.location.reload();
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -43,42 +53,108 @@ const Login = ({ setUser }) => {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-box">
-        <h2 className="login-title">Iniciar sessió</h2>
+    <div className="register-container">
+      <div className="register-box" style={{ padding: "30px 100px" }}>
+        <h2
+          className="register-title"
+          style={{
+            alignSelf: "flex-start",
+            fontWeight: "bolder !important",
+            fontSize: "35px",
+            marginBottom: "5px",
+          }}
+        >
+          Iniciar sessió
+        </h2>
+        <t style={{ marginBottom: "10px" }}>
+          Encara no tens un compte?{" "}
+          <Link to="/register" onClick={() => reload()}>
+            <t className="lets-login">Crea un Compte</t>
+          </Link>
+        </t>
         <form className="login-form" onSubmit={handleLogin}>
-          <label htmlFor="email" className="login-label">
-            Email
-          </label>
+          <label style={{ alignSelf: "flex-start" }}>Email</label>
           <input
             id="email"
             name="email"
             type="email"
             autoComplete="email"
             required
-            className="login-input"
+            className="register-input"
+            placeholder="tu@example.com"
             value={email}
+            style={{ maxWidth: "100%", marginBottom: "20px" }}
             onChange={(e) => setEmail(e.target.value)}
           />
 
-          <label htmlFor="password" className="login-label">
-            Contrasenya
-          </label>
+          <label style={{ alignSelf: "flex-start" }}>Contrasenya</label>
           <input
             id="password"
             name="password"
             type="password"
             autoComplete="current-password"
             required
-            className="login-input"
+            className="register-input"
+            placeholder="*********"
             value={password}
+            style={{ maxWidth: "100%", marginBottom: "20px" }}
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <button type="submit" className="login-button">
+          <button type="submit" className="register-button-1">
             Iniciar sessió
           </button>
         </form>
+        <div
+          style={{
+            width: "100%",
+            borderTop: "1px solid #000",
+            margin: "20px 0",
+          }}
+        ></div>
+        <button
+          onClick={async(event) => {
+            event.preventDefault();
+            await signInWithGooglePopup();
+            await history.push("/");
+            window.location.reload();
+          }}
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+          className="google"
+        >
+          <img
+            src="/google.png"
+            style={{ maxHeight: "20px", margin: "0px 10px" }}
+            alt="google"
+          ></img>
+          Inicia Sessió amb Google
+        </button>
+
+        <button
+          onClick={async(event) => {
+            event.preventDefault();
+            await singInWithGitHubPopup();
+            await history.push("/");
+            window.location.reload();
+          }}
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+          className="google"
+        >
+          <img
+            src="/github-mark.png"
+            style={{ maxHeight: "20px", margin: "0px 10px" }}
+            alt="github"
+          ></img>
+          Inicia Sessió amb GitHub
+        </button>
       </div>
     </div>
   );

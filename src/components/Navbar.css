@@ -133,6 +133,7 @@
   text-decoration: none;
   margin: 10px;
   min-width: 125px;
+  max-width: 1000px;
 }
 
 .login-button:hover,

@@ -1,6 +1,11 @@
 // src/firebase.js
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  GithubAuthProvider,
+} from "firebase/auth";
 import { getDatabase } from "firebase/database";
 import { getAnalytics } from "firebase/analytics";
 
@@ -22,5 +27,19 @@ const db = getDatabase();
 
 // Initialize Analytics and get a reference to the service
 const analytics = getAnalytics(app);
+
+// Initialize Firebase Auth provider
+const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
+
+// whenever a user interacts with the provider, we force them to select an account
+googleProvider.setCustomParameters({
+  prompt: "select_account ",
+});
+
+export const signInWithGooglePopup = () =>
+  signInWithPopup(auth, googleProvider);
+export const singInWithGitHubPopup = () =>
+  signInWithPopup(auth, githubProvider);
 
 export { app, db, analytics };

@@ -8,11 +8,9 @@ import {
   collection,
   where,
   getDocs,
-  addDoc,
   getDoc,
   doc,
   updateDoc,
-  deleteDoc,
 } from "firebase/firestore";
 import "./AdminDashboard.css"; // Import your CSS file
 
@@ -28,13 +26,17 @@ import Publisher from "./Publisher";
 import Subjects from "./Subjects";
 
 const AdminDashboard = () => {
+  // eslint-disable-next-line
   const [user, setUser] = useState(null);
+  // eslint-disable-next-line
   const [books, setBooks] = useState([]);
   const [reservRef, setReservRef] = useState([]); // eslint-disable-next-line no-unused-vars
   const [reservRefDelivered, setReservRefDelivered] = useState([]); // eslint-disable-next-line no-unused-vars
   const db = getFirestore(app);
   const history = useHistory();
+  // eslint-disable-next-line
   const [authors, setAuthors] = useState([]);
+  // eslint-disable-next-line
   const [categories, setCategories] = useState([]); // Store the list of authors
 
   const [selectedReservationId, setSelectedReservationId] = useState(null);
@@ -102,6 +104,7 @@ const AdminDashboard = () => {
       if (user) {
         setUser(user);
         try {
+          checkAdmin(user);
           fetchBooks();
           fetchAuthors();
           fetchCategories();
@@ -114,7 +117,7 @@ const AdminDashboard = () => {
     return () => {
       unsubscribe();
     };
-  }, []);
+  });
 
   const checkAdmin = async (user1) => {
     const q = query(
@@ -221,46 +224,64 @@ const AdminDashboard = () => {
     <div>
       <h1 className="header">Pàgina d'administrador</h1>
       <div className="dashboard-form">
-        <div style={{display: "flex", justifyContent: "center", alignContent: "center", gap: "20px", alignItems: "center", width: "100%", flexWrap: "wrap"}}>
-        <section className="mark-as-delivered-section">
-          <h2>Marcar com entregat</h2>
-          <form className="return-form" onSubmit={handleSetAsDelivered} style={{maxWidth:"500px"}}>
-            <input
-              id="reservationRef"
-              name="reservationRef"
-              type="text"
-              required
-              className="reservationRef-input"
-              value={reservRefDelivered}
-              onChange={(e) => setReservRefDelivered(e.target.value)}
-            />
-            <button className="adminButton" type="submit">
-              Marcat com entregat
-            </button>
-          </form>
-        </section>
-        <section className="mark-as-returned-section">
-          <h2>Marcar com a tornat</h2>
-          <form className="return-form" onSubmit={handleSetAsReturned}  style={{maxWidth:"500px"}}>
-            <input
-              id="reservationRef"
-              name="reservationRef"
-              type="text"
-              required
-              className="reservationRef-input"
-              value={reservRef}
-              onChange={(e) => setReservRef(e.target.value)}
-            />
-            <button className="adminButton" type="submit">
-              Marcar com a tornat
-            </button>
-          </form>
-        </section>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignContent: "center",
+            gap: "20px",
+            alignItems: "center",
+            width: "100%",
+            flexWrap: "wrap",
+          }}
+        >
+          <section className="mark-as-delivered-section">
+            <h2>Marcar com entregat</h2>
+            <form
+              className="return-form"
+              onSubmit={handleSetAsDelivered}
+              style={{ maxWidth: "500px" }}
+            >
+              <input
+                id="reservationRef"
+                name="reservationRef"
+                type="text"
+                required
+                className="reservationRef-input"
+                value={reservRefDelivered}
+                onChange={(e) => setReservRefDelivered(e.target.value)}
+              />
+              <button className="adminButton" type="submit">
+                Marcat com entregat
+              </button>
+            </form>
+          </section>
+          <section className="mark-as-returned-section">
+            <h2>Marcar com a tornat</h2>
+            <form
+              className="return-form"
+              onSubmit={handleSetAsReturned}
+              style={{ maxWidth: "500px" }}
+            >
+              <input
+                id="reservationRef"
+                name="reservationRef"
+                type="text"
+                required
+                className="reservationRef-input"
+                value={reservRef}
+                onChange={(e) => setReservRef(e.target.value)}
+              />
+              <button className="adminButton" type="submit">
+                Marcar com a tornat
+              </button>
+            </form>
+          </section>
         </div>
-        
+
         <section className="view-reservation-section">
           <h2>Veure Reserva</h2>
-          <form style={{maxWidth: "1440px"}} onSubmit={handleViewReservation}>
+          <form style={{ maxWidth: "1440px" }} onSubmit={handleViewReservation}>
             <input
               type="text"
               placeholder="ID Reserva"

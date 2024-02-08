@@ -49,7 +49,7 @@ const Navbar = () => {
     return () => {
       unsubscribe();
     };
-  }, []);
+  });
 
   const handleLogout = async () => {
     try {
@@ -112,7 +112,7 @@ const Navbar = () => {
             <button className="dropbtn">Categories</button>
             <div className="dropdown-content">
               {categories.map((category) => (
-                <a key={category.id}>
+                <t key={category.id}>
                   <Link
                     to={`/category/${category.id}`}
                     onClick={() => reload()}
@@ -120,7 +120,7 @@ const Navbar = () => {
                   >
                     {category.name}
                   </Link>
-                </a>
+                </t>
               ))}
             </div>
           </div>
@@ -161,7 +161,11 @@ const Navbar = () => {
         ) : (
           <ul className="nav-links">
             <li>
-              <button onClick={() => login()} className="login-button">
+              <button
+                onClick={() => login()}
+                className="login-button"
+                style={{ whiteSpace: "nowrap" }}
+              >
                 Inici de sessió
               </button>
             </li>
@@ -169,6 +173,7 @@ const Navbar = () => {
               <button
                 to="/register"
                 onClick={() => register()}
+                style={{ whiteSpace: "nowrap" }}
                 className="register-button"
               >
                 Crear un compte
