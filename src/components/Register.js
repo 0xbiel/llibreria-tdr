@@ -29,7 +29,7 @@ const Register = () => {
         }
       };
 
-      changeDisplayName(username);
+      await changeDisplayName(username);
       await history.push("/"); // Redirect to the homepage
       window.location.reload(); // Reload the page
     } catch (error) {
