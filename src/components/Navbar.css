@@ -146,23 +146,23 @@
   background: transparent !important;
   border: 2px solid #000;
   color: #000;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 16px;
   cursor: pointer;
   padding: 10px 20px;
-  border-radius: 4px;
+  border-radius: 10px;
   text-align: center;
   transition: color 0.3s ease;
   text-decoration: none;
   margin: 10px;
   min-width: 125px;
   max-width: 1000px;
+  font-weight: bold;
 }
 
 .login-button:hover,
 .register-button:hover,
 .logout-button:hover {
-  color: #007bff; /* Change the hover color to your preference */
+  color: #533153; /* Change the hover color to your preference */
   background-color: #000;
 }
 
