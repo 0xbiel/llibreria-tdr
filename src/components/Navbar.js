@@ -102,6 +102,7 @@ const Navbar = () => {
             <img src={logo} alt="logo" className="logo"></img>
           </Link>
         </div>
+        <div className="nav-center">
         <ul className="nav-links">
           <li>
             <Link to="/" onClick={() => reload()} className="nav-link">
@@ -147,19 +148,21 @@ const Navbar = () => {
             </li>
           )}
         </ul>
+        </div>
+        <div className="nav-right">
         {user ? (
           <div className="user-container">
             {user.displayName ? (
               <p className="user-info">{user.displayName}</p>
             ) : (
-              <p className="user-info">Null</p>
+              <div></div>
             )}
             <button onClick={() => handleLogout()} className="logout-button">
               Tanca la sessió
             </button>
           </div>
         ) : (
-          <ul className="nav-links">
+          <ul className="nav-links-1">
             <li>
               <button
                 onClick={() => login()}
@@ -181,6 +184,7 @@ const Navbar = () => {
             </li>
           </ul>
         )}
+        </div>
       </div>
     </nav>
   );

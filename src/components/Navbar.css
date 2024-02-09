@@ -18,7 +18,6 @@
   width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -26,17 +25,41 @@
   width: 50px;
   height: 50px;
   padding: 0px 30px;
+  align-self: flex-start;
 }
 
 /* Styling for navigation links */
 .nav-links {
   display: flex;
   align-items: center;
-  align-self: auto;
+  align-self: center !important;
   gap: 20px;
   list-style: none;
   margin: 0;
   padding: 0 10px;
+}
+
+.nav-links-1 {
+  display: flex;
+  align-items: center;
+  align-self: center !important;
+  gap: 0px;
+  list-style: none;
+  margin: 0;
+  padding: 0 10px;
+}
+
+.nav-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
 }
 
 .nav-links a {
