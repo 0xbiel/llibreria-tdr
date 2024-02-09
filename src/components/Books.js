@@ -451,7 +451,7 @@ const Books = () => {
       }}
     >
       <section>
-        <h2>Afagir llibre</h2>
+        <h2>Afegir llibre</h2>
         <form
           className="add-book-form"
           onSubmit={handleSubmitCreateBook}
