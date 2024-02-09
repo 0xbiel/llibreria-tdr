@@ -57,7 +57,6 @@ const Navbar = () => {
       history.push("/login");
       await wait(100);
       window.location.reload();
-      history.push("/login");
     } catch (error) {
       alert("Error tancant la sessió:", error);
     }
