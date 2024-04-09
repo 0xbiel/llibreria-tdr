@@ -36,13 +36,19 @@ function BookDetails() {
     });
   };
 
+  const youShouldLogin = () => {
+    alert("Has d'iniciar sessió per a poder fer una reserva.");
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
+      try {
+        fetchBook();
+      } catch (e) {}
       if (user) {
         setUser(user);
         try {
           console.log(user.uid);
-          fetchBook();
         } catch (e) {}
       } else {
         setUser(null);
@@ -190,13 +196,13 @@ function BookDetails() {
     const activeReservationsQuery = query(
       collection(db, "reservations"),
       where("userId", "==", auth.currentUser.uid),
-      where("status", "in", ["active", "delivered"]),
+      where("status", "in", ["active", "delivered"])
     );
 
     const activeBooksQuery = query(
       collection(db, "reservations"),
       where("bookId", "==", doc(db, "books", bookRef)),
-      where("status", "in", ["active", "delivered"]),
+      where("status", "in", ["active", "delivered"])
     );
 
     const activeBooksSnapshot = await getDocs(activeBooksQuery);
@@ -225,7 +231,7 @@ function BookDetails() {
       for (const doc of activeBooksSnapshot.docs) {
         const reservationData = doc.data();
         const endDate = new Date(
-          reservationData.endDate.split("/").reverse().join("/"),
+          reservationData.endDate.split("/").reverse().join("/")
         );
         if (selectedStartDate_Date < endDate) {
           alert("No hi ha cap llibre disponible per aquest periode.");
@@ -315,9 +321,15 @@ function BookDetails() {
             onChange={(date) => setSelectedStartDate(date)}
             placeholderText="Selecciona una data"
           />
-          <button onClick={handleReservation} className="reservation-button">
-            Fer Reserva
-          </button>
+          {user ? (
+            <button onClick={handleReservation} className="reservation-button">
+              Fer Reserva
+            </button>
+          ) : (
+            <button onClick={youShouldLogin} className="reservation-button">
+              Fer Reserva
+            </button>
+          )}
         </div>
       </div>
       <hr class="rounded"></hr>

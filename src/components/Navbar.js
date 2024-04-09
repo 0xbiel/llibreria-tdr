@@ -24,7 +24,7 @@ const Navbar = () => {
   const checkAdmin = async (user1) => {
     const q = query(
       collection(db, "admins"),
-      where("email", "==", user1.email),
+      where("email", "==", user1.email)
     );
     const querySnapshot = await getDocs(q);
     if (querySnapshot.empty) {
@@ -40,7 +40,6 @@ const Navbar = () => {
         setUser(user);
         checkAdmin(user);
         fetchCategories();
-        console.log(user);
       } else {
         setUser(null);
       }
@@ -102,87 +101,87 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="nav-center">
-        <ul className="nav-links">
-          <li>
-            <Link to="/" onClick={() => reload()} className="nav-link">
-              Inici
-            </Link>
-          </li>
-          <div className="dropdown">
-            <button className="dropbtn">Categories</button>
-            <div className="dropdown-content">
-              {categories.map((category) => (
-                <t key={category.id}>
-                  <Link
-                    to={`/category/${category.id}`}
-                    onClick={() => reload()}
-                    className="nav-link" // Add nav-link class
-                  >
-                    {category.name}
-                  </Link>
-                </t>
-              ))}
+          <ul className="nav-links">
+            <li>
+              <Link to="/" onClick={() => reload()} className="nav-link">
+                Inici
+              </Link>
+            </li>
+            <div className="dropdown">
+              <button className="dropbtn">Categories</button>
+              <div className="dropdown-content">
+                {categories.map((category) => (
+                  <t key={category.id}>
+                    <Link
+                      to={`/category/${category.id}`}
+                      onClick={() => reload()}
+                      className="nav-link" // Add nav-link class
+                    >
+                      {category.name}
+                    </Link>
+                  </t>
+                ))}
+              </div>
             </div>
-          </div>
-          {user && (
-            <li>
-              <Link
-                to="/reservations"
-                onClick={() => reload()}
-                className="nav-link"
-              >
-                Reserves
-              </Link>
-            </li>
-          )}
-          {admin && (
-            <li>
-              <Link
-                to="/admin/dashboard"
-                onClick={() => reload()}
-                className="nav-link"
-              >
-                Administració
-              </Link>
-            </li>
-          )}
-        </ul>
+            {user && (
+              <li>
+                <Link
+                  to="/reservations"
+                  onClick={() => reload()}
+                  className="nav-link"
+                >
+                  Reserves
+                </Link>
+              </li>
+            )}
+            {admin && (
+              <li>
+                <Link
+                  to="/admin/dashboard"
+                  onClick={() => reload()}
+                  className="nav-link"
+                >
+                  Administració
+                </Link>
+              </li>
+            )}
+          </ul>
         </div>
         <div className="nav-right">
-        {user ? (
-          <div className="user-container">
-            {user.displayName ? (
-              <p className="user-info">{user.displayName}</p>
-            ) : (
-              <div></div>
-            )}
-            <button onClick={() => handleLogout()} className="logout-button">
-              Tanca la sessió
-            </button>
-          </div>
-        ) : (
-          <ul className="nav-links-1">
-            <li>
-              <button
-                onClick={() => login()}
-                className="login-button"
-                style={{ whiteSpace: "nowrap" }}
-              >
-                Inici de sessió
+          {user ? (
+            <div className="user-container">
+              {user.displayName ? (
+                <p className="user-info">{user.displayName}</p>
+              ) : (
+                <div></div>
+              )}
+              <button onClick={() => handleLogout()} className="logout-button">
+                Tanca la sessió
               </button>
-            </li>
-            <li>
-              <button
-                to="/register"
-                onClick={() => register()}
-                style={{ whiteSpace: "nowrap" }}
-                className="register-button"
-              >
-                Crear un compte
-              </button>
-            </li>
-          </ul>
-        )}
+            </div>
+          ) : (
+            <ul className="nav-links-1">
+              <li>
+                <button
+                  onClick={() => login()}
+                  className="login-button"
+                  style={{ whiteSpace: "nowrap" }}
+                >
+                  Inici de sessió
+                </button>
+              </li>
+              <li>
+                <button
+                  to="/register"
+                  onClick={() => register()}
+                  style={{ whiteSpace: "nowrap" }}
+                  className="register-button"
+                >
+                  Crear un compte
+                </button>
+              </li>
+            </ul>
+          )}
         </div>
       </div>
     </nav>
